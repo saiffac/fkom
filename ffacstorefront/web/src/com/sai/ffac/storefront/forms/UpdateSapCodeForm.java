@@ -1,0 +1,44 @@
+/*
+ * [y] hybris Platform
+ *
+ * Copyright (c) 2000-2014 hybris AG
+ * All rights reserved.
+ *
+ * This software is the confidential and proprietary information of hybris
+ * ("Confidential Information"). You shall not disclose such Confidential
+ * Information and shall use it only in accordance with the terms of the
+ * license agreement you entered into with hybris.
+ *
+ *
+ */
+package com.sai.ffac.storefront.forms;
+
+/**
+ * Form object for updating profile.
+ */
+public class UpdateSapCodeForm
+{
+
+	private String sapCode;
+
+	/**
+	 * @return the sapCode
+	 */
+	public String getSapCode()
+	{
+		return sapCode;
+	}
+
+	/**
+	 * @param sapCode
+	 *           the sapCode to set
+	 */
+	public void setSapCode(final String sapCode)
+	{
+		this.sapCode = sapCode;
+	}
+
+
+
+
+}

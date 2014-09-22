@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testclasses>
+  <ffacfacades>
+    <testclass>com.sai.ffac.facades.flow.impl.DefaultCheckoutFlowFacadeTest</testclass>
+    <testclass>com.sai.ffac.facades.suggestion.impl.DefaultSimpleSuggestionFacadeTest</testclass>
+    <testclass>com.sai.ffac.facades.suggestion.DefaultSimpleSuggestionFacadeIntegrationTest</testclass>
+    <testclass>com.sai.ffac.facades.flow.impl.DefaultMobileCheckoutFlowFacadeTest</testclass>
+  </ffacfacades>
+</testclasses>

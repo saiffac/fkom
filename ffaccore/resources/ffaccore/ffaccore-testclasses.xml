@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testclasses>
+  <ffaccore>
+    <testclass>com.sai.ffac.core.batch.task.BatchIntegrationTest</testclass>
+    <testclass>com.sai.ffac.core.checkout.flow.impl.PickUpInStoreCheckoutFlowStrategyTest</testclass>
+    <testclass>com.sai.ffac.core.suggestion.impl.DefaultSimpleSuggestionServiceTest</testclass>
+    <testclass>com.sai.ffac.core.checkout.flow.impl.FixedCheckoutFlowStrategyTest</testclass>
+    <testclass>com.sai.ffac.core.checkout.flow.impl.SiteCheckoutFlowStrategyTest</testclass>
+    <testclass>com.sai.ffac.core.suggestion.DefaultSimpleSuggestionServiceIntegrationTest</testclass>
+    <testclass>com.sai.ffac.core.checkout.flow.impl.NewCustomerCheckoutFlowStrategyTest</testclass>
+  </ffaccore>
+</testclasses>

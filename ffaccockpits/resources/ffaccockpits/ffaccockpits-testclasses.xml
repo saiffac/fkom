@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testclasses>
+  <ffaccockpits>
+    <testclass>com.sai.ffac.cockpits.cmscockpit.sitewizard.CMSSiteUtilsTest</testclass>
+    <testclass>com.sai.ffac.cockpits.jalo.YAcceleratorcockpitsTest</testclass>
+  </ffaccockpits>
+</testclasses>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testclasses>
+  <ffacstorefront>
+    <testclass>com.sai.ffac.storefront.controllers.cms.CartSuggestionComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.security.cookie.EnhancedCookieGeneratorTest</testclass>
+    <testclass>com.sai.ffac.storefront.interceptors.CSRFHandlerInterceptorTest</testclass>
+    <testclass>com.sai.ffac.storefront.filters.AbstractAddOnFilterTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.ProductFeatureComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.PurchasedCategorySuggestionComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.security.impl.CartUsurpProtectionUnitTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.pages.CartPageControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.ProductCarouselComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.filters.AnonymousCheckoutFilterTest</testclass>
+    <testclass>com.sai.ffac.storefront.filters.CustomerLocationRestorationFilterTest</testclass>
+    <testclass>com.sai.ffac.storefront.filters.CommonResourcesAddOnFilterTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.MiniCartComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.pages.SearchPageControllerUnitTest</testclass>
+    <testclass>com.sai.ffac.storefront.filters.AcceleratorAddOnFilterTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.ProductReferencesComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.web.view.UiExperienceViewResolverTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.CategoryFeatureComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.interceptors.i18n.SetLanguageBeforeControllerHandlerTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.DefaultCMSComponentControllerTest</testclass>
+    <testclass>com.sai.ffac.storefront.security.impl.WebHttpSessionRequestCacheUnitTest</testclass>
+    <testclass>com.sai.ffac.storefront.controllers.cms.NavigationBarComponentControllerTest</testclass>
+  </ffacstorefront>
+</testclasses>
