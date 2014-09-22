@@ -748,6 +748,7 @@ INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTe
 ;;update-profile;Update Profile Page;AccountPageTemplate;update-profile
 ;;update-email;Update Email Page;AccountPageTemplate;update-email
 ;;update-sap-code;Update SAP Code Page;AccountPageTemplate;update-sap-code
+;;update-mobile-number;Update Mobile Number Page;AccountPageTemplate;update-mobile-number
 
 
 # Simple Content Pages

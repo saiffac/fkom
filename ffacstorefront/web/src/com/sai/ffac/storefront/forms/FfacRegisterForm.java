@@ -13,6 +13,24 @@ import de.hybris.platform.acceleratorstorefrontcommons.forms.RegisterForm;
 public class FfacRegisterForm extends RegisterForm
 {
 	private String sapCode; //SAP I or C number
+	private String mobileNumber; //mobile number
+
+	/**
+	 * @return the mobileNumber
+	 */
+	public String getMobileNumber()
+	{
+		return mobileNumber;
+	}
+
+	/**
+	 * @param mobileNumber
+	 *           the mobileNumber to set
+	 */
+	public void setMobileNumber(final String mobileNumber)
+	{
+		this.mobileNumber = mobileNumber;
+	}
 
 	/**
 	 * @return the sapCode

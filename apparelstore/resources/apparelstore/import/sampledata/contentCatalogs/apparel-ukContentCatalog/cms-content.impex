@@ -890,6 +890,7 @@ INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;
 ;;UpdateProfileComponent;Update Profile Component;accountProfileEditPage.jsp;;UpdateProfileComponent
 ;;UpdateEmailComponent;Update Email Component;accountProfileEmailEditPage.jsp;;UpdateEmailComponent
 ;;UpdateSapCodeComponent;Update SAP Code Component;accountProfileSapCodeEditPage.jsp;;UpdateSapCodeComponent
+;;UpdateMobileNumberComponent;Update Mobile Number Component;accountProfileMobileNumberEditPage.jsp;;UpdateMobileNumberComponent
 
 ;;StoreFinderComponent;Store Finder Component;storeFinderContent.jsp;ViewStoreAction;StoreFinderComponent
 ;;CartComponent;Cart Display Component;cartDisplay.jsp;;CartComponent
@@ -1046,6 +1047,17 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ;;SideContent-update-sap-code;SideContent;;SideContent-update-sap-code;;;
 ;;BodyContent-update-sap-code;BodyContent;;BodyContent-update-sap-code;;;
 
+###### Account Update Mobile Number
+# ContentSlot
+
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
+;;SideContent-update-mobile-number;Side Content Slot for Update Mobile Number;true;AccountLeftNavigationComponent;;;
+;;BodyContent-update-mobile-number;Body Content Slot for Update Mobile Number;true;UpdateMobileNumberComponent;;;
+
+# ContentSlotForPage
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='update-mobile-number'];contentSlot(uid,$contentCV)[unique=true];;;
+;;SideContent-update-mobile-number;SideContent;;SideContent-update-mobile-number;;;
+;;BodyContent-update-mobile-number;BodyContent;;BodyContent-update-mobile-number;;;
 
 #### ProductListPage
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;

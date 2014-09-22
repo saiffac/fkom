@@ -22,7 +22,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.forms.validation.RegistrationValidator#supports(java.lang.Class)
 	 */
@@ -34,7 +34,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.forms.validation.RegistrationValidator#validate(java.lang.Object,
 	 * org.springframework.validation.Errors)
@@ -46,10 +46,34 @@ public class FfacRegistrationValidator extends RegistrationValidator
 		super.validate(object, errors);
 		final FfacRegisterForm registerForm = (FfacRegisterForm) object;
 		final String sapCode = registerForm.getSapCode();
+		final String mobileNumber = registerForm.getMobileNumber();
+
 		if (!validateSapCode(sapCode))
 		{
 			errors.rejectValue("sapCode", "register.sapCode.invalid");
 		}
+
+		if (!validateMobileNumber(mobileNumber))
+		{
+			errors.rejectValue("mobileNumber", "register.mobileNumber.invalid");
+		}
+	}
+
+	/**
+	 * @param mobileNumber
+	 * @return
+	 */
+	private boolean validateMobileNumber(final String mobileNumber)
+	{
+		final int MOBILE_NUM_LEN = 8; //should move this to properties file
+		final String EIGHT_CHAR = "8";
+		final String NINE_CHAR = "9";
+
+		final boolean isValid = StringUtils.isNotEmpty(mobileNumber) && StringUtils.isNumeric(mobileNumber)
+				&& StringUtils.startsWithAny(mobileNumber, new String[]
+				{ EIGHT_CHAR, NINE_CHAR }) && (mobileNumber.length() <= MOBILE_NUM_LEN);
+
+		return isValid;
 	}
 
 	/**
@@ -59,8 +83,12 @@ public class FfacRegistrationValidator extends RegistrationValidator
 	protected boolean validateSapCode(final String sapCode)
 	{
 		final int SAP_CODE_LEN = 7; //should move this to properties file
-		final boolean isValid = StringUtils.isNotEmpty(sapCode) && StringUtils.startsWithAny(sapCode, new String[]
-		{ "I", "C" }) && StringUtils.isAlphanumeric(sapCode) && (sapCode.length() <= SAP_CODE_LEN);
+		final String I_CHAR = "I";
+		final String C_CHAR = "C";
+
+		final boolean isValid = StringUtils.isNotEmpty(sapCode) && StringUtils.isAlphanumeric(sapCode)
+				&& StringUtils.startsWithAny(sapCode, new String[]
+				{ I_CHAR, C_CHAR }) && (sapCode.length() <= SAP_CODE_LEN);
 
 		return isValid;
 	}

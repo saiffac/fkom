@@ -49,7 +49,7 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.hybris.platform.commercefacades.customer.impl.DefaultCustomerFacade#getCurrentCustomer()
 	 */
 	@Override
@@ -73,7 +73,7 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see de.hybris.platform.commercefacades.customer.impl.DefaultCustomerFacade#updateProfile(de.hybris.platform.
 	 * commercefacades.user.data.CustomerData)
 	 */
@@ -85,12 +85,13 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 		final CustomerModel customer = getCurrentSessionCustomer();
 		customer.setOriginalUid(customerData.getDisplayUid());
 		customer.setSapCode(customerData.getSapCode());
+		customer.setMobileNumber(customerData.getMobileNumber());
 		getCustomerAccountService().updateProfile(customer, customerData.getTitleCode(), name, customerData.getUid());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.commercefacades.customer.impl.DefaultCustomerFacade#validateDataBeforeUpdate(de.hybris.platform
 	 * .commercefacades.user.data.CustomerData)
@@ -103,11 +104,12 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 		Assert.hasText(customerData.getLastName(), "The field [LastName] cannot be empty");
 		Assert.hasText(customerData.getUid(), "The field [Uid] cannot be empty");
 		Assert.hasText(customerData.getSapCode(), "The field [SAP I or C] cannot be empty");
+		Assert.hasText(customerData.getMobileNumber(), "The field [Mobile] cannot be empty");
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.commercefacades.customer.impl.DefaultCustomerFacade#register(de.hybris.platform.commercefacades
 	 * .user.data.RegisterData)
@@ -119,6 +121,7 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 		Assert.hasText(registerData.getLastName(), "The field [LastName] cannot be empty");
 		Assert.hasText(registerData.getLogin(), "The field [Login] cannot be empty");
 		Assert.hasText(registerData.getSapCode(), "The field [SAP I or C number] cannot be empty");
+		Assert.hasText(registerData.getMobileNumber(), "The field [Mobile] cannot be empty");
 
 		final CustomerModel newCustomer = getModelService().create(CustomerModel.class);
 		newCustomer.setName(getCustomerNameStrategy().getName(registerData.getFirstName(), registerData.getLastName()));
@@ -131,6 +134,7 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 		newCustomer.setTitle(title);
 		setUidForRegister(registerData, newCustomer);
 		newCustomer.setSapCode(registerData.getSapCode()); //set SAP I or C number to persist
+		newCustomer.setMobileNumber(registerData.getMobileNumber()); //set Mobile number to persist
 		newCustomer.setSessionLanguage(getCommonI18NService().getCurrentLanguage());
 		newCustomer.setSessionCurrency(getCommonI18NService().getCurrentCurrency());
 		getCustomerAccountService().register(newCustomer, registerData.getPassword());

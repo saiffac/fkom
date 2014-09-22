@@ -83,6 +83,7 @@ public interface ControllerConstants
 				String AccountProfilePage = "pages/account/accountProfilePage";
 				String AccountProfileEditPage = "pages/account/accountProfileEditPage";
 				String AccountProfileSapCodePage = "pages/account/accountProfileSapCodeEditPage";
+				String AccountProfileMobileNumberPage = "pages/account/accountProfileMobileNumberEditPage";
 				String AccountProfileEmailEditPage = "pages/account/accountProfileEmailEditPage";
 				String AccountChangePasswordPage = "pages/account/accountChangePasswordPage";
 				String AccountAddressBookPage = "pages/account/accountAddressBookPage";

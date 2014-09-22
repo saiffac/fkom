@@ -19,38 +19,39 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.sai.ffac.storefront.forms.UpdateSapCodeForm;
+import com.sai.ffac.storefront.forms.UpdateMobileNumberForm;
 
 
 /**
  * Validator for sap code forms.
  */
-@Component("sapCodeValidator")
-public class SapCodeValidator implements Validator
+@Component("mobileNumberValidator")
+public class MobileNumberValidator implements Validator
 {
 
 	@Override
 	public boolean supports(final Class<?> aClass)
 	{
-		return UpdateSapCodeForm.class.equals(aClass);
+		return UpdateMobileNumberForm.class.equals(aClass);
 	}
 
 	@Override
 	public void validate(final Object object, final Errors errors)
 	{
-		final UpdateSapCodeForm profileForm = (UpdateSapCodeForm) object;
-		final String sapCode = profileForm.getSapCode();
-		final int SAP_CODE_LEN = 7;
-		final String I_CHAR = "I";
-		final String C_CHAR = "C";
+		final UpdateMobileNumberForm profileForm = (UpdateMobileNumberForm) object;
+		final String mobileNumber = profileForm.getMobileNumber();
 
-		final boolean isValid = StringUtils.isNotEmpty(sapCode) && StringUtils.isAlphanumeric(sapCode)
-				&& StringUtils.startsWithAny(sapCode, new String[]
-				{ I_CHAR, C_CHAR }) && (sapCode.length() <= SAP_CODE_LEN);
+		final int MOBILE_NUM_LEN = 8; //should move this to properties file
+		final String EIGHT_CHAR = "8";
+		final String NINE_CHAR = "9";
+
+		final boolean isValid = StringUtils.isNotEmpty(mobileNumber) && StringUtils.isNumeric(mobileNumber)
+				&& StringUtils.startsWithAny(mobileNumber, new String[]
+				{ EIGHT_CHAR, NINE_CHAR }) && (mobileNumber.length() <= MOBILE_NUM_LEN);
 
 		if (!isValid)
 		{
-			errors.rejectValue("sapCode", "profile.sapCode.invalid");
+			errors.rejectValue("mobileNumber", "profile.mobileNumber.invalid");
 		}
 	}
 

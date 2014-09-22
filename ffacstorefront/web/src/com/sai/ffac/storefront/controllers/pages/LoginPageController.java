@@ -128,7 +128,7 @@ public class LoginPageController extends AbstractLoginPageController
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController#getDefaultLoginPage
 	 * (boolean, javax.servlet.http.HttpSession, org.springframework.ui.Model)
@@ -196,6 +196,7 @@ public class LoginPageController extends AbstractLoginPageController
 		data.setPassword(form.getPwd());
 		data.setTitleCode(form.getTitleCode());
 		data.setSapCode(form.getSapCode()); //SAP I or C number
+		data.setMobileNumber(form.getMobileNumber()); //Mobile number
 		try
 		{
 			getCustomerFacade().register(data);

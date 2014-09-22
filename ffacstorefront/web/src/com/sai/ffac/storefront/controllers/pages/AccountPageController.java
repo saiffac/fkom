@@ -77,7 +77,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sai.ffac.facades.customer.impl.FfacCustomerFacade;
 import com.sai.ffac.facades.user.data.FfacCustomerData;
 import com.sai.ffac.storefront.controllers.ControllerConstants;
+import com.sai.ffac.storefront.forms.UpdateMobileNumberForm;
 import com.sai.ffac.storefront.forms.UpdateSapCodeForm;
+import com.sai.ffac.storefront.forms.validation.MobileNumberValidator;
 import com.sai.ffac.storefront.forms.validation.SapCodeValidator;
 
 
@@ -109,6 +111,7 @@ public class AccountPageController extends AbstractSearchPageController
 	private static final String UPDATE_PROFILE_CMS_PAGE = "update-profile";
 	private static final String UPDATE_EMAIL_CMS_PAGE = "update-email";
 	private static final String UPDATE_SAP_CODE_CMS_PAGE = "update-sap-code";
+	private static final String UPDATE_MOBILE_NUMBER_CMS_PAGE = "update-mobile-number";
 	private static final String ADDRESS_BOOK_CMS_PAGE = "address-book";
 	private static final String ADD_EDIT_ADDRESS_CMS_PAGE = "add-edit-address";
 	private static final String PAYMENT_DETAILS_CMS_PAGE = "payment-details";
@@ -140,6 +143,9 @@ public class AccountPageController extends AbstractSearchPageController
 
 	@Resource(name = "sapCodeValidator")
 	private SapCodeValidator sapCodeValidator;
+
+	@Resource(name = "mobileNumberValidator")
+	private MobileNumberValidator mobileNumberValidator;
 
 	@Resource(name = "addressValidator")
 	private AddressValidator addressValidator;
@@ -180,6 +186,14 @@ public class AccountPageController extends AbstractSearchPageController
 	public SapCodeValidator getSapCodeValidator()
 	{
 		return sapCodeValidator;
+	}
+
+	/**
+	 * @return the mobileNumberValidator
+	 */
+	public MobileNumberValidator getMobileNumberValidator()
+	{
+		return mobileNumberValidator;
 	}
 
 	protected EmailValidator getEmailValidator()
@@ -608,6 +622,7 @@ public class AccountPageController extends AbstractSearchPageController
 			customerData.setLastName(currentCustomerData.getLastName());
 			customerData.setUid(currentCustomerData.getUid());
 			customerData.setDisplayUid(currentCustomerData.getDisplayUid());
+			customerData.setMobileNumber(currentCustomerData.getMobileNumber());
 
 			try
 			{
@@ -634,6 +649,72 @@ public class AccountPageController extends AbstractSearchPageController
 			return REDIRECT_TO_PROFILE_PAGE;
 		}
 	}
+
+	@RequestMapping(value = "/update-mobile-number", method = RequestMethod.GET)
+	@RequireHardLogIn
+	public String editMobileNumber(final Model model) throws CMSItemNotFoundException
+	{
+		final FfacCustomerData customerData = customerFacade.getCurrentCustomer();
+		final UpdateMobileNumberForm updateMobileNumberForm = new UpdateMobileNumberForm();
+		updateMobileNumberForm.setMobileNumber(customerData.getMobileNumber());
+		model.addAttribute("updateMobileNumberForm", updateMobileNumberForm);
+
+		storeCmsPageInModel(model, getContentPageForLabelOrId(UPDATE_MOBILE_NUMBER_CMS_PAGE));
+		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(UPDATE_MOBILE_NUMBER_CMS_PAGE));
+
+		model.addAttribute("breadcrumbs", accountBreadcrumbBuilder.getBreadcrumbs("text.account.profile"));
+		model.addAttribute("metaRobots", "noindex,nofollow");
+		return getViewForPage(model);
+	}
+
+	@RequestMapping(value = "/update-mobile-number", method = RequestMethod.POST)
+	@RequireHardLogIn
+	public String updateMobileNumber(final UpdateMobileNumberForm updateMobileNumberForm, final BindingResult bindingResult,
+			final Model model, final RedirectAttributes redirectAttributes) throws CMSItemNotFoundException
+	{
+		//override the customerData facade to avoid creating a new one --> should separate in to different facade for this case
+
+		getMobileNumberValidator().validate(updateMobileNumberForm, bindingResult);
+		if (!bindingResult.hasErrors())
+		{
+			final FfacCustomerData currentCustomerData = customerFacade.getCurrentCustomer();
+			//initialize a new DTO and set value
+			final FfacCustomerData customerData = new FfacCustomerData();
+			customerData.setMobileNumber(updateMobileNumberForm.getMobileNumber());
+			//we should separate in to different facade for this case to avoid update duplicated data
+			customerData.setTitleCode(currentCustomerData.getTitleCode());
+			customerData.setFirstName(currentCustomerData.getFirstName());
+			customerData.setLastName(currentCustomerData.getLastName());
+			customerData.setUid(currentCustomerData.getUid());
+			customerData.setDisplayUid(currentCustomerData.getDisplayUid());
+			customerData.setSapCode(currentCustomerData.getSapCode());
+
+			try
+			{
+				customerFacade.updateProfile(customerData);
+			}
+			catch (final DuplicateUidException e)
+			{
+				bindingResult.rejectValue("mobileNumber", "profile.mobileNumber.invalid"); //redundant because of changing nothing with uId
+			}
+		}
+
+		if (bindingResult.hasErrors())
+		{
+			GlobalMessages.addErrorMessage(model, "form.global.error");
+			storeCmsPageInModel(model, getContentPageForLabelOrId(UPDATE_MOBILE_NUMBER_CMS_PAGE));
+			setUpMetaDataForContentPage(model, getContentPageForLabelOrId(UPDATE_MOBILE_NUMBER_CMS_PAGE));
+			model.addAttribute("breadcrumbs", accountBreadcrumbBuilder.getBreadcrumbs("text.account.profile.updateMobileNumber"));
+			return getViewForPage(model);
+		}
+		else
+		{
+			GlobalMessages.addFlashMessage(redirectAttributes, GlobalMessages.CONF_MESSAGES_HOLDER,
+					"text.account.profile.mobileNumberUpdated", null);
+			return REDIRECT_TO_PROFILE_PAGE;
+		}
+	}
+
 
 	@RequestMapping(value = "/address-book", method = RequestMethod.GET)
 	@RequireHardLogIn

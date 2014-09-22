@@ -104,6 +104,11 @@
 						<persistence type="property" />
 						<description>It holds information about customer SAP I or C number</description>
 					</attribute>
+					<attribute autocreate="true" qualifier="mobileNumber" type="java.lang.String">
+						<modifiers read="true" write="true" search="true"	optional="true" />
+						<persistence type="property" />
+						<description>It holds information about customer mobile number</description>
+					</attribute>
 				</attributes>
 			</itemtype>
 
