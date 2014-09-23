@@ -166,6 +166,10 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ;;StreetwearYouthBoardshortsLink;Streetwear Youth Boardshorts Link;;270600;;;
 ;;StreetwearYouthLink;Streetwear Youth Link;;270000;;;
 ;;YouthLink;Youth Link;;270000;;;
+#add For Him Link to For Him category
+;;ForHimLink;For Him Link;;150000;;;
+;;ForHerLink;For Her Link;;151000;;;
+;;GiftsLink;Gifts Link;;152000;;;
 ;;StreetwearYouthTShirtsLink;Streetwear Youth T-Shirts Link;;270100;;;
 ;;BrowseAllStreetwearYouthTShirtsLink;Streetwear Youth T-Shirts Link;;270100;;;
 ;;BrowseAllStreetwearYouthBoardshortsLink;Streetwear Youth Boardshorts Link;;270600;;;
@@ -251,8 +255,8 @@ INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[u
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
-;;NavBarComponent;Navigation Bar Collection Componeent;BrandsBarComponent,StreetwearBarComponent,SnowBarComponent,AccessoriesBarComponent,StreetwearYouthBarComponent,SpecialOffersBarComponent;NavBarComponent
-
+#;;NavBarComponent;Navigation Bar Collection Componeent;BrandsBarComponent,StreetwearBarComponent,SnowBarComponent,AccessoriesBarComponent,StreetwearYouthBarComponent, ForHimBarComponent,SpecialOffersBarComponent;NavBarComponent
+;;NavBarComponent;Navigation Bar Collection Componeent;ForHimBarComponent,ForHerBarComponent,GiftsBarComponent;NavBarComponent
 
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;navigationNode(uid,$contentCV);dropDownLayout(code)[default='AUTO']
 ;;StreetwearBarComponent;Streetwear Menu Bar Item;10;StreetwearLink;;StreetwearNavigationNode;
@@ -265,6 +269,10 @@ INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];na
 ;;SpecialOffersBarComponent;Special Offers Bar Component;10;SpecialOffersLink;special_offer;;
 ;;SunglassesBarComponent;Sunglasses Bar Component;5;SunglassesLink;;SunglassesNavNode;
 ;;StreetwearYouthBarComponent;Streetwear Youth Bar Component;10;YouthLink;;StreetwearYouthNavNode;
+#For Him Bar component
+;;ForHimBarComponent;For Him Bar Component;10;ForHimLink;;ForHimNavNode;
+;;ForHerBarComponent;For Her Bar Component;10;ForHerLink;;ForHerNavNode;
+;;GiftsBarComponent;Gifts Bar Component;10;GiftsLink;;GiftsNavNode;
 ;;AccessoriesBarComponent;Accesories Bar Component;10;AccessoriesLink;;AccessoriesNavigationNode;
 ;;SurfBarComponent;Surf Bar Component;15;SurfLink;;SurfNavigationNode;
  
@@ -308,6 +316,10 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 ;StreetwearWomenNavNodeMenu;;Streetwear Women Menu;;;StreetwearWomenBagsLink,StreetwearWomenPantsLink,StreetwearWomenTShirtsLink,StreetwearWomenTopsLink,StreetwearWomenSkirtsLink;StreetwearWomenNavNodeMenu;
 ;StreetwearYouthNavNodeMenu;;Streetwear Youth Menu;;;StreetwearYouthBoardshortsLink,StreetwearYouthTShirtsLink;StreetwearYouthNavNodeMenu;
 ;StreetwearYouthNavNode;;Youth Menu;ApparelUKNavNode;;;StreetwearYouthNavNode;
+#For Him Navaigation Node
+;ForHimNavNode;;For Him Category;ApparelUKNavNode;;;ForHimNavNode;
+;ForHerNavNode;;For Her Category;ApparelUKNavNode;;;ForHerNavNode;
+;GiftsNavNode;;Gifts Category;ApparelUKNavNode;;;GiftsNavNode;
 ;StreetwearYouthBoardshortsNavNode;;Youth Board Brand Links;StreetwearYouthNavNode;;StreetwearYouthBoardshortsBillabongLink,StreetwearYouthBoardshorts69SlamLink,StreetwearYouthBoardshortsQuiksilverLink,StreetwearYouthBoardshortsVolcomLink,BrowseAllStreetwearYouthBoardshortsLink;StreetwearYouthBoardshortsNavNode;
 ;StreetwearYouthTShirtNavNode;;Youth TShirt Brand Link;StreetwearYouthNavNode;;StreetwearYouthTShirtsBillabongLink,StreetwearYouthTShirtsBlueTomatoLink,StreetwearYouthTShirtsBurtonLink,StreetwearYouthTShirtsDCLink,StreetwearYouthTShirtsQuiksilverLink,BrowseAllStreetwearYouthTShirtsLink;StreetwearYouthTShirtNavNode;
 ;SnowwearMenNavNodeMenu;;Snowwear Men Menu;;;SnowwearMensJacketsLink,SnowwearMenPantsLink;SnowwearMenNavNodeMenu;

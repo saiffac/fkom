@@ -10,6 +10,11 @@ $lang=en
 
 # Create Categories
 UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang]
+ ;150000;;ForHim;
+ ;151000;;ForHer;
+ ;152000;;Gifts;
+ ;153000;;Silver;
+ 
  ;10000;;Snowboards;
  ;100000;;Tuning;
  ;100100;;Wax;

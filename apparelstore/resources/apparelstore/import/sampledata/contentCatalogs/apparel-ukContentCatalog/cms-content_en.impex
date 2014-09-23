@@ -167,6 +167,10 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=e
 ;;VonZipperLink;"Von Zipper"
 ;;VonZipperSunglassesLink;"Von Zipper"
 ;;YouthLink;"Youth"
+#For Him Link
+;;ForHimLink;"For Him"
+;;ForHerLink;"For Her"
+;;GiftsLink;"Gifts"
 
 
 # CMS Mini Cart Component
@@ -216,6 +220,10 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
 ;;StreetwearWomenNavNodeMenu;"Women"
 ;;StreetwearYouthBoardshortsNavNode;"Boardshorts"
 ;;StreetwearYouthNavNode;"Youth"
+#For Him Navigation Node
+;;ForHimNavNode;"For Him"
+;;ForHerNavNode;"For Her"
+;;GiftsNavNode;"Gifts"
 ;;StreetwearYouthNavNodeMenu;"Youth"
 ;;StreetwearYouthTShirtNavNode;"T-Shirts"
 ;;SunglassesBrandsNavNode;"Brands"
