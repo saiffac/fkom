@@ -13,7 +13,8 @@ $defaultLanguage=en
 $unitedKingdom=GB,GG,IM,JE
 $deliveryCountries=$unitedKingdom
 $orderProcessCode=order-process
-$pickupInStoreMode=BUY_AND_COLLECT
+#$pickupInStoreMode=BUY_AND_COLLECT
+$pickupInStoreMode=DISABLED
 $paymentProvider=Mockup
 $expressCheckoutEnabled=true
 
