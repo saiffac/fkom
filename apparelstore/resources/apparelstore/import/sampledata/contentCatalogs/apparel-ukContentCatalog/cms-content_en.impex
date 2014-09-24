@@ -171,6 +171,7 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=e
 ;;ForHimLink;"For Him"
 ;;ForHerLink;"For Her"
 ;;GiftsLink;"Gifts"
+;;AboutTheCauseLink;"About The Cause"
 
 
 # CMS Mini Cart Component
@@ -224,6 +225,7 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
 ;;ForHimNavNode;"For Him"
 ;;ForHerNavNode;"For Her"
 ;;GiftsNavNode;"Gifts"
+;;AboutTheCauseNavNode;"About The Cause"
 ;;StreetwearYouthNavNodeMenu;"Youth"
 ;;StreetwearYouthTShirtNavNode;"T-Shirts"
 ;;SunglassesBrandsNavNode;"Brands"
@@ -243,8 +245,8 @@ UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=en]
 ;;FooterComponent;"© 2013 hybris software"
 
 # CMS Paragraph Component (Contact information)
-UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en]
-;;ContactInfo;"Call us: +44 (0)20 / 7429 4175"
+#UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en]
+#;;ContactInfo;"Call us: +44 (0)20 / 7429 4175"
 
 # Generic Banners (banners are not localizable so we must create a separate banner per language)
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText

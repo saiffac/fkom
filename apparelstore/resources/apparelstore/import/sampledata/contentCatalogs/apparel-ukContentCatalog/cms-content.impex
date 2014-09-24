@@ -170,6 +170,7 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ;;ForHimLink;For Him Link;;150000;;;
 ;;ForHerLink;For Her Link;;151000;;;
 ;;GiftsLink;Gifts Link;;152000;;;
+;;AboutTheCauseLink;About The Cause Link;/;;;;
 ;;StreetwearYouthTShirtsLink;Streetwear Youth T-Shirts Link;;270100;;;
 ;;BrowseAllStreetwearYouthTShirtsLink;Streetwear Youth T-Shirts Link;;270100;;;
 ;;BrowseAllStreetwearYouthBoardshortsLink;Streetwear Youth Boardshorts Link;;270600;;;
@@ -256,7 +257,7 @@ INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[u
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
 #;;NavBarComponent;Navigation Bar Collection Componeent;BrandsBarComponent,StreetwearBarComponent,SnowBarComponent,AccessoriesBarComponent,StreetwearYouthBarComponent, ForHimBarComponent,SpecialOffersBarComponent;NavBarComponent
-;;NavBarComponent;Navigation Bar Collection Componeent;ForHimBarComponent,ForHerBarComponent,GiftsBarComponent;NavBarComponent
+;;NavBarComponent;Navigation Bar Collection Componeent;AboutTheCauseBarComponent,ForHimBarComponent,ForHerBarComponent,GiftsBarComponent;NavBarComponent
 
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;navigationNode(uid,$contentCV);dropDownLayout(code)[default='AUTO']
 ;;StreetwearBarComponent;Streetwear Menu Bar Item;10;StreetwearLink;;StreetwearNavigationNode;
@@ -273,6 +274,7 @@ INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];na
 ;;ForHimBarComponent;For Him Bar Component;10;ForHimLink;;ForHimNavNode;
 ;;ForHerBarComponent;For Her Bar Component;10;ForHerLink;;ForHerNavNode;
 ;;GiftsBarComponent;Gifts Bar Component;10;GiftsLink;;GiftsNavNode;
+;;AboutTheCauseBarComponent;About The Cause Bar Component;10;AboutTheCauseLink;;AboutTheCauseNavNode;
 ;;AccessoriesBarComponent;Accesories Bar Component;10;AccessoriesLink;;AccessoriesNavigationNode;
 ;;SurfBarComponent;Surf Bar Component;15;SurfLink;;SurfNavigationNode;
  
@@ -296,7 +298,8 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 ;CapsNavNode;;Caps Category;ClothesCategoriesNavNode;;;CapsNavNode;
 ;ClothesCategoriesNavNode;;Clothes Category Links;ClothesNavNode;;CapsLink,HelmetLink,ShirtsLink,ShoesLink,SunglassesLink;ClothesCategoriesNavNode;
 ;ClothesNavNode;;Clothes Category;ApparelUKNavNode;;;ClothesNavNode;
-;FollowUsNavNode;;Follow Us Pages;ApparelUKNavNode;;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode;
+#;FollowUsNavNode;;Follow Us Pages;ApparelUKNavNode;;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode;
+;FollowUsNavNode;;Follow Us Pages;ApparelUKNavNode;;LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode;
 ;GogglesNavNode;;Goggles Category;SkiGearCategoriesNavNode;;;GogglesNavNode;
 ;GuidesNavNode;;Guides Category;ApparelUKNavNode;;;GuidesNavNode;
 ;HelmetNavNode;;Helmet Category;ClothesCategoriesNavNode;;;HelmetNavNode;
@@ -320,6 +323,7 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 ;ForHimNavNode;;For Him Category;ApparelUKNavNode;;;ForHimNavNode;
 ;ForHerNavNode;;For Her Category;ApparelUKNavNode;;;ForHerNavNode;
 ;GiftsNavNode;;Gifts Category;ApparelUKNavNode;;;GiftsNavNode;
+;AboutTheCauseNavNode;;About Information;ApparelUKNavNode;;;AboutTheCauseNavNode;
 ;StreetwearYouthBoardshortsNavNode;;Youth Board Brand Links;StreetwearYouthNavNode;;StreetwearYouthBoardshortsBillabongLink,StreetwearYouthBoardshorts69SlamLink,StreetwearYouthBoardshortsQuiksilverLink,StreetwearYouthBoardshortsVolcomLink,BrowseAllStreetwearYouthBoardshortsLink;StreetwearYouthBoardshortsNavNode;
 ;StreetwearYouthTShirtNavNode;;Youth TShirt Brand Link;StreetwearYouthNavNode;;StreetwearYouthTShirtsBillabongLink,StreetwearYouthTShirtsBlueTomatoLink,StreetwearYouthTShirtsBurtonLink,StreetwearYouthTShirtsDCLink,StreetwearYouthTShirtsQuiksilverLink,BrowseAllStreetwearYouthTShirtsLink;StreetwearYouthTShirtNavNode;
 ;SnowwearMenNavNodeMenu;;Snowwear Men Menu;;;SnowwearMensJacketsLink,SnowwearMenPantsLink;SnowwearMenNavNodeMenu;
@@ -353,11 +357,12 @@ INSERT_UPDATE CMSTabParagraphContainer;$contentCV[unique=true];uid[unique=true];
  
 # CMS Footer Component 
 INSERT_UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;navigationNodes(uid,$contentCV);&componentRef;;;
-;;FooterComponent;2;AcceleratorNavNode,HybrisNavNode,FollowUsNavNode;FooterComponent;;;
+#;;FooterComponent;2;AcceleratorNavNode,HybrisNavNode,FollowUsNavNode;FooterComponent;;;
+;;FooterComponent;2;HybrisNavNode,FollowUsNavNode;FooterComponent;;;
  
 # CMS Paragraph Component (Contact information) 
-INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;
-;;ContactInfo;Contact information;ContactInfo;;;;
+#INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;
+#;;ContactInfo;Contact information;ContactInfo;;;;
  
 # Generic Banners 
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;urlLink;;;
@@ -435,7 +440,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 ;;UpSellingSlot;Similar,Others
 ;;CrossSellingSlot;CrossSelling
 ;;FooterSlot;FooterComponent
-;;HeaderLinksSlot;ContactInfo
+#;;HeaderLinksSlot;ContactInfo
 ;;SearchBoxSlot;SearchBox,LangCurrencyComponent
 ;;HomepageNavLinkSlot;HomepageNavLink
 ;;MiniCartSlot;MiniCart

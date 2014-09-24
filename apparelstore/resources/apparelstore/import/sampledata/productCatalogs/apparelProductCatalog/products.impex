@@ -1995,3 +1995,64 @@ INSERT_UPDATE ApparelSizeVariantProduct;code[unique=true];$catalogVersion;$baseP
 ;300417324;;96172_kelly;250100,streetwear,Burton;pieces;17,78 SGD , 21,95 EUR;;;
 ;300398794;;94415_blacktop;220600,Foursquare;pieces;32,36 SGD , 39,95 EUR;;;
 ;300398801;;94415_blue_print;220600,Foursquare;pieces;32,36 SGD , 39,95 EUR;;;
+
+
+# Create products
+INSERT_UPDATE ApparelProduct;code[unique=true];$catalogVersion;unit(code);$prices;supercategories(code,$catalogVersion);varianttype(code);$approved;ean
+#Gift
+;Gift_001_Cat_BlueRed_42;;pieces;30,00 SGD;152000;;;
+;Gift_001_Cat_RW_42;;pieces;30,00 SGD;152000;;;
+;Gift_001_Cat_BlueRed_36;;pieces;20,00 SGD;152000;;;
+;Gift_001_Cat_RW_36;;pieces;20,00 SGD;152000;;;;
+;Gift_001_Dog_PurpleWhite_42;;pieces;30,00 SGD;152000;;;
+;Gift_001_Dog_RedBlack_42;;pieces;30,00 SGD;152000;;;
+;Gift_001_Dog_PurpleWhite_36;;pieces;20,00 SGD;152000;;;
+;Gift_001_Dog_RedBlack_36;;pieces;20,00 SGD;152000;;;
+;Gift_002_CushionCover_Cyclist;;pieces;60,00 SGD;152000;;;
+;Gift_003_DoorStopper_Black;;pieces;25,00 SGD;152000;;;
+;Gift_003_DoorStopper_Red;;pieces;25,00 SGD;152000;;;
+;Gift_004_Cat_Small;;pieces;25,00 SGD;152000;;;
+;Gift_004_Cat_Medium;;pieces;25,00 SGD;152000;;;
+;Gift_004_Cat_Large;;pieces;25,00 SGD;152000;;;
+;Gift_004_Butterfly_Small;;pieces;30,00 SGD;152000;;;
+;Gift_004_Butterfly_Medium;;pieces;30,00 SGD;152000;;;
+;Gift_004_Butterfly_Large;;pieces;30,00 SGD;152000;;;
+#Her
+;Her_001_EcoClutch_Black;;pieces;55,00 SGD;151000;;;
+;Her_001_EcoClutch_Silver;;pieces;55,00 SGD;151000,153000;;;
+;Her_002_shawl_silver;;pieces;45,00 SGD;151000,153000;;;
+;Her_003_Bracelet_B&W;;pieces;19,00 SGD;151000;;;
+;Her_003_Bracelet_BluePurple;;pieces;19,00 SGD;151000;;;
+;Her_003_Bracelet_Pink;;pieces;19,00 SGD;151000;;;
+;Her_003_Bracelet_White;;pieces;19,00 SGD;151000;;;
+;Her_003_Bracelet_Silver;;pieces;19,00 SGD;151000,153000;;;
+;Her_004_Necklace;;pieces;39,00 SGD;151000;;;
+;Her_005_Bib;;pieces;89,00 SGD;151000;;;
+;Her_006_Gem_B&P;;pieces;89,00 SGD;151000;;;
+;Her_006_Gem_B&W;;pieces;89,00 SGD;151000;;;
+;Her_006_Gem_Mixed;;pieces;110,00 SGD;151000;;;
+;Her_007_Earrings_Silver;;pieces;39,00 SGD;151000,153000;;;
+;Her_008_Earrings_Silver;;pieces;39,00 SGD;151000,153000;;;
+;Her_009_Earrings_Silver;;pieces;59,00 SGD;151000,153000;;;
+;Her_010_Earrings_Silver;;pieces;59,00 SGD;151000,153000;;;
+;Her_011_Earrings_Costume;;pieces;10,00 SGD;151000;;;
+;Her_012_ReversibleJapBag_Silver;;pieces;25,00 SGD;151000,153000;;;
+;Her_013_EngravedSilverplateClutch_Black;;pieces;99,00 SGD;151000;;;
+;Her_014_SilkClutch_Fucshia;;pieces;49,00 SGD;151000;;;
+;Her_014_SilkClutch_Silver;;pieces;49,00 SGD;151000,153000;;;
+;Her_015;;pieces;129,00 SGD;151000;;;
+;Her_016_EcoTote_Red;;pieces;169,00 SGD;151000;;;
+;Her_017_SilverPleatedLurexScarf;;pieces;49,00 SGD;151000,153000;;;
+#Him
+;Him_Full_Set_Bowtie;;pieces;60,00 SGD;151000,153000;;;
+;Him_001_BowTie_Silver;;pieces;20,00 SGD;150000,153000;;;
+;Him_002_CanTabBelt;;pieces;30,00 SGD;150000;;;
+;Him_003_Scarf_Silver&Black;;pieces;25,00 SGD;150000,153000;;;
+;Him_004_PocketSquare;;pieces;10,00 SGD;150000;;;
+;Him_005_Cummerband_Silver;;pieces;35,00 SGD;150000,153000;;;
+;Him_006_ChiffonShawl_Silver;;pieces;29,00 SGD;150000,153000;;;
+
+
+
+
+

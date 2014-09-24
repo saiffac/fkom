@@ -54,7 +54,7 @@
 			</cms:pageSlot>
 		
 			<c:if test="${empty hideHeaderLinks}">
-				<li><a href="<c:url value="/store-finder"/>"><spring:theme code="general.find.a.store" /></a></li>
+				<%-- <li><a href="<c:url value="/store-finder"/>"><spring:theme code="general.find.a.store" /></a></li> --%>
 				<sec:authorize ifNotGranted="ROLE_ANONYMOUS"><li><ycommerce:testId code="header_signOut"><a href="<c:url value='/logout'/>"><spring:theme code="header.link.logout"/></a></ycommerce:testId></li></sec:authorize>
 			</c:if>
 

@@ -9,7 +9,7 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  *
- *  
+ *
  */
 package com.sai.ffac.storefront.controllers.pages;
 
@@ -17,7 +17,6 @@ import de.hybris.platform.acceleratorservices.controllers.page.PageType;
 import de.hybris.platform.acceleratorservices.customer.CustomerLocationService;
 import de.hybris.platform.acceleratorservices.data.RequestContextData;
 import de.hybris.platform.acceleratorstorefrontcommons.breadcrumb.impl.SearchBreadcrumbBuilder;
-import de.hybris.platform.acceleratorstorefrontcommons.constants.WebConstants;
 import de.hybris.platform.acceleratorstorefrontcommons.util.XSSFilterUtil;
 import de.hybris.platform.category.model.CategoryModel;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
@@ -36,7 +35,6 @@ import de.hybris.platform.commerceservices.search.facetdata.ProductCategorySearc
 import de.hybris.platform.commerceservices.search.pagedata.PageableData;
 import de.hybris.platform.commerceservices.url.UrlResolver;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
-import com.sai.ffac.storefront.util.MetaSanitizerUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -57,6 +55,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.sai.ffac.storefront.util.MetaSanitizerUtil;
 
 
 /**
@@ -125,7 +125,7 @@ public class CategoryPageController extends AbstractSearchPageController
 		storeContinueUrl(request);
 
 		populateModel(model, searchPageData, showMode);
-		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
+		//		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
 		model.addAttribute("showCategoriesOnly", Boolean.valueOf(showCategoriesOnly));
 		model.addAttribute("categoryName", category.getName());
 		//model.addAttribute("pageType", PageType.Category);
