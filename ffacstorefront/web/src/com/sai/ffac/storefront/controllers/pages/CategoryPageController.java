@@ -17,6 +17,7 @@ import de.hybris.platform.acceleratorservices.controllers.page.PageType;
 import de.hybris.platform.acceleratorservices.customer.CustomerLocationService;
 import de.hybris.platform.acceleratorservices.data.RequestContextData;
 import de.hybris.platform.acceleratorstorefrontcommons.breadcrumb.impl.SearchBreadcrumbBuilder;
+import de.hybris.platform.acceleratorstorefrontcommons.constants.WebConstants;
 import de.hybris.platform.acceleratorstorefrontcommons.util.XSSFilterUtil;
 import de.hybris.platform.category.model.CategoryModel;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
@@ -125,8 +126,9 @@ public class CategoryPageController extends AbstractSearchPageController
 		storeContinueUrl(request);
 
 		populateModel(model, searchPageData, showMode);
-		//		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
-		model.addAttribute("showCategoriesOnly", Boolean.valueOf(showCategoriesOnly));
+//		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
+//		model.addAttribute("showCategoriesOnly", Boolean.valueOf(showCategoriesOnly));
+		model.addAttribute("showCategoriesOnly", false);
 		model.addAttribute("categoryName", category.getName());
 		//model.addAttribute("pageType", PageType.Category);
 		model.addAttribute("pageType", PageType.CATEGORY.name());

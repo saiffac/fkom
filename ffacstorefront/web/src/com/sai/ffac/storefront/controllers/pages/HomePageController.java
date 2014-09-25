@@ -49,7 +49,8 @@ public class HomePageController extends AbstractPageController
 		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(null));
 		updatePageTitle(model, getContentPageForLabelOrId(null));
 
-		return getViewForPage(model);
+//		return getViewForPage(model);
+		return REDIRECT_PREFIX + "/Categories/c/categories?q=:relevance&show=All"; //bypass Homepage, show all products at once
 	}
 
 	protected void updatePageTitle(final Model model, final AbstractPageModel cmsPage)
