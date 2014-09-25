@@ -13,7 +13,7 @@
 <%@ taglib prefix="storepickup" tagdir="/WEB-INF/tags/desktop/storepickup" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="action" tagdir="/WEB-INF/tags/desktop/action" %>
-<<script type="text/javascript">
+<script type="text/javascript">
 function PopupCenter(url, title, w, h) {
     // Fixes dual-screen position                         Most browsers      Firefox
     var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
