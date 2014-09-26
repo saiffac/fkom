@@ -9,7 +9,7 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  *
- *  
+ *
  */
 package com.sai.ffac.addon.paypalcheckoutaddon.controllers;
 
@@ -18,4 +18,8 @@ package com.sai.ffac.addon.paypalcheckoutaddon.controllers;
 public interface SaiffaccheckoutaddonControllerConstants
 {
 	// implement here controller constants used by this extension
+	final String ADDON_PREFIX = "addon:/saiffaccheckoutaddon/";
+	String SaiFfacPage = ADDON_PREFIX + "pages/checkout/multi/saiFfacPage";
+	String SaiFfacSummaryPage = ADDON_PREFIX + "pages/checkout/multi/saiFfacSummaryPage";
+
 }
