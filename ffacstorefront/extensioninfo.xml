@@ -14,7 +14,8 @@
 
 	<extension abstractclassprefix="Generated" classprefix="FfacStorefront" name="ffacstorefront">
 
-		<requires-extension name="b2ccheckoutaddon"/>
+		<requires-extension name="saiffaccheckoutaddon"/>
+<requires-extension name="b2ccheckoutaddon"/>
 		<requires-extension name="btg"/>
 		<requires-extension name="acceleratorstorefrontcommons"/>
 		<requires-extension name="ffacfacades"/>

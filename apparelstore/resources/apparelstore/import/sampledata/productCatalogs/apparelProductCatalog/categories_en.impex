@@ -14,4 +14,6 @@ UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[l
  ;151000;;ForHer;
  ;152000;;Gifts;
  ;153000;;Silver;
- 
+ ;brands;;Brands;
+ ;categories;;Categories;
+ ;collections;;Collections;
