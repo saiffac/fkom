@@ -36,6 +36,7 @@ import urn.ebay.api.PayPalAPI.SetExpressCheckoutReq;
 import urn.ebay.api.PayPalAPI.SetExpressCheckoutRequestType;
 import urn.ebay.api.PayPalAPI.SetExpressCheckoutResponseType;
 import urn.ebay.apis.CoreComponentTypes.BasicAmountType;
+import urn.ebay.apis.eBLBaseComponents.AckCodeType;
 import urn.ebay.apis.eBLBaseComponents.CurrencyCodeType;
 import urn.ebay.apis.eBLBaseComponents.DoExpressCheckoutPaymentRequestDetailsType;
 import urn.ebay.apis.eBLBaseComponents.DoExpressCheckoutPaymentResponseDetailsType;
@@ -99,6 +100,46 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		return getCheckoutStep(SAI_FFAC);
 	}
 
+	@RequestMapping(value = "/payment", method = RequestMethod.GET)
+	@RequireHardLogIn
+	public String doPayment()
+	{
+		//		return getCheckoutStep().nextStep();
+		final String userName = "saimerchant_api1.sai-it.com";
+		final String password = "JRMKS6JBRPFE7LFR";
+		final String signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-ARCPTqkO53ZfgtV-iv.NAgMWCCCq";
+		final String returnURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac/summary";
+		final String cancelURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac";
+		final String mode = "sandbox"; //or live
+		final String customId = "C1703";
+		final String orderDescription = "Test Order";
+		final String invoiceId = "INVOICE-" + Math.random();
+		final double orderSum = 25.00;
+		final String payPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
+		String token = null;
+
+		final String redirectUrl = null;
+		try
+		{
+			token = SetExpressCheckout(userName, password, signature, returnURL, cancelURL, mode, customId, orderDescription,
+					invoiceId, orderSum);
+		}
+		catch (SSLConfigurationException | InvalidCredentialException | HttpErrorException | InvalidResponseDataException
+				| ClientActionRequiredException | MissingCredentialException | OAuthException | IOException | InterruptedException
+				| ParserConfigurationException | SAXException e)
+		{
+			// YTODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if (token == null)
+		{
+			return SaiffaccheckoutaddonControllerConstants.SaiFfacPage;
+		}
+
+		return REDIRECT_PREFIX + payPalUrl + token;
+	}
+
 
 	@RequestMapping(value = "/summary", method = RequestMethod.GET)
 	@RequireHardLogIn
@@ -108,13 +149,14 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		final String userName = "saimerchant_api1.sai-it.com";
 		final String password = "JRMKS6JBRPFE7LFR";
 		final String signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-ARCPTqkO53ZfgtV-iv.NAgMWCCCq";
+		final String mode = "sandbox";
 
 		GetExpressCheckoutDetailsResponseDetailsType expCheckoutDetail;
 		boolean isSuccess = false;
 		try
 		{
-			expCheckoutDetail = getExpressCheckoutDetails(token, userName, password, signature);
-			isSuccess = commitExpressCheckout(expCheckoutDetail, userName, password, signature, token, payerId);
+			expCheckoutDetail = getExpressCheckoutDetails(token, userName, password, signature, mode);
+			isSuccess = commitExpressCheckout(expCheckoutDetail, userName, password, signature, token, payerId, mode);
 		}
 		catch (OAuthException | SSLConfigurationException | InvalidCredentialException | HttpErrorException
 				| InvalidResponseDataException | ClientActionRequiredException | MissingCredentialException | IOException
@@ -133,53 +175,25 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		}
 	}
 
-
-	@RequestMapping(value = "/payment", method = RequestMethod.GET)
-	@RequireHardLogIn
-	public String doPayment()
-	{
-		//		return getCheckoutStep().nextStep();
-		final String userName = "saimerchant_api1.sai-it.com";
-		final String password = "JRMKS6JBRPFE7LFR";
-		final String signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-ARCPTqkO53ZfgtV-iv.NAgMWCCCq";
-		String redirectUrl = "";
-		try
-		{
-			redirectUrl = SetExpressCheckout(userName, password, signature);
-		}
-		catch (SSLConfigurationException | InvalidCredentialException | HttpErrorException | InvalidResponseDataException
-				| ClientActionRequiredException | MissingCredentialException | OAuthException | IOException | InterruptedException
-				| ParserConfigurationException | SAXException e)
-		{
-			// YTODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return REDIRECT_PREFIX + redirectUrl;
-	}
-
-	public String SetExpressCheckout(final String userName, final String password, final String signature)
-			throws SSLConfigurationException, InvalidCredentialException, HttpErrorException, InvalidResponseDataException,
-			ClientActionRequiredException, MissingCredentialException, OAuthException, IOException, InterruptedException,
-			ParserConfigurationException, SAXException
+	public String SetExpressCheckout(final String userName, final String password, final String signature, final String returnURL,
+			final String cancelURL, final String mode, final String customId, final String orderDescription, final String invoiceId,
+			final double orderSum) throws SSLConfigurationException, InvalidCredentialException, HttpErrorException,
+			InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, OAuthException, IOException,
+			InterruptedException, ParserConfigurationException, SAXException
 	{
 
 		final BasicAmountType orderTotal = new BasicAmountType();
-		orderTotal.setValue("25");
-		orderTotal.setCurrencyID(CurrencyCodeType.USD);
+		orderTotal.setValue(Double.toString(orderSum));
+		orderTotal.setCurrencyID(CurrencyCodeType.SGD);
 
 		final PaymentDetailsType payDetail = new PaymentDetailsType();
-		payDetail.setOrderDescription("Test Order");
-		payDetail.setInvoiceID("INVOICE-" + Math.random());
+		payDetail.setOrderDescription(orderDescription);
+		payDetail.setInvoiceID(invoiceId);
 		payDetail.setOrderTotal(orderTotal);
 		payDetail.setPaymentAction(PaymentActionCodeType.SALE);
 
 		final List<PaymentDetailsType> paymentDetails = new ArrayList<PaymentDetailsType>();
 		paymentDetails.add(payDetail);
-
-		final String returnURL = "https://54.169.44.29:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac/summary";
-		final String cancelURL = "https://54.169.44.29:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac";
-		final String customId = "C1703";
 
 		final SetExpressCheckoutRequestDetailsType expCheckoutReqDetail = new SetExpressCheckoutRequestDetailsType();
 		expCheckoutReqDetail.setPaymentDetails(paymentDetails);
@@ -195,28 +209,30 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 		final Properties profile = new Properties();
 		//		profile.put("service.EndPoint", "https://api-3t.sandbox.paypal.com/2.0"); //or set mode=sandbox
-		profile.put("mode", "sandbox");
+		profile.put("mode", mode); //sandbox or live
 
 		final PayPalAPIInterfaceServiceService service = new PayPalAPIInterfaceServiceService(profile);
 
 		final ICredential credential = new SignatureCredential(userName, password, signature);
 		final SetExpressCheckoutResponseType response = service.setExpressCheckout(request, credential);
 
-		final String token = response.getToken();
-		final String ack = response.getAck().getValue();
-		//		System.out.println("Ack code: " + ack);
-		//		System.out.println("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=" + token);
+		String token = null;
+		final AckCodeType ackCode = response.getAck();
+		if (ackCode == AckCodeType.SUCCESS || ackCode == AckCodeType.SUCCESSWITHWARNING)
+		{
+			token = response.getToken();
+		}
 
-		final String redirectUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=" + token;
-		return redirectUrl;
+		//		final String ack = response.getAck().getValue();
+		return token;
 	}
 
 	public static GetExpressCheckoutDetailsResponseDetailsType getExpressCheckoutDetails(final String token,
-			final String userName, final String password, final String signature) throws OAuthException, SSLConfigurationException,
-			InvalidCredentialException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException,
-			MissingCredentialException, IOException, InterruptedException, ParserConfigurationException, SAXException
+			final String userName, final String password, final String signature, final String mode) throws OAuthException,
+			SSLConfigurationException, InvalidCredentialException, HttpErrorException, InvalidResponseDataException,
+			ClientActionRequiredException, MissingCredentialException, IOException, InterruptedException,
+			ParserConfigurationException, SAXException
 	{
-
 		final GetExpressCheckoutDetailsRequestType pprequest = new GetExpressCheckoutDetailsRequestType();
 		pprequest.setToken(token);
 
@@ -225,7 +241,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 		final Properties profile = new Properties();
 		//		profile.put("service.EndPoint", "https://api-3t.sandbox.paypal.com/2.0");
-		profile.put("mode", "sandbox");
+		profile.put("mode", mode);
 
 		final PayPalAPIInterfaceServiceService service = new PayPalAPIInterfaceServiceService(profile);
 
@@ -238,12 +254,11 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 	}
 
 	public static boolean commitExpressCheckout(final GetExpressCheckoutDetailsResponseDetailsType expCheckoutDetail,
-			final String userName, final String password, final String signature, final String token, final String payerId)
-			throws SSLConfigurationException, InvalidCredentialException, HttpErrorException, InvalidResponseDataException,
-			ClientActionRequiredException, MissingCredentialException, OAuthException, IOException, InterruptedException,
-			ParserConfigurationException, SAXException
+			final String userName, final String password, final String signature, final String token, final String payerId,
+			final String mode) throws SSLConfigurationException, InvalidCredentialException, HttpErrorException,
+			InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, OAuthException, IOException,
+			InterruptedException, ParserConfigurationException, SAXException
 	{
-
 		final DoExpressCheckoutPaymentRequestDetailsType expCheckoutPaymentDetail = new DoExpressCheckoutPaymentRequestDetailsType();
 		expCheckoutPaymentDetail.setToken(token);
 		expCheckoutPaymentDetail.setPayerID(payerId);
@@ -258,7 +273,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 		final Properties profile = new Properties();
 		//		profile.put("service.EndPoint", "https://api-3t.sandbox.paypal.com/2.0");
-		profile.put("mode", "sandbox");
+		profile.put("mode", mode);
 
 		final PayPalAPIInterfaceServiceService service = new PayPalAPIInterfaceServiceService(profile);
 
@@ -272,12 +287,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 			final PaymentInfoType paymentInfo = expCheckoutPaymentDetails.getPaymentInfo().get(0);
 			if (paymentInfo.getPaymentStatus() == PaymentStatusCodeType.COMPLETED)
 			{
-				System.out.println("Payment completed.");
 				return true;
-			}
-			else
-			{
-				System.out.println("Payment has error.");
 			}
 		}
 		return false;
