@@ -71,7 +71,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#enterStep(org.springframework
 	 * .ui.Model, org.springframework.web.servlet.mvc.support.RedirectAttributes)
@@ -111,7 +111,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		final String returnURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac/summary";
 		final String cancelURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac";
 		final String mode = "sandbox"; //or live
-		final String customId = "C1703";
+		final String customId = "C1705";
 		final String orderDescription = "Test Order";
 		final String invoiceId = "INVOICE-" + Math.random();
 		final double orderSum = 25.00;
@@ -295,7 +295,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#back(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
@@ -310,7 +310,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#next(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
