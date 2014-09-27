@@ -5,8 +5,8 @@ package com.sai.ffac.addon.paypalcheckoutaddon.controllers.pages;
 
 import de.hybris.platform.acceleratorstorefrontcommons.annotations.RequireHardLogIn;
 import de.hybris.platform.acceleratorstorefrontcommons.checkout.steps.CheckoutStep;
-import de.hybris.platform.acceleratorstorefrontcommons.constants.WebConstants;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
+import de.hybris.platform.commercefacades.order.CartFacade;
 import de.hybris.platform.commerceservices.order.CommerceCartModificationException;
 import de.hybris.platform.storefront.controllers.pages.checkout.steps.AbstractCheckoutStepController;
 
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.annotation.Resource;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.springframework.stereotype.Controller;
@@ -68,6 +69,8 @@ import com.sai.ffac.addon.paypalcheckoutaddon.controllers.SaiffaccheckoutaddonCo
 public class SaiFfacCheckoutStepController extends AbstractCheckoutStepController
 {
 	private final static String SAI_FFAC = "sai-ffac";
+	@Resource(name = "cartFacade")
+	private CartFacade cartFacade;
 
 	/*
 	 * (non-Javadoc)
@@ -85,8 +88,8 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		this.prepareDataForPage(model);
 		storeCmsPageInModel(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
 		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
-		model.addAttribute(WebConstants.BREADCRUMBS_KEY,
-				getResourceBreadcrumbBuilder().getBreadcrumbs("checkout.multi.deliveryMethod.breadcrumb"));
+		//		model.addAttribute(WebConstants.BREADCRUMBS_KEY,
+		//				getResourceBreadcrumbBuilder().getBreadcrumbs("checkout.multi.deliveryMethod.breadcrumb"));
 		model.addAttribute("metaRobots", "noindex,nofollow");
 		setCheckoutStepLinksForModel(model, getCheckoutStep());
 		return SaiffaccheckoutaddonControllerConstants.SaiFfacPage;
@@ -100,25 +103,38 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		return getCheckoutStep(SAI_FFAC);
 	}
 
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequireHardLogIn
+	public String doTest(final Model model, @RequestParam(value = "error", required = false) final String error)
+			throws CMSItemNotFoundException, CommerceCartModificationException
+	{
+		this.prepareDataForPage(model);
+		storeCmsPageInModel(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
+		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
+		//		model.addAttribute(WebConstants.BREADCRUMBS_KEY,
+		//				getResourceBreadcrumbBuilder().getBreadcrumbs("checkout.multi.deliveryMethod.breadcrumb"));
+		model.addAttribute("metaRobots", "noindex,nofollow");
+		setCheckoutStepLinksForModel(model, getCheckoutStep());
+		return SaiffaccheckoutaddonControllerConstants.SaiFfacSummaryPage;
+	}
+
 	@RequestMapping(value = "/payment", method = RequestMethod.GET)
 	@RequireHardLogIn
-	public String doPayment()
+	public String doPayment(final Model model) throws CMSItemNotFoundException, CommerceCartModificationException
 	{
-		//		return getCheckoutStep().nextStep();
 		final String userName = "saimerchant_api1.sai-it.com";
 		final String password = "JRMKS6JBRPFE7LFR";
 		final String signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-ARCPTqkO53ZfgtV-iv.NAgMWCCCq";
 		final String returnURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac/summary";
 		final String cancelURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac";
 		final String mode = "sandbox"; //or live
-		final String customId = "C1705";
-		final String orderDescription = "Test Order";
+		final String customId = "C1707";
+		final String orderDescription = "Test Order for SAI FFAC";
 		final String invoiceId = "INVOICE-" + Math.random();
-		final double orderSum = 25.00;
+		final double orderSum = 1.1; //SGD
 		final String payPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
 		String token = null;
 
-		final String redirectUrl = null;
 		try
 		{
 			token = SetExpressCheckout(userName, password, signature, returnURL, cancelURL, mode, customId, orderDescription,
@@ -134,7 +150,15 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 		if (token == null)
 		{
-			return SaiffaccheckoutaddonControllerConstants.SaiFfacPage;
+			this.prepareDataForPage(model);
+			storeCmsPageInModel(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
+			setUpMetaDataForContentPage(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
+			//			model.addAttribute(WebConstants.BREADCRUMBS_KEY,
+			//					getResourceBreadcrumbBuilder().getBreadcrumbs("checkout.multi.deliveryMethod.breadcrumb"));
+			model.addAttribute("metaRobots", "noindex,nofollow");
+			model.addAttribute("payStatus", "service error");
+			setCheckoutStepLinksForModel(model, getCheckoutStep()); //check if it is redundant?
+			return SaiffaccheckoutaddonControllerConstants.SaiFfacSummaryPage;
 		}
 
 		return REDIRECT_PREFIX + payPalUrl + token;
@@ -143,8 +167,10 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	@RequestMapping(value = "/summary", method = RequestMethod.GET)
 	@RequireHardLogIn
-	public String summarize(@RequestParam(value = "token", required = true) final String token,
-			@RequestParam(value = "PayerID", required = true) final String payerId)
+	public String summarize(final Model model, final RedirectAttributes redirectModel,
+			@RequestParam(value = "token", required = true) final String token,
+			@RequestParam(value = "PayerID", required = true) final String payerId) throws CMSItemNotFoundException,
+			CommerceCartModificationException
 	{
 		final String userName = "saimerchant_api1.sai-it.com";
 		final String password = "JRMKS6JBRPFE7LFR";
@@ -167,12 +193,33 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		}
 		if (isSuccess)
 		{
-			return SaiffaccheckoutaddonControllerConstants.SaiFfacSummaryPage;
+			cartFacade.removeSessionCart();
+			model.addAttribute("payStatus", "Success");
+			//			final CartData cartData = cartFacade.getSessionCart();
+			//			final List<OrderEntryData> orderEntries = cartData.getEntries();
+			//			for (final OrderEntryData orderEntry : orderEntries)
+			//			{
+			//				final Integer entryNum = orderEntry.getEntryNumber();
+			//				cartFacade.updateCartEntry(entryNum.longValue(), 0);
+			//			}
+			//
+			//			GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.INFO_MESSAGES_HOLDER, "checkout.multi.successful");
+			//
+			//			return REDIRECT_PREFIX + "/cart";
 		}
 		else
 		{
-			return SaiffaccheckoutaddonControllerConstants.SaiFfacPage;
+			model.addAttribute("payStatus", "Fail");
 		}
+		this.prepareDataForPage(model);
+		storeCmsPageInModel(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
+		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
+		//			model.addAttribute(WebConstants.BREADCRUMBS_KEY,
+		//					getResourceBreadcrumbBuilder().getBreadcrumbs("checkout.multi.deliveryMethod.breadcrumb"));
+		model.addAttribute("metaRobots", "noindex,nofollow");
+		setCheckoutStepLinksForModel(model, getCheckoutStep()); //check if it is redundant?
+		return SaiffaccheckoutaddonControllerConstants.SaiFfacSummaryPage;
+
 	}
 
 	public String SetExpressCheckout(final String userName, final String password, final String signature, final String returnURL,
@@ -184,7 +231,8 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 		final BasicAmountType orderTotal = new BasicAmountType();
 		orderTotal.setValue(Double.toString(orderSum));
-		orderTotal.setCurrencyID(CurrencyCodeType.SGD);
+		//		orderTotal.setCurrencyID(CurrencyCodeType.SGD);
+		orderTotal.setCurrencyID(CurrencyCodeType.USD);
 
 		final PaymentDetailsType payDetail = new PaymentDetailsType();
 		payDetail.setOrderDescription(orderDescription);

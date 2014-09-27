@@ -13,19 +13,21 @@
 <%@ taglib prefix="multi-checkout" tagdir="/WEB-INF/tags/addons/b2ccheckoutaddon/desktop/checkout/multi" %>
 <%@ taglib prefix="address" tagdir="/WEB-INF/tags/desktop/address" %>
  
- 
 <template:page pageTitle="${pageTitle}" hideHeaderLinks="true">
  
  <div id="globalMessages">
         <common:globalMessages/>
   </div>
  
+    <multi-checkout:checkoutProgressBar steps="${checkoutSteps}" progressBarId="${progressBarId}"/>
+ 
     <div class="span-14 append-1">
         <div id="checkoutContentPanel" class="clearfix">
-            <div class="description"><p><b>Payment successful</b></p></div>
+            <div class="description"><p><b><c:out value="${payStatus}"/></b></p></div>
         </div>
     </div>
  
+    <multi-checkout:checkoutOrderDetails cartData="${cartData}" showShipDeliveryEntries="false" showPickupDeliveryEntries="false" showTax="false"/>
     <cms:pageSlot position="SideContent" var="feature" element="div" class="span-24 side-content-slot cms_disp-img_slot">
         <cms:component component="${feature}"/>
     </cms:pageSlot>

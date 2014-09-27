@@ -27,7 +27,7 @@
  
     <div class="span-14 append-1">
         <div id="checkoutContentPanel" class="clearfix">
-            <div class="description"><p><b>Gift wrap Step</b></p></div>
+            <div class="description"><p><b>Paypal Payment</b></p></div>
             <a class="button" href="${cancelUrl}"><spring:theme code="checkout.multi.cancel" text="Cancel"/></a>
             <a class="button" href="${continueUrl}"><spring:theme code="checkout.multi.continue" text="Continue"/></a>
         </div>
