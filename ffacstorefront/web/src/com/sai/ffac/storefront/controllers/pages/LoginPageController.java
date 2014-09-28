@@ -128,7 +128,7 @@ public class LoginPageController extends AbstractLoginPageController
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController#getDefaultLoginPage
 	 * (boolean, javax.servlet.http.HttpSession, org.springframework.ui.Model)
@@ -140,7 +140,7 @@ public class LoginPageController extends AbstractLoginPageController
 		final LoginForm loginForm = new LoginForm();
 		model.addAttribute(loginForm);
 		model.addAttribute(new FfacRegisterForm());
-		model.addAttribute(new GuestForm());
+		//		model.addAttribute(new GuestForm());
 
 		final String username = (String) session.getAttribute(SPRING_SECURITY_LAST_USERNAME);
 		if (username != null)

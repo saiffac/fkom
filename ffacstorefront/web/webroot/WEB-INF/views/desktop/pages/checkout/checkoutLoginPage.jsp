@@ -29,7 +29,7 @@
 			<cms:component component="${feature}"/>
 		</cms:pageSlot>
 
-		<cms:pageSlot position="RightContentSlot" var="feature" element="div" class="${spanStyling} last">
+		<%-- <cms:pageSlot position="RightContentSlot" var="feature" element="div" class="${spanStyling} last">
 			<cms:component component="${feature}"/>
-		</cms:pageSlot>
+		</cms:pageSlot> --%>
 </template:page>

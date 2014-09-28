@@ -9,20 +9,25 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  *
- *  
+ *
  */
 package com.sai.ffac.storefront.controllers.pages;
 
+import de.hybris.platform.acceleratorfacades.flow.CheckoutFlowFacade;
+import de.hybris.platform.acceleratorstorefrontcommons.breadcrumb.Breadcrumb;
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController;
+import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.GuestForm;
+import de.hybris.platform.acceleratorstorefrontcommons.forms.LoginForm;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.RegisterForm;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.validation.GuestValidator;
 import de.hybris.platform.acceleratorstorefrontcommons.security.GUIDCookieStrategy;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
+import de.hybris.platform.cms2.model.pages.ContentPageModel;
 import de.hybris.platform.commercefacades.order.data.CartData;
-import de.hybris.platform.acceleratorfacades.flow.CheckoutFlowFacade;
-import com.sai.ffac.storefront.controllers.ControllerConstants;
+
+import java.util.Collections;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +43,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.sai.ffac.storefront.controllers.ControllerConstants;
+import com.sai.ffac.storefront.forms.FfacRegisterForm;
 
 
 /**
@@ -70,8 +78,50 @@ public class CheckoutLoginController extends AbstractLoginPageController
 	public String doCheckoutLogin(@RequestParam(value = "error", defaultValue = "false") final boolean loginError,
 			final HttpSession session, final Model model, final HttpServletRequest request) throws CMSItemNotFoundException
 	{
-		model.addAttribute("expressCheckoutAllowed", Boolean.valueOf(checkoutFlowFacade.isExpressCheckoutEnabledForStore()));
+		//		model.addAttribute("expressCheckoutAllowed", Boolean.valueOf(checkoutFlowFacade.isExpressCheckoutEnabledForStore()));
+		model.addAttribute("expressCheckoutAllowed", Boolean.FALSE);
 		return getDefaultLoginPage(loginError, session, model);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController#getDefaultLoginPage
+	 * (boolean, javax.servlet.http.HttpSession, org.springframework.ui.Model)
+	 */
+	@Override
+	protected String getDefaultLoginPage(final boolean loginError, final HttpSession session, final Model model)
+			throws CMSItemNotFoundException
+	{
+		// YTODO Auto-generated method stub
+		final LoginForm loginForm = new LoginForm();
+		model.addAttribute(loginForm);
+		model.addAttribute(new FfacRegisterForm());
+		//		model.addAttribute(new GuestForm());
+
+		final String username = (String) session.getAttribute(SPRING_SECURITY_LAST_USERNAME);
+		if (username != null)
+		{
+			session.removeAttribute(SPRING_SECURITY_LAST_USERNAME);
+		}
+
+		loginForm.setJ_username(username);
+		storeCmsPageInModel(model, getCmsPage());
+		setUpMetaDataForContentPage(model, (ContentPageModel) getCmsPage());
+		model.addAttribute("metaRobots", "index,nofollow");
+
+		final Breadcrumb loginBreadcrumbEntry = new Breadcrumb("#", getMessageSource().getMessage("header.link.login", null,
+				getI18nService().getCurrentLocale()), null);
+		model.addAttribute("breadcrumbs", Collections.singletonList(loginBreadcrumbEntry));
+
+		if (loginError)
+		{
+			model.addAttribute("loginError", Boolean.valueOf(loginError));
+			GlobalMessages.addErrorMessage(model, "login.error.account.not.found.title");
+		}
+
+		return getView();
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -94,15 +144,14 @@ public class CheckoutLoginController extends AbstractLoginPageController
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String checkoutRegister(@RequestParam(value = "error", defaultValue = "false") final boolean loginError,
-				final HttpSession session, final Model model, final HttpServletRequest request)
-			throws CMSItemNotFoundException
+			final HttpSession session, final Model model, final HttpServletRequest request) throws CMSItemNotFoundException
 	{
 		return doCheckoutLogin(loginError, session, model, request);
 	}
 
 	@RequestMapping(value = "/guest", method = RequestMethod.GET)
 	public String doAnonymousCheckout(@RequestParam(value = "error", defaultValue = "false") final boolean loginError,
-					final HttpSession session, final Model model, final HttpServletRequest request) throws CMSItemNotFoundException
+			final HttpSession session, final Model model, final HttpServletRequest request) throws CMSItemNotFoundException
 	{
 		return doCheckoutLogin(loginError, session, model, request);
 	}
@@ -126,7 +175,7 @@ public class CheckoutLoginController extends AbstractLoginPageController
 
 	/**
 	 * Checks if there are any items in the cart.
-	 * 
+	 *
 	 * @return returns true if items found in cart.
 	 */
 	protected boolean hasItemsInCart()
