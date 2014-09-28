@@ -7,7 +7,9 @@ import de.hybris.platform.acceleratorstorefrontcommons.annotations.RequireHardLo
 import de.hybris.platform.acceleratorstorefrontcommons.checkout.steps.CheckoutStep;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.commercefacades.order.CartFacade;
+import de.hybris.platform.commercefacades.order.data.CartData;
 import de.hybris.platform.commerceservices.order.CommerceCartModificationException;
+import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.storefront.controllers.pages.checkout.steps.AbstractCheckoutStepController;
 
 import java.io.IOException;
@@ -18,6 +20,7 @@ import java.util.Properties;
 import javax.annotation.Resource;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.configuration.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,8 +72,12 @@ import com.sai.ffac.addon.paypalcheckoutaddon.controllers.SaiffaccheckoutaddonCo
 public class SaiFfacCheckoutStepController extends AbstractCheckoutStepController
 {
 	private final static String SAI_FFAC = "sai-ffac";
+
 	@Resource(name = "cartFacade")
 	private CartFacade cartFacade;
+
+	@Resource(name = "configurationService")
+	private ConfigurationService configurationService;
 
 	/*
 	 * (non-Javadoc)
@@ -103,42 +110,43 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		return getCheckoutStep(SAI_FFAC);
 	}
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	@RequireHardLogIn
-	public String doTest(final Model model, @RequestParam(value = "error", required = false) final String error)
-			throws CMSItemNotFoundException, CommerceCartModificationException
-	{
-		this.prepareDataForPage(model);
-		storeCmsPageInModel(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
-		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
-		//		model.addAttribute(WebConstants.BREADCRUMBS_KEY,
-		//				getResourceBreadcrumbBuilder().getBreadcrumbs("checkout.multi.deliveryMethod.breadcrumb"));
-		model.addAttribute("metaRobots", "noindex,nofollow");
-		setCheckoutStepLinksForModel(model, getCheckoutStep());
-		return SaiffaccheckoutaddonControllerConstants.SaiFfacSummaryPage;
-	}
-
 	@RequestMapping(value = "/payment", method = RequestMethod.GET)
 	@RequireHardLogIn
 	public String doPayment(final Model model) throws CMSItemNotFoundException, CommerceCartModificationException
 	{
-		final String userName = "saimerchant_api1.sai-it.com";
-		final String password = "JRMKS6JBRPFE7LFR";
-		final String signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-ARCPTqkO53ZfgtV-iv.NAgMWCCCq";
-		final String returnURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac/summary";
-		final String cancelURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac";
-		final String mode = "sandbox"; //or live
-		final String customId = "C1707";
-		final String orderDescription = "Test Order for SAI FFAC";
-		final String invoiceId = "INVOICE-" + Math.random();
-		final double orderSum = 1.1; //SGD
-		final String payPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
+		//		final String userName = "singaporemerchant_api1.sai-it.com";
+		//		final String password = "F87M5GHSS9B4D6BT";
+		//		final String signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31ATh1YpYuS4pLJvtEWtvep.mhDM3.";
+		//		final String returnURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac/summary";
+		//		final String cancelURL = "https://54.169.43.57:9002/ffacstorefront/en/checkout/multi/addon/sai-ffac";
+		//		final String mode = "sandbox"; //or live
+		//		final String payPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
+		//		final String currencyCode = "SGD";
+
+		final Configuration cfg = configurationService.getConfiguration();
+		final String userName = cfg.getString(SaiffaccheckoutaddonControllerConstants.USER_NAME);
+		final String password = cfg.getString(SaiffaccheckoutaddonControllerConstants.PASSWORD);
+		final String signature = cfg.getString(SaiffaccheckoutaddonControllerConstants.SIGNATURE);
+		final String returnURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.RETURN_URL);
+		final String cancelURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.CANCEL_URL);
+		final String mode = cfg.getString(SaiffaccheckoutaddonControllerConstants.PAYMENT_MODE);
+		final String payPalUrl = cfg.getString(SaiffaccheckoutaddonControllerConstants.CHECKOUT_URL);
+		final String currencyCode = cfg.getString(SaiffaccheckoutaddonControllerConstants.CURRENCY_CODE);
+
+		final String orderDescription = "Order to SAI FFAC. Total: ";
+
 		String token = null;
+
+		final CurrencyCodeType currencyType = CurrencyCodeType.fromValue(currencyCode);
+		final CartData cart = cartFacade.getSessionCart();
+		final double orderSum = cart.getTotalPrice().getValue().doubleValue();
+		final String customId = cart.getCode();
+		final String invoiceId = "INVOICE-" + cart.getCode() + "_" + Math.random();
 
 		try
 		{
 			token = SetExpressCheckout(userName, password, signature, returnURL, cancelURL, mode, customId, orderDescription,
-					invoiceId, orderSum);
+					invoiceId, orderSum, currencyType);
 		}
 		catch (SSLConfigurationException | InvalidCredentialException | HttpErrorException | InvalidResponseDataException
 				| ClientActionRequiredException | MissingCredentialException | OAuthException | IOException | InterruptedException
@@ -172,17 +180,21 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 			@RequestParam(value = "PayerID", required = true) final String payerId) throws CMSItemNotFoundException,
 			CommerceCartModificationException
 	{
-		final String userName = "saimerchant_api1.sai-it.com";
-		final String password = "JRMKS6JBRPFE7LFR";
-		final String signature = "An5ns1Kso7MWUdW4ErQKJJJ4qi4-ARCPTqkO53ZfgtV-iv.NAgMWCCCq";
-		final String mode = "sandbox";
+		final Configuration cfg = configurationService.getConfiguration();
+		final String userName = cfg.getString(SaiffaccheckoutaddonControllerConstants.USER_NAME);
+		final String password = cfg.getString(SaiffaccheckoutaddonControllerConstants.PASSWORD);
+		final String signature = cfg.getString(SaiffaccheckoutaddonControllerConstants.SIGNATURE);
+		final String mode = cfg.getString(SaiffaccheckoutaddonControllerConstants.PAYMENT_MODE);
 
 		GetExpressCheckoutDetailsResponseDetailsType expCheckoutDetail;
 		boolean isSuccess = false;
 		try
 		{
 			expCheckoutDetail = getExpressCheckoutDetails(token, userName, password, signature, mode);
-			isSuccess = commitExpressCheckout(expCheckoutDetail, userName, password, signature, token, payerId, mode);
+			if (expCheckoutDetail != null)
+			{
+				isSuccess = commitExpressCheckout(expCheckoutDetail, userName, password, signature, token, payerId, mode);
+			}
 		}
 		catch (OAuthException | SSLConfigurationException | InvalidCredentialException | HttpErrorException
 				| InvalidResponseDataException | ClientActionRequiredException | MissingCredentialException | IOException
@@ -195,17 +207,6 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		{
 			cartFacade.removeSessionCart();
 			model.addAttribute("payStatus", "Success");
-			//			final CartData cartData = cartFacade.getSessionCart();
-			//			final List<OrderEntryData> orderEntries = cartData.getEntries();
-			//			for (final OrderEntryData orderEntry : orderEntries)
-			//			{
-			//				final Integer entryNum = orderEntry.getEntryNumber();
-			//				cartFacade.updateCartEntry(entryNum.longValue(), 0);
-			//			}
-			//
-			//			GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.INFO_MESSAGES_HOLDER, "checkout.multi.successful");
-			//
-			//			return REDIRECT_PREFIX + "/cart";
 		}
 		else
 		{
@@ -224,21 +225,27 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	public String SetExpressCheckout(final String userName, final String password, final String signature, final String returnURL,
 			final String cancelURL, final String mode, final String customId, final String orderDescription, final String invoiceId,
-			final double orderSum) throws SSLConfigurationException, InvalidCredentialException, HttpErrorException,
-			InvalidResponseDataException, ClientActionRequiredException, MissingCredentialException, OAuthException, IOException,
-			InterruptedException, ParserConfigurationException, SAXException
+			final double orderSum, final CurrencyCodeType currencyType) throws SSLConfigurationException,
+			InvalidCredentialException, HttpErrorException, InvalidResponseDataException, ClientActionRequiredException,
+			MissingCredentialException, OAuthException, IOException, InterruptedException, ParserConfigurationException,
+			SAXException
 	{
 
 		final BasicAmountType orderTotal = new BasicAmountType();
 		orderTotal.setValue(Double.toString(orderSum));
-		//		orderTotal.setCurrencyID(CurrencyCodeType.SGD);
-		orderTotal.setCurrencyID(CurrencyCodeType.USD);
+		orderTotal.setCurrencyID(currencyType);
+
+		//		final PaymentDetailsItemType paymentItem = new PaymentDetailsItemType();
+		//		paymentItem.setAmount(new BasicAmountType(currencyType, "20.5"));
+		//		paymentItem.setDescription("bla description");
+		//		paymentItem.setName("bla name");
 
 		final PaymentDetailsType payDetail = new PaymentDetailsType();
-		payDetail.setOrderDescription(orderDescription);
+		payDetail.setOrderDescription(orderDescription + Double.toString(orderSum));
 		payDetail.setInvoiceID(invoiceId);
 		payDetail.setOrderTotal(orderTotal);
 		payDetail.setPaymentAction(PaymentActionCodeType.SALE);
+		//		payDetail.getPaymentDetailsItem().add(paymentItem);
 
 		final List<PaymentDetailsType> paymentDetails = new ArrayList<PaymentDetailsType>();
 		paymentDetails.add(payDetail);
@@ -296,8 +303,13 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		final ICredential credential = new SignatureCredential(userName, password, signature);
 		final GetExpressCheckoutDetailsResponseType expCheckoutDetailResponse = service.getExpressCheckoutDetails(request,
 				credential);
-		final GetExpressCheckoutDetailsResponseDetailsType expCheckoutDetail = expCheckoutDetailResponse
-				.getGetExpressCheckoutDetailsResponseDetails();
+		GetExpressCheckoutDetailsResponseDetailsType expCheckoutDetail = null;
+		final AckCodeType ack = expCheckoutDetailResponse.getAck();
+		if (ack == AckCodeType.SUCCESS || ack == AckCodeType.SUCCESSWITHWARNING)
+		{
+			expCheckoutDetail = expCheckoutDetailResponse.getGetExpressCheckoutDetailsResponseDetails();
+		}
+
 		return expCheckoutDetail;
 	}
 
@@ -328,6 +340,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		final ICredential credential = new SignatureCredential(userName, password, signature);
 		final DoExpressCheckoutPaymentResponseType expCheckoutPaymentResponse = service.doExpressCheckoutPayment(request,
 				credential);
+
 		final DoExpressCheckoutPaymentResponseDetailsType expCheckoutPaymentDetails = expCheckoutPaymentResponse
 				.getDoExpressCheckoutPaymentResponseDetails();
 		if (expCheckoutPaymentDetails != null)

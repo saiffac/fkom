@@ -21,5 +21,13 @@ public interface SaiffaccheckoutaddonControllerConstants
 	final String ADDON_PREFIX = "addon:/saiffaccheckoutaddon/";
 	String SaiFfacPage = ADDON_PREFIX + "pages/checkout/multi/saiFfacPage";
 	String SaiFfacSummaryPage = ADDON_PREFIX + "pages/checkout/multi/saiFfacSummaryPage";
-
+	/* for paypal payment */
+	final String USER_NAME = "paypal.merchant.username";
+	final String PASSWORD = "paypal.merchant.password";
+	final String SIGNATURE = "paypal.merchant.signature";
+	final String RETURN_URL = "paypal.merchant.url.return";
+	final String CANCEL_URL = "paypal.merchant.url.cancel";
+	final String PAYMENT_MODE = "paypal.payment.mode"; //sandbox or live
+	final String CHECKOUT_URL = "paypal.url.checkout";
+	final String CURRENCY_CODE = "paypal.currency.type";
 }
