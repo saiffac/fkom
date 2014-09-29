@@ -5,6 +5,7 @@ package com.sai.ffac.addon.paypalcheckoutaddon.controllers.pages;
 
 import de.hybris.platform.acceleratorstorefrontcommons.annotations.RequireHardLogIn;
 import de.hybris.platform.acceleratorstorefrontcommons.checkout.steps.CheckoutStep;
+import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.commercefacades.order.CartFacade;
 import de.hybris.platform.commercefacades.order.data.CartData;
@@ -13,7 +14,11 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.storefront.controllers.pages.checkout.steps.AbstractCheckoutStepController;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -175,10 +180,10 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	@RequestMapping(value = "/summary", method = RequestMethod.GET)
 	@RequireHardLogIn
-	public String summarize(final Model model, final RedirectAttributes redirectModel,
+	public String summarize(final Model model, final RedirectAttributes redirectAttributes,
 			@RequestParam(value = "token", required = true) final String token,
 			@RequestParam(value = "PayerID", required = true) final String payerId) throws CMSItemNotFoundException,
-			CommerceCartModificationException
+			CommerceCartModificationException, ParseException
 	{
 		final Configuration cfg = configurationService.getConfiguration();
 		final String userName = cfg.getString(SaiffaccheckoutaddonControllerConstants.USER_NAME);
@@ -206,12 +211,48 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		if (isSuccess)
 		{
 			cartFacade.removeSessionCart();
-			model.addAttribute("payStatus", "Success");
+
+			String deliveryDate = "";
+
+			final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			final Date currentDate = new Date();
+			//		final Date currentDate = dateFormat.parse("15/11/2014");
+			//		final Date currentDate = dateFormat.parse("18/10/2014");
+			//			final Date currentDate = dateFormat.parse("02/10/2014");
+
+			final Date milestone1001 = dateFormat.parse("01/10/2014");
+			final Date milestone1017 = dateFormat.parse("17/10/2014");
+			final Date milestone1114 = dateFormat.parse("14/11/2014");
+			final Date milestone1230 = dateFormat.parse("30/12/2014");
+
+			if ((currentDate.compareTo(milestone1001) >= 0) && (currentDate.compareTo(milestone1017) <= 0))
+			{
+				deliveryDate = "13/11/2014";
+			}
+			else if ((currentDate.compareTo(milestone1017) > 0) && (currentDate.compareTo(milestone1114) <= 0))
+			{
+				deliveryDate = "09/12/2014";
+			}
+			else if ((currentDate.compareTo(milestone1114) > 0) && (currentDate.compareTo(milestone1230) <= 0))
+			{
+				deliveryDate = "12/01/2015";
+			}
+			else
+			{
+				deliveryDate = currentDate.toString();
+			}
+
+			model.addAttribute("isSuccessful", Boolean.TRUE);
+			model.addAttribute("deliveryDate", deliveryDate);
+			GlobalMessages.addFlashMessage(redirectAttributes, GlobalMessages.CONF_MESSAGES_HOLDER, "checkout.multi.successful");
+
 		}
 		else
 		{
-			model.addAttribute("payStatus", "Fail");
+			model.addAttribute("isSuccessful", Boolean.FALSE);
+			GlobalMessages.addFlashMessage(redirectAttributes, GlobalMessages.ERROR_MESSAGES_HOLDER, "checkout.multi.fail");
 		}
+
 		this.prepareDataForPage(model);
 		storeCmsPageInModel(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));
 		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(MULTI_CHECKOUT_SUMMARY_CMS_PAGE_LABEL));

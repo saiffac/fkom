@@ -19,17 +19,27 @@
         <common:globalMessages/>
   </div>
  
-    <multi-checkout:checkoutProgressBar steps="${checkoutSteps}" progressBarId="${progressBarId}"/>
+    <%-- <multi-checkout:checkoutProgressBar steps="${checkoutSteps}" progressBarId="${progressBarId}"/> --%>
  
     <div class="span-14 append-1">
         <div id="checkoutContentPanel" class="clearfix">
-            <div class="description"><p><b><c:out value="${payStatus}"/></b></p></div>
+            <div class="description">
+            <c:if test="${isSuccessful}">
+   				<p>Your order will be available for collection from <b><c:out value="${deliveryDate}"/></b><br>
+				All orders are to be collected at the following address: <br>
+				<b>SAP Asia Pte Ltd</b> Pasir Panjang Road, Level 3 Mapletree Business City Singapore 117440</p>
+				<p>An email and SMS alert will sent to you describing the exact location and timing to collect your orders.</p>
+			</c:if>
+            <c:if test="${!isSuccessful}">
+            	<p>The payment process has not been successful. <b>Please try again...</b></p>
+            </c:if>
+            </div>
         </div>
     </div>
  
-    <multi-checkout:checkoutOrderDetails cartData="${cartData}" showShipDeliveryEntries="false" showPickupDeliveryEntries="false" showTax="false"/>
-    <cms:pageSlot position="SideContent" var="feature" element="div" class="span-24 side-content-slot cms_disp-img_slot">
+    <%-- <multi-checkout:checkoutOrderDetails cartData="${cartData}" showShipDeliveryEntries="false" showPickupDeliveryEntries="false" showTax="false"/> --%>
+    <%-- <cms:pageSlot position="SideContent" var="feature" element="div" class="span-24 side-content-slot cms_disp-img_slot">
         <cms:component component="${feature}"/>
-    </cms:pageSlot>
+    </cms:pageSlot> --%>
  
 </template:page>
