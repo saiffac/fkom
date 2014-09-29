@@ -168,9 +168,10 @@ UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=e
 ;;VonZipperSunglassesLink;"Von Zipper"
 ;;YouthLink;"Youth"
 #For Him Link
-;;ForHimLink;"For Him"
-;;ForHerLink;"For Her"
-;;GiftsLink;"Gifts"
+;;ForHimLink;"FOR HIM"
+;;ForHerLink;"FOR HER"
+;;GiftsLink;"GIFTS"
+;;SilverLink;"SAP SILVER BALL"
 ;;AboutTheCauseLink;"About The Cause"
 
 
@@ -222,9 +223,10 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
 ;;StreetwearYouthBoardshortsNavNode;"Boardshorts"
 ;;StreetwearYouthNavNode;"Youth"
 #For Him Navigation Node
-;;ForHimNavNode;"For Him"
-;;ForHerNavNode;"For Her"
-;;GiftsNavNode;"Gifts"
+;;ForHimNavNode;"FOR HIM"
+;;ForHerNavNode;"FOR HER"
+;;GiftsNavNode;"GIFTS"
+;;SilverNavNode;"SAP SILVER BALL"
 ;;AboutTheCauseNavNode;"About The Cause"
 ;;StreetwearYouthNavNodeMenu;"Youth"
 ;;StreetwearYouthTShirtNavNode;"T-Shirts"
@@ -324,7 +326,7 @@ UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[l
 
 UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en]
 ;;EmptyCartParagraphComponent;"<h2>Your shopping bag is empty</h2><p>Suggestions</p><ul>	<li>Browse our products by selecting a category above</li></ul>"
-;;HelpParagraphComponent;"<div class=""helpBanner""><span class=""bannerHeadline"" >NEED HELP?</span><span class=""bannerText"">Click here for help with checking out<a href=""#"" >GO > ></a></span></div>"
+#;;HelpParagraphComponent;"<div class=""helpBanner""><span class=""bannerHeadline"" >NEED HELP?</span><span class=""bannerText"">Click here for help with checking out<a href=""#"" >GO > ></a></span></div>"
 
 
 # Apparel Brands Landing Page

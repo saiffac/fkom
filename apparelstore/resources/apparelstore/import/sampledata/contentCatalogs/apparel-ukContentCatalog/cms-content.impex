@@ -170,6 +170,7 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ;;ForHimLink;For Him Link;;150000;;;
 ;;ForHerLink;For Her Link;;151000;;;
 ;;GiftsLink;Gifts Link;;152000;;;
+;;SilverLink;Silver Link;;153000;;;
 ;;AboutTheCauseLink;About The Cause Link;/;;;;
 ;;StreetwearYouthTShirtsLink;Streetwear Youth T-Shirts Link;;270100;;;
 ;;BrowseAllStreetwearYouthTShirtsLink;Streetwear Youth T-Shirts Link;;270100;;;
@@ -257,7 +258,7 @@ INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[u
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
 #;;NavBarComponent;Navigation Bar Collection Componeent;BrandsBarComponent,StreetwearBarComponent,SnowBarComponent,AccessoriesBarComponent,StreetwearYouthBarComponent, ForHimBarComponent,SpecialOffersBarComponent;NavBarComponent
-;;NavBarComponent;Navigation Bar Collection Componeent;AboutTheCauseBarComponent,ForHimBarComponent,ForHerBarComponent,GiftsBarComponent;NavBarComponent
+;;NavBarComponent;Navigation Bar Collection Componeent;SilverBarComponent,ForHimBarComponent,ForHerBarComponent,GiftsBarComponent;NavBarComponent
 
 INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];name;wrapAfter;link(uid, $contentCV);styleClass;navigationNode(uid,$contentCV);dropDownLayout(code)[default='AUTO']
 ;;StreetwearBarComponent;Streetwear Menu Bar Item;10;StreetwearLink;;StreetwearNavigationNode;
@@ -274,6 +275,7 @@ INSERT_UPDATE NavigationBarComponent;$contentCV[unique=true];uid[unique=true];na
 ;;ForHimBarComponent;For Him Bar Component;10;ForHimLink;;ForHimNavNode;
 ;;ForHerBarComponent;For Her Bar Component;10;ForHerLink;;ForHerNavNode;
 ;;GiftsBarComponent;Gifts Bar Component;10;GiftsLink;;GiftsNavNode;
+;;SilverBarComponent;Silver Bar Component;10;SilverLink;;SilverNavNode;
 ;;AboutTheCauseBarComponent;About The Cause Bar Component;10;AboutTheCauseLink;;AboutTheCauseNavNode;
 ;;AccessoriesBarComponent;Accesories Bar Component;10;AccessoriesLink;;AccessoriesNavigationNode;
 ;;SurfBarComponent;Surf Bar Component;15;SurfLink;;SurfNavigationNode;
@@ -323,6 +325,7 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 ;ForHimNavNode;;For Him Category;ApparelUKNavNode;;;ForHimNavNode;
 ;ForHerNavNode;;For Her Category;ApparelUKNavNode;;;ForHerNavNode;
 ;GiftsNavNode;;Gifts Category;ApparelUKNavNode;;;GiftsNavNode;
+;SilverNavNode;;Silver Category;ApparelUKNavNode;;;SilverNavNode;
 ;AboutTheCauseNavNode;;About Information;ApparelUKNavNode;;;AboutTheCauseNavNode;
 ;StreetwearYouthBoardshortsNavNode;;Youth Board Brand Links;StreetwearYouthNavNode;;StreetwearYouthBoardshortsBillabongLink,StreetwearYouthBoardshorts69SlamLink,StreetwearYouthBoardshortsQuiksilverLink,StreetwearYouthBoardshortsVolcomLink,BrowseAllStreetwearYouthBoardshortsLink;StreetwearYouthBoardshortsNavNode;
 ;StreetwearYouthTShirtNavNode;;Youth TShirt Brand Link;StreetwearYouthNavNode;;StreetwearYouthTShirtsBillabongLink,StreetwearYouthTShirtsBlueTomatoLink,StreetwearYouthTShirtsBurtonLink,StreetwearYouthTShirtsDCLink,StreetwearYouthTShirtsQuiksilverLink,BrowseAllStreetwearYouthTShirtsLink;StreetwearYouthTShirtNavNode;
@@ -639,7 +642,7 @@ INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];nam
 # CMSParagraphComponent 
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;
 ;;EmptyCartParagraphComponent;Empty Cart Paragraph Component;EmptyCartParagraphComponent;;;;
-;;HelpParagraphComponent;Help Paragraph Component;HelpParagraphComponent;;;;
+#;;HelpParagraphComponent;Help Paragraph Component;HelpParagraphComponent;;;;
  
 # ContentSlot 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
@@ -661,11 +664,11 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
  
 # ContentSlot 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-;;SideContent-multiStepCheckoutSummaryPage;Side Slot for multiStepCheckoutSummaryPage;true;HelpParagraphComponent;;;
+#;;SideContent-multiStepCheckoutSummaryPage;Side Slot for multiStepCheckoutSummaryPage;true;HelpParagraphComponent;;;
  
 # ContentSlotForPage 
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true];;;
-;;Side-multiStepCheckoutSummaryPage;SideContent;multiStepCheckoutSummaryPage;SideContent-multiStepCheckoutSummaryPage;;;
+#;;Side-multiStepCheckoutSummaryPage;SideContent;multiStepCheckoutSummaryPage;SideContent-multiStepCheckoutSummaryPage;;;
  
 # Apparel Brands Landing Page  
  
