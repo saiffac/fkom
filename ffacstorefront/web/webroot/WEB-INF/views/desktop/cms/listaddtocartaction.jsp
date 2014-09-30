@@ -23,11 +23,13 @@
 	<ycommerce:testId code="searchPage_addToCart_button_${product.code}">
 		<form:form id="addToCartForm${product.code}" action="${addToCartUrl}" method="post" class="add_to_cart_form">
 			<input type="hidden" name="productCodePost" value="${product.code}"/>
-			<button type="${buttonType}" class="addToCartButton <c:if test="
+			<button type="${buttonType}" class="addToCartButton btn btn-default add-to-cart<c:if test="
 			${product.stock.stockLevelStatus.code eq 'outOfStock' }">out-of-stock</c:if>"
 			<c:if test="${product.stock.stockLevelStatus.code eq 'outOfStock' }"> disabled="disabled" aria-disabled="true"</c:if>
 			>${addToCartText}</button>
 		</form:form>
 	</ycommerce:testId>
+	
+		
 
 </div>

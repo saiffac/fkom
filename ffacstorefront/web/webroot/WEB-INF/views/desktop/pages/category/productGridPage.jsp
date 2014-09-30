@@ -20,17 +20,17 @@
 		<cms:component component="${feature}" element="div" class="span-24 section1 cms_disp-img_slot"/>
 	</cms:pageSlot>
 
-	<div class="span-24">
-		<div class="span-6 facetNavigation">
+	<div class="tab-content">
+		<%-- <div class="span-6 facetNavigation">
 			<cms:pageSlot position="ProductLeftRefinements" var="feature">
 				<cms:component component="${feature}"/>
 			</cms:pageSlot>
-		</div>
-		<div class="span-18 last">
+		</div> --%>
+		<!-- <div class="span-18 last"> -->
 			<cms:pageSlot position="ProductGridSlot" var="feature">
 				<cms:component component="${feature}"/>
 			</cms:pageSlot>
-		</div>
+		<!-- </div> -->
 	</div>
 	<!-- TODO grid component? -->
 <storepickup:pickupStorePopup />

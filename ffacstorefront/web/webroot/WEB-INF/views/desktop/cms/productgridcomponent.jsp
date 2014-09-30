@@ -4,12 +4,12 @@
 
 <%-- <nav:pagination top="true" supportShowPaged="${isShowPageAllowed}" supportShowAll="${isShowAllAllowed}" searchPageData="${searchPageData}" searchUrl="${searchPageData.currentQuery.url}" numberPagesShown="${numberPagesShown}"/> --%>
 
-<div class="productGrid">
+<!-- <div class="productGrid"> -->
 	<c:forEach items="${searchPageData.results}" var="product" varStatus="status">
-		<div class="span-6 ${(status.index+1)%3 == 0 ? ' last' : ''}${(status.index)%3 == 0 ? ' first clear' : ''}">
+		<div class="col-sm-3 ">
 			<product:productListerGridItem product="${product}" />
 		</div>
 	</c:forEach>
-</div>
+<!-- </div> -->
 <%-- <nav:pagination top="false"  supportShowPaged="${isShowPageAllowed}" supportShowAll="${isShowAllAllowed}"  searchPageData="${searchPageData}" searchUrl="${searchPageData.currentQuery.url}"  numberPagesShown="${numberPagesShown}"/> --%>
 
