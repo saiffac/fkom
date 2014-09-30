@@ -1,17 +1,63 @@
-<%@ tag body-content="empty" trimDirectiveWhitespaces="true" %>
-<%@ attribute name="hideHeaderLinks" required="false" %>
+<%@ tag body-content="empty" trimDirectiveWhitespaces="true"%>
+<%@ attribute name="hideHeaderLinks" required="false"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="header" tagdir="/WEB-INF/tags/desktop/common/header"  %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
-<%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="theme" tagdir="/WEB-INF/tags/shared/theme" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="header" tagdir="/WEB-INF/tags/desktop/common/header"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
+<%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="theme" tagdir="/WEB-INF/tags/shared/theme"%>
 
-<%-- Test if the UiExperience is currently overriden and we should show the UiExperience prompt --%>
+
+<header class="header">
+	<!--header-->
+
+	<div class="header_top">
+		<!--header_top-->
+		<div class="main">
+			<div class="row">
+				<div class="col-sm-4">
+
+					<cms:pageSlot position="SiteLogo" var="logo" limit="1">
+						<%-- <cms:component component="${logo}" class="siteLogo"  element="div"/> --%>
+						<div class="logo pull-left">
+							<a href="${logo.urlLink}"><img
+								src="${commonResourcePath}/../ffac/images/logo.png" alt=""></a>
+						</div>
+					</cms:pageSlot>
+				</div>
+				<cms:pageSlot position="MiniCart" var="cart" limit="1">
+					<cms:component component="${cart}" element="div" class="shop-menu" />
+				</cms:pageSlot>
+				<!-- <div class="shop-menu"> <a href="cart.html"><i class="fa fa-shopping-cart"></i>YOUR cart - 3 items<br>
+          $55.00</a> </div> -->
+			</div>
+		</div>
+	</div>
+	<!--/header_top-->
+
+	<!--banner-->
+	<div class="banner">
+		<div class="frm-img">
+			<img src="${commonResourcePath}/../ffac/images/banner.jpg" alt="">
+		</div>
+		<div class="infor-banner">
+			<h2>give us a hand</h2>
+			<h1>improving cambodian life</h1>
+			<a href="#" class="btn-buy-gift">buy a gift</a><a href="#"
+				class="btn-out-story">our story...</a>
+			<p>be a part of us and make their life better</p>
+		</div>
+	</div>
+	<!--/banner-->
+
+</header>
+<%-- 
+
 <c:if test="${uiExperienceOverride and not sessionScope.hideUiExperienceLevelOverridePrompt}">
 	<c:url value="/_s/ui-experience?level=" var="clearUiExperienceLevelOverrideUrl"/>
 	<c:url value="/_s/ui-experience-level-prompt?hide=true" var="stayOnDesktopStoreUrl"/>
@@ -54,7 +100,7 @@
 			</cms:pageSlot>
 		
 			<c:if test="${empty hideHeaderLinks}">
-				<%-- <li><a href="<c:url value="/store-finder"/>"><spring:theme code="general.find.a.store" /></a></li> --%>
+				<li><a href="<c:url value="/store-finder"/>"><spring:theme code="general.find.a.store" /></a></li>
 				<sec:authorize ifNotGranted="ROLE_ANONYMOUS"><li><ycommerce:testId code="header_signOut"><a href="<c:url value='/logout'/>"><spring:theme code="header.link.logout"/></a></ycommerce:testId></li></sec:authorize>
 			</c:if>
 
@@ -74,3 +120,4 @@
 		<cms:component component="${logo}" class="siteLogo"  element="div"/>
 	</cms:pageSlot>
 </div>
+ --%>

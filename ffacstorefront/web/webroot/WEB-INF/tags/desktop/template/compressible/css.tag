@@ -79,3 +79,18 @@
 <c:forEach items="${addOnThemeCssPaths}" var="addOnThemeCss">
 	<link rel="stylesheet" type="text/css" media="all" href="${addOnThemeCss}"/>
 </c:forEach>
+
+<%-- FFAC css --%>
+
+<link href="${commonResourcePath}/../ffac/css/bootstrap.min.css" rel="stylesheet">
+<link href="${commonResourcePath}/../ffac/css/font-awesome.min.css" rel="stylesheet">
+<link href="${commonResourcePath}/../ffac/css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="common/js/html5shiv.js"></script>
+    <script src="common/js/respond.min.js"></script>
+    <![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic|Josefin+Sans:700,700italic|Oswald:700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:700,400,500,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,900,600,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+

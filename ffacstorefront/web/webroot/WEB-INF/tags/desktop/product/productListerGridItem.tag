@@ -39,7 +39,9 @@ function PopupCenter(url, title, w, h) {
 <c:set value="${not empty product.potentialPromotions}" var="hasPromotion"/>
 
 <ycommerce:testId code="product_wholeProduct">
-	<div class="productGridItem ${hasPromotion ? 'productGridItemPromotion' : ''}">
+<div class="product-image-wrapper">
+              <div class="single-products">
+	<div class="productinfo text-center ${hasPromotion ? 'productGridItemPromotion' : ''}">
 		<a href="${productUrl}" data-href="${productUrl}"  title="${product.name}" class="productMainLink"
 		onclick="PopupCenter(this.href, '${product.name}',500, 500); return false;">
 			<div class="thumb">
@@ -49,16 +51,18 @@ function PopupCenter(url, title, w, h) {
 				</c:if>
 			</div>
 
+			
+
+
+			<div class="details">
+				<ycommerce:testId code="product_productName">${product.name}</ycommerce:testId>
+			</div>
+			
 			<div class="priceContainer">
 				<c:set var="buttonType">submit</c:set>
 				<ycommerce:testId code="product_productPrice">
 					<span class="price"><format:price priceData="${product.price}"/></span>
 				</ycommerce:testId>
-			</div>
-
-
-			<div class="details">
-				<ycommerce:testId code="product_productName">${product.name}</ycommerce:testId>
 			</div>
 
 			<c:choose>
@@ -78,10 +82,12 @@ function PopupCenter(url, title, w, h) {
 			<c:set var="product" value="${product}" scope="request"/>
 			<c:set var="addToCartText" value="${addToCartText}" scope="request"/>
 			<c:set var="addToCartUrl" value="${addToCartUrl}" scope="request"/>
-			<div id="actions-container-for-${component.uid}" class="listAddPickupContainer clearfix">
+			<div id="actions-container-for-${component.uid}" class="">
 				<action:actions element="div" parentComponent="${component}"/>
 			</div>
 		</div>
 
+	</div>
+	</div>
 	</div>
 </ycommerce:testId>

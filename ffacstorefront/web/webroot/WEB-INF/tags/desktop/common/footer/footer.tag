@@ -3,6 +3,6 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
 
 
-<cms:pageSlot position="Footer" var="feature" element="div" class="footer">
+<cms:pageSlot position="Footer" var="feature" element="div" class="">
 	<cms:component component="${feature}"/>
 </cms:pageSlot>
