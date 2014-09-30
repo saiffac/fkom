@@ -86,7 +86,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#enterStep(org.springframework
 	 * .ui.Model, org.springframework.web.servlet.mvc.support.RedirectAttributes)
@@ -138,7 +138,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		final String payPalUrl = cfg.getString(SaiffaccheckoutaddonControllerConstants.CHECKOUT_URL);
 		final String currencyCode = cfg.getString(SaiffaccheckoutaddonControllerConstants.CURRENCY_CODE);
 
-		final String orderDescription = "Order to SAI FFAC. Total: ";
+		final String orderDescription = "Order to SAI FFAC. Total: S$ ";
 
 		String token = null;
 
@@ -397,7 +397,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#back(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
@@ -412,7 +412,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#next(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
