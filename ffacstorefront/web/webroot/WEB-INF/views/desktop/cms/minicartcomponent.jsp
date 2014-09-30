@@ -13,10 +13,10 @@
 <c:url value="/cart/rollover/${component.uid}" var="rolloverPopupUrl"/>
 <c:url value="/cart" var="cartUrl"/>
 
-<a href="${cartUrl}" class="minicart">
-	${component.title}
-	<ycommerce:testId code="miniCart_items_label">
-		<span class="count">${totalItems}</span>	
+<a href="${cartUrl}" class="miniCart"><i class="fa fa-shopping-cart"></i>${component.title} - <span class="count">${totalItems}</span>
+ ITEM<c:if test="${totalItems > 1}">S</c:if><br/>
+	<%-- <ycommerce:testId code="miniCart_items_label"> --%>
+		<%-- <span class="count">${totalItems}</span>	 --%>
 		<span class="price">
 			<c:if test="${totalDisplay == 'TOTAL'}">
 				<format:price priceData="${totalPrice}"/>
@@ -28,7 +28,7 @@
 				<format:price priceData="${totalNoDelivery}"/>
 			</c:if>
 		</span>
-	</ycommerce:testId>
+	<%-- </ycommerce:testId> --%>
 </a>
-<div id="miniCartLayer" class="miniCartPopup" data-refreshMiniCartUrl="${refreshMiniCartUrl}/?"  data-rolloverPopupUrl="${rolloverPopupUrl}" ></div>
+<div style="visibility: hidden" id="miniCartLayer" class="miniCartPopup" data-refreshMiniCartUrl="${refreshMiniCartUrl}/?"  data-rolloverPopupUrl="${rolloverPopupUrl}" ></div>
 

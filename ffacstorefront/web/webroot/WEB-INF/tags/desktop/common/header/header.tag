@@ -47,10 +47,10 @@
 		</div>
 		<div class="infor-banner">
 			<h2>give us a hand</h2>
-			<h1>improving cambodian life</h1>
-			<a href="#" class="btn-buy-gift">buy a gift</a><a href="#"
-				class="btn-out-story">our story...</a>
-			<p>be a part of us and make their life better</p>
+			<h1>improving lives & livelihood</h1>
+			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance&show=All" class="btn-buy-gift">buy a gift</a>
+			<a href="#" class="btn-out-story">our story...</a>
+			<p>Buy a gift and help transform someone's life</p>
 		</div>
 	</div>
 	<!--/banner-->

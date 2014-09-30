@@ -33,7 +33,22 @@
 			<div id="content" class="main clearfix">
 			
 			
- 
+ <!--banner-small-->
+  	<div class="banner-small">
+    	<div class="banner-item">
+        	<img src="${commonResourcePath}/../ffac/images/banner-small1.jpg" alt="">
+            <div class="info-item">
+            	<p><a href="#">An evening in support <br/>of social entrepreneurship</a></p>
+            </div>
+        </div>
+        <div class="banner-item">
+        	<img src="${commonResourcePath}/../ffac//images/banner-small2.jpg" alt="">
+            <div class="info-item">
+            	<p><a href="#">Celebrating our 25th<br/>anniversary in style</a></p>
+            </div>
+        </div>
+    </div>
+     <!--/banner-small-->
  <div class="top-main">
       <h3>MANY THANKS TO OUR SPONSORS</h3>
       <div class="logo-company"> <a href="#"><img

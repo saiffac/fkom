@@ -8,10 +8,13 @@
 	</cms:pageSlot>
 </div> --%>
 
+
+
 <div class="category-tab col-sm-12">
-        <ul class="nav nav-tabs">
-          <li class=""><a href="#silver-ball" data-toggle="tab">SAP SILVER BALL</a></li>
-          <li class=""><a href="#for-her" data-toggle="tab">FOR HER</a></li>
-          <li class="active"><a href="#for-him" data-toggle="tab">FOR HIM</a></li>
+        <ul id="categoryTab" class="nav nav-tabs">
+          <li <c:if test="${categoryName == 'Silver'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/Silver/c/153000#categoryTab" data-toggle="tab">SAP SILVER BALL</a></li>
+          <li <c:if test="${categoryName == 'ForHim'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/ForHim/c/150000#categoryTab" data-toggle="tab">FOR HIM</a></li>
+          <li <c:if test="${categoryName == 'ForHer'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/ForHer/c/151000#categoryTab" data-toggle="tab">FOR HER</a></li>
+          <li <c:if test="${categoryName == 'Gifts'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/Gifts/c/152000#categoryTab" data-toggle="tab">GIFTS</a></li>
         </ul>
-      </div>
+</div>
