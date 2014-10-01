@@ -23,12 +23,14 @@
 <div class="copyright">${notice}</div> --%>
 <c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
 <div id="ourStory" class="we-infor">
+<p id="back-top"> <a href="#top"><span><i class="fa fa-angle-up"></i> </span></a> </p>
       <h3>we are a small group with big heart</h3>
       <p><b>AO.CO</b> is a social enterprise based just outside of Siem Reap, Cambodia. It was founded in 2011 by Joseph and Anna Teo to provide a platform for them to extend their social enterprise work internationally. AO.CO currently provides direct work for 6 women and 1 man, operating out of their apartment as well as in a Pouk Village, 25 minutes away by scooter.  It also collaborates with other needy social enterprises in Cambodia, providing training in sewing, design, contract work and market access for their products. AO.CO has been and continues to enable these women to make a living to support their families and to make a better life for themselves. </p>
-      <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> </div>
+      <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> 
+      <div class="clear"></div>
+      </div>
 </c:if>
       
-<!-- <p id="back-top"> <a href="#top"><span><i class="fa fa-angle-up"></i> </span></a> </p> -->
 <footer class="footer-bottom">
 	<div class="main">
 		<div class="row">

@@ -4,8 +4,8 @@ ACC.minicart = {
 
 	bindMiniCart: function ()
 	{
-		$(document).on('mouseenter', '.miniCart', this.showMiniCart);
-		$(document).on('mouseleave', '.miniCart', this.hideMiniCart);
+//		$(document).on('mouseenter', '.miniCart', this.showMiniCart);
+//		$(document).on('mouseleave', '.miniCart', this.hideMiniCart);
 	},
 	
 	showMiniCart: function ()

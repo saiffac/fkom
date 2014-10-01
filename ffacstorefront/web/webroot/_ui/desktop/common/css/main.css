@@ -109,7 +109,7 @@ table.store-openings td.specialday_openings_date {
 
 	Cart and Pickup button
 *****************/
-
+/*
 button.pickupInStoreButton,
 button.addToCartButton{
 	height:40px;
@@ -121,7 +121,7 @@ button.addToCartButton{
 	font-size:1em;
 }
 
-
+*/
 button.pickupInStoreButton{
 	background:#fff;
 	color:#000;
