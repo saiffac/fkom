@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Sep 18, 2014 1:20:37 PM                     ---
+ * --- Generated at Sep 26, 2014 11:00:53 AM                    ---
  * ----------------------------------------------------------------
  */
 package com.sai.ffac.core.constants;
@@ -26,6 +26,7 @@ public class GeneratedFfacCoreConstants
 	{
 		public static class Customer
 		{
+			public static final String MOBILENUMBER = "mobileNumber".intern();
 			public static final String SAPCODE = "sapCode".intern();
 		}
 	}
@@ -33,18 +34,18 @@ public class GeneratedFfacCoreConstants
 	{
 		public static class SwatchColorEnum
 		{
-			public static final String ORANGE = "ORANGE".intern();
-			public static final String GREY = "GREY".intern();
-			public static final String BLUE = "BLUE".intern();
 			public static final String YELLOW = "YELLOW".intern();
+			public static final String ORANGE = "ORANGE".intern();
 			public static final String GREEN = "GREEN".intern();
-			public static final String PINK = "PINK".intern();
-			public static final String BROWN = "BROWN".intern();
-			public static final String BLACK = "BLACK".intern();
-			public static final String RED = "RED".intern();
-			public static final String SILVER = "SILVER".intern();
-			public static final String PURPLE = "PURPLE".intern();
 			public static final String WHITE = "WHITE".intern();
+			public static final String BROWN = "BROWN".intern();
+			public static final String GREY = "GREY".intern();
+			public static final String PINK = "PINK".intern();
+			public static final String PURPLE = "PURPLE".intern();
+			public static final String BLACK = "BLACK".intern();
+			public static final String SILVER = "SILVER".intern();
+			public static final String RED = "RED".intern();
+			public static final String BLUE = "BLUE".intern();
 		}
 	}
 	

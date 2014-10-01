@@ -126,6 +126,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 			
 				single_createattr_Customer_sapCode();
 			
+				single_createattr_Customer_mobileNumber();
+			
 				single_createattr_ElectronicsColorVariantProduct_color();
 			
 
@@ -208,6 +210,23 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 				createPropertyAttribute(
 					"Customer", 
 					"sapCode",  
+					null,
+					"java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					null,
+					sqlColumnDefinitions
+				);
+			
+	}
+	
+	public void single_createattr_Customer_mobileNumber() throws JaloBusinessException
+	{
+		
+						Map sqlColumnDefinitions = null;
+					
+				createPropertyAttribute(
+					"Customer", 
+					"mobileNumber",  
 					null,
 					"java.lang.String",
 					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
@@ -323,6 +342,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 				}
 			
 			single_setAttributeProperties_Customer_sapCode();
+		
+			single_setAttributeProperties_Customer_mobileNumber();
 		
 				{
 				Map customPropsMap = new HashMap();
@@ -462,6 +483,28 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 							setAttributeProperties(
 								"Customer", 
 								"sapCode",
+								false, 
+								null,
+								null,
+								null,
+								true,
+								true,
+								null,
+								customPropsMap,
+								null
+							);
+						}
+					
+						public void single_setAttributeProperties_Customer_mobileNumber() throws JaloBusinessException
+						{
+							
+							
+							
+							Map customPropsMap = new HashMap();
+							
+							setAttributeProperties(
+								"Customer", 
+								"mobileNumber",
 								false, 
 								null,
 								null,

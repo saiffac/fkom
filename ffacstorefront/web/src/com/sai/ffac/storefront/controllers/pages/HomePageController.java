@@ -9,14 +9,14 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  *
- *  
+ *
  */
 package com.sai.ffac.storefront.controllers.pages;
 
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractPageController;
+import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
-import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 /**
  * Controller for home page
@@ -40,8 +41,7 @@ public class HomePageController extends AbstractPageController
 	{
 		if (logout)
 		{
-			GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.INFO_MESSAGES_HOLDER,
-					"account.confirmation.signout.title");
+			GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.INFO_MESSAGES_HOLDER, "account.confirmation.signout.title");
 			return REDIRECT_PREFIX + ROOT;
 		}
 
@@ -49,8 +49,9 @@ public class HomePageController extends AbstractPageController
 		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(null));
 		updatePageTitle(model, getContentPageForLabelOrId(null));
 
-//		return getViewForPage(model);
-		return REDIRECT_PREFIX + "/Categories/c/categories?q=:relevance&show=All"; //bypass Homepage, show all products at once
+		//		return getViewForPage(model);
+		return REDIRECT_PREFIX + "/Categories/c/categories?q=:relevance"; //bypass Homepage, show all products at once
+		//		return REDIRECT_PREFIX + "/Categories/c/categories?q=:relevance&show=All";
 	}
 
 	protected void updatePageTitle(final Model model, final AbstractPageModel cmsPage)

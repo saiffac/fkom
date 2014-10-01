@@ -25,7 +25,7 @@
 					<cms:pageSlot position="SiteLogo" var="logo" limit="1">
 						<%-- <cms:component component="${logo}" class="siteLogo"  element="div"/> --%>
 						<div class="logo pull-left">
-							<a href="${logo.urlLink}"><img
+							<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance"><img
 								src="${commonResourcePath}/../ffac/images/logo.png" alt=""></a>
 						</div>
 					</cms:pageSlot>
@@ -48,8 +48,8 @@
 		<div class="infor-banner">
 			<h2>give us a hand</h2>
 			<h1>improving lives & livelihood</h1>
-			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance&show=All" class="btn-buy-gift">buy a gift</a>
-			<a href="#" class="btn-out-story">our story...</a>
+			<a href="#categoryTab" class="btn-buy-gift">buy a gift</a>
+			<a href="#ourStory" class="btn-out-story">our story...</a>
 			<p>Buy a gift and help transform someone's life</p>
 		</div>
 	</div>

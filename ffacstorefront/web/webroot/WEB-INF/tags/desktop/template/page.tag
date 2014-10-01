@@ -10,6 +10,8 @@
 <%@ taglib prefix="footer" tagdir="/WEB-INF/tags/desktop/common/footer"%>
 <%@ taglib prefix="cart" tagdir="/WEB-INF/tags/desktop/cart"%>
 <%@ taglib prefix="nav" tagdir="/WEB-INF/tags/desktop/nav"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <template:master pageTitle="${pageTitle}">
 
 	<jsp:attribute name="pageCss">
@@ -32,9 +34,9 @@
 			
 			<div id="content" class="main clearfix">
 			
-			
+<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">			
  <!--banner-small-->
-  	<div class="banner-small">
+  	<%-- <div class="banner-small">
     	<div class="banner-item">
         	<img src="${commonResourcePath}/../ffac/images/banner-small1.jpg" alt="">
             <div class="info-item">
@@ -47,7 +49,7 @@
             	<p><a href="#">Celebrating our 25th<br/>anniversary in style</a></p>
             </div>
         </div>
-    </div>
+    </div> --%>
      <!--/banner-small-->
  <div class="top-main">
       <h3>MANY THANKS TO OUR SPONSORS</h3>
@@ -58,10 +60,13 @@
 							href="#"><img
 							src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a> </div>
       <h3> buy a handmade item &amp; help the community</h3>
-      <p>Just by saving a cup of coffee, a breakfast to help us buy those lovely hand made 
-        product crafted by people who has a very hard life right now. 
-        Help them, help yourself for a better world, </p>
+        <p>Just by saving a cup of coffee, a breakfast to help us buy those lovely hand made 
+        product crafted by people who has a very hard life right now.
+        <br/>Help them, help yourself for a better world.</p>
     </div>
+    
+    </c:if>
+    
     <nav:topNavigation />
 			<header:bottomHeader />
 			<a id="skip-to-content"></a>

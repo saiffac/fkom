@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Sep 18, 2014 1:20:37 PM                     ---
+ * --- Generated at Sep 26, 2014 11:00:53 AM                    ---
  * ----------------------------------------------------------------
  */
 package com.sai.ffac.core.jalo;
@@ -37,6 +37,7 @@ public abstract class GeneratedFfacCoreManager extends Extension
 		final Map<String, Map<String, AttributeMode>> ttmp = new HashMap();
 		Map<String, AttributeMode> tmp = new HashMap<String, AttributeMode>();
 		tmp.put("sapCode", AttributeMode.INITIAL);
+		tmp.put("mobileNumber", AttributeMode.INITIAL);
 		ttmp.put("de.hybris.platform.jalo.user.Customer", Collections.unmodifiableMap(tmp));
 		DEFAULT_INITIAL_ATTRIBUTES = ttmp;
 	}
@@ -160,6 +161,42 @@ public abstract class GeneratedFfacCoreManager extends Extension
 	public String getName()
 	{
 		return FfacCoreConstants.EXTENSIONNAME;
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.mobileNumber</code> attribute.
+	 * @return the mobileNumber - It holds information about customer mobile number
+	 */
+	public String getMobileNumber(final SessionContext ctx, final Customer item)
+	{
+		return (String)item.getProperty( ctx, FfacCoreConstants.Attributes.Customer.MOBILENUMBER);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Customer.mobileNumber</code> attribute.
+	 * @return the mobileNumber - It holds information about customer mobile number
+	 */
+	public String getMobileNumber(final Customer item)
+	{
+		return getMobileNumber( getSession().getSessionContext(), item );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.mobileNumber</code> attribute. 
+	 * @param value the mobileNumber - It holds information about customer mobile number
+	 */
+	public void setMobileNumber(final SessionContext ctx, final Customer item, final String value)
+	{
+		item.setProperty(ctx, FfacCoreConstants.Attributes.Customer.MOBILENUMBER,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Customer.mobileNumber</code> attribute. 
+	 * @param value the mobileNumber - It holds information about customer mobile number
+	 */
+	public void setMobileNumber(final Customer item, final String value)
+	{
+		setMobileNumber( getSession().getSessionContext(), item, value );
 	}
 	
 	/**

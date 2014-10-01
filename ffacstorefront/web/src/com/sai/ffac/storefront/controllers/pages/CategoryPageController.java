@@ -96,10 +96,12 @@ public class CategoryPageController extends AbstractSearchPageController
 	private CustomerLocationService customerLocationService;
 
 	@RequestMapping(value = CATEGORY_CODE_PATH_VARIABLE_PATTERN, method = RequestMethod.GET)
-	public String category(@PathVariable("categoryCode") final String categoryCode,
+	public String category(
+			@PathVariable("categoryCode") final String categoryCode,
 			@RequestParam(value = "q", required = false) final String searchQuery,
 			@RequestParam(value = "page", defaultValue = "0") final int page,
-			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
+			//			@RequestParam(value = "show", defaultValue = "Page") final ShowMode showMode,
+			@RequestParam(value = "show", defaultValue = "All") final ShowMode showMode,
 			@RequestParam(value = "sort", required = false) final String sortCode, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response) throws UnsupportedEncodingException
 	{
