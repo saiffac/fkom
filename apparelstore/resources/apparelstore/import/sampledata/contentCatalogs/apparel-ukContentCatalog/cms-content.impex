@@ -636,7 +636,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 # Apparel Cart Page  
 # SimpleBannerComponent 
 INSERT_UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;
-;;FreeDeliverySimpleBannerComponent;Free Delivery Simple Banner Component;FreeDeliverySimpleBannerComponent;;;;
+#;;FreeDeliverySimpleBannerComponent;Free Delivery Simple Banner Component;FreeDeliverySimpleBannerComponent;;;;
 ;;HelpWithCheckoutSimpleBannerComponent;Help With Checkout Simple Banner Component;HelpWithCheckoutSimpleBannerComponent;;;;
  
 # CMSParagraphComponent 
@@ -647,7 +647,8 @@ INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];nam
 # ContentSlot 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
 ;;EmptyCartMiddleContent-cartPage;Middle Slot for Cart Page;true;EmptyCartParagraphComponent
-;;TopContentSlot-cartPage;Top Content Slot for Cart Page;true;FreeDeliverySimpleBannerComponent,CartComponent
+#;;TopContentSlot-cartPage;Top Content Slot for Cart Page;true;FreeDeliverySimpleBannerComponent,CartComponent
+;;TopContentSlot-cartPage;Top Content Slot for Cart Page;true;CartComponent
 ;;CenterLeftContentSlot-cartPage;Center Left Content Slot for Cart Page;true;PromotionsComponent,PotentialPromotionsComponent
 ;;CenterRightContentSlot-cartPage;Center Right Content Slot for Cart Page;true;CartTotalsComponent
 ;;BottomContentSlot-cartPage;Bottom Content Slot for Cart Page;true;CheckoutComponent,CartSuggestions
