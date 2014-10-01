@@ -38,8 +38,8 @@
 			<a href="#categoryTab">still wanna help ?</a>
 			<div class="logo-company">
 				<a href="http://www.sap.com"><img src="${commonResourcePath}/../ffac/images/logo-sharp.png" alt=""></a>
-				<a href="http://www.sai-it.com/"><img src="${commonResourcePath}/../ffac/images/logo-sai.png" alt=""></a>
-				<a href="http://www.hybris.com/hybris/en.html"><img src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a>
+				<a href="http://www.sai-it.com"><img src="${commonResourcePath}/../ffac/images/logo-sai.png" alt=""></a>
+				<a href="http://www.hybris.com"><img src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a>
 			</div>
 		</div>
 	</div>

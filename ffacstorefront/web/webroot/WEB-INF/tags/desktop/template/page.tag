@@ -53,12 +53,10 @@
      <!--/banner-small-->
  <div class="top-main">
       <h3>MANY THANKS TO OUR SPONSORS</h3>
-      <div class="logo-company"> <a href="#"><img
-							src="${commonResourcePath}/../ffac/images/logo-sharp.png" alt=""></a> <a
-							href="#"><img
-							src="${commonResourcePath}/../ffac/images/logo-sai.png" alt=""></a> <a
-							href="#"><img
-							src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a> </div>
+      <div class="logo-company">
+      <a href="http://www.sap.com"><img src="${commonResourcePath}/../ffac/images/logo-sharp.png" alt=""></a> 
+      <a href="http://www.sai-it.com"><img src="${commonResourcePath}/../ffac/images/logo-sai.png" alt=""></a>
+      <a href="http://www.hybris.com"><img src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a></div>
       <h3> buy a handmade item &amp; help the community</h3>
         <p>Just by saving a cup of coffee, a breakfast to help us buy those lovely hand made 
         product crafted by people who has a very hard life right now.
