@@ -85,6 +85,7 @@
 <link href="${commonResourcePath}/../ffac/css/bootstrap.min.css" rel="stylesheet">
 <link href="${commonResourcePath}/../ffac/css/font-awesome.min.css" rel="stylesheet">
 <link href="${commonResourcePath}/../ffac/css/style.css" rel="stylesheet">
+<link href="${commonResourcePath}/../ffac/css/changes.css" rel="stylesheet">
 <!--[if lt IE 9]>
     <script src="common/js/html5shiv.js"></script>
     <script src="common/js/respond.min.js"></script>
