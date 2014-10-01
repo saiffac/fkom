@@ -52,7 +52,7 @@
 			
 			
 	<c:if test="${empty cartData.entries}">
-		<div class="span-24">
+		<div class="span-24 cartPane" >
 			<div class="span-24 wide-content-slot cms_disp-img_slot">
 				<cms:pageSlot position="EmptyCartMiddleContent" var="feature" element="div">
 					<cms:component component="${feature}"/>

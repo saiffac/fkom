@@ -14,15 +14,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="cart" tagdir="/WEB-INF/tags/desktop/cart" %>
 
-<table id="orderTotals">
-	<thead>
-	<tr>
-		<td>
+<div class="titleTotals">
+		<h2>
 			<spring:theme code="order.order.totals"/>
-		</td>
-		<td></td>
-	</tr>
-	</thead>
+		</h2>
+	</div>
+	
+<table id="orderTotals">
+
+		
 	<tfoot>
 	<tr>
 		<td>

@@ -30,5 +30,5 @@
 		</span>
 	<%-- </ycommerce:testId> --%>
 </a>
-<div style="visibility: hidden" id="miniCartLayer" class="miniCartPopup" data-refreshMiniCartUrl="${refreshMiniCartUrl}/?"  data-rolloverPopupUrl="${rolloverPopupUrl}" ></div>
-
+<%-- <div style="visibility: hidden" id="miniCartLayer" class="miniCartPopup" data-refreshMiniCartUrl="${refreshMiniCartUrl}/?"  data-rolloverPopupUrl="${rolloverPopupUrl}" ></div> --%>
+<div style="visibility: hidden" id="miniCartLayer" class="miniCartPopup" data-refreshMiniCartUrl="${refreshMiniCartUrl}/?"></div>

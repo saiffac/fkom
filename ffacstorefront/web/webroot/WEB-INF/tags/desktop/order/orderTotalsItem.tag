@@ -8,18 +8,13 @@
 <%@ taglib prefix="product" tagdir="/WEB-INF/tags/desktop/product" %>
 <%@ taglib prefix="theme" tagdir="/WEB-INF/tags/shared/theme" %>
 <%@ taglib prefix="format" tagdir="/WEB-INF/tags/shared/format" %>
-
 <%@ attribute name="containerCSS" required="false" type="java.lang.String" %>
-
-
-
-
 
 <table id="orderTotals" class="${containerCSS}">
 	<thead>
 		<tr>
 			<td><spring:theme code="text.account.order.orderTotals" text="Order Totals"/></td>
-			<td></td>
+		<td></td>
 		</tr>
 	</thead>
 	<tfoot>

@@ -115,6 +115,13 @@ clear:left
 #back-top span { display: block; height: 43px; margin-bottom: 7px; width: 68px; padding-left:12px; padding-top:3px; font-size:40px; color:#010101 }
 #back-top a:hover { background-color:#fe980f }
 #back-top a:hover span { color:#fff }
+
+/* new css*/
+.cartPane{ width:100% !important; text-align:center;}
+.cartPane h2 { color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:35px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; text-align:center }
+.span-24{width:100% !important;}
+
+
  @media only screen and (max-width:1380px) {
 .logo {
 padding-top:30px
