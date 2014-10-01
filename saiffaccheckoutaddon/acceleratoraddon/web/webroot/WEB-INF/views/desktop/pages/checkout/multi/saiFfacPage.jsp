@@ -29,7 +29,7 @@
         <div id="checkoutContentPanel" class="clearfix">
             <div class="description"><p><b>Paypal Payment</b></p></div>
             <a class="button" href="${cancelUrl}"><spring:theme code="checkout.multi.cancel" text="Cancel"/></a>
-            <a class="button" href="${continueUrl}"><spring:theme code="checkout.multi.continue" text="Continue"/></a>
+            <a href="${continueUrl}"><img src="https://www.paypalobjects.com/en_US/i/btn/x-click-but6.gif"></a>
         </div>
     </div>
  

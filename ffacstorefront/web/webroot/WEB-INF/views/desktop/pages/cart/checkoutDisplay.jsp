@@ -4,14 +4,14 @@
 
 <cart:cartExpressCheckoutEnabled />
 
-<a class="button" href="${continueShoppingUrl}">
+<%-- <a class="button" href="${continueShoppingUrl}">
 	<spring:theme text="Continue Shopping" code="cart.page.continue"/>
-</a>
+</a> --%>
 <button id="checkoutButtonBottom" class="doCheckoutBut positive right" type="button" data-checkout-url="${checkoutUrl}">
 	<spring:theme code="checkout.checkout" />
 </button>
 
-<c:if test="${showCheckoutStrategies && not empty cartData.entries}" >
+<%-- <c:if test="${showCheckoutStrategies && not empty cartData.entries}" >
 	<div class="span-24">
 		<div class="right">
 			<input type="hidden" name="flow" id="flow"/>
@@ -31,5 +31,5 @@
 			</select>
 		</div>
 	</div>
-</c:if>
+</c:if> --%>
 

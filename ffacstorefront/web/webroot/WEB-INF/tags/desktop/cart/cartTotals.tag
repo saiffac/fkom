@@ -94,7 +94,7 @@
 </table>
 
 
-<c:if test="${not cartData.net}">
+<%-- <c:if test="${not cartData.net}">
 	<div class="realTotals">
 		<ycommerce:testId code="cart_taxes_label">
 			<p>
@@ -102,7 +102,7 @@
 			</p>
 		</ycommerce:testId>
 	</div>
-</c:if>
+</c:if> --%>
 <c:if test="${cartData.net && not showTax }">
 	<div class="realTotals">
 		<ycommerce:testId code="cart_taxes_label">
