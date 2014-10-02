@@ -19,13 +19,13 @@ import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.Abstrac
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.GuestForm;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.LoginForm;
-import de.hybris.platform.acceleratorstorefrontcommons.forms.RegisterForm;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.validation.GuestValidator;
 import de.hybris.platform.acceleratorstorefrontcommons.security.GUIDCookieStrategy;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
 import de.hybris.platform.cms2.model.pages.ContentPageModel;
 import de.hybris.platform.commercefacades.order.data.CartData;
+import de.hybris.platform.commerceservices.customer.DuplicateUidException;
 
 import java.util.Collections;
 
@@ -44,6 +44,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sai.ffac.facades.customer.impl.FfacCustomerFacade;
+import com.sai.ffac.facades.user.data.FfacRegisterData;
 import com.sai.ffac.storefront.controllers.ControllerConstants;
 import com.sai.ffac.storefront.forms.FfacRegisterForm;
 
@@ -67,6 +69,18 @@ public class CheckoutLoginController extends AbstractLoginPageController
 
 	@Resource(name = "guestValidator")
 	private GuestValidator guestValidator;
+
+	@Resource(name = "ffacCustomerFacade")
+	private FfacCustomerFacade customerFacade;
+
+	/**
+	 * @return the customerFacade
+	 */
+	@Override
+	public FfacCustomerFacade getCustomerFacade()
+	{
+		return customerFacade;
+	}
 
 	@Override
 	protected AbstractPageModel getCmsPage() throws CMSItemNotFoundException
@@ -125,12 +139,49 @@ public class CheckoutLoginController extends AbstractLoginPageController
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String doCheckoutRegister(final RegisterForm form, final BindingResult bindingResult, final Model model,
+	public String doCheckoutRegister(final FfacRegisterForm form, final BindingResult bindingResult, final Model model,
 			final HttpServletRequest request, final HttpServletResponse response, final RedirectAttributes redirectModel)
 			throws CMSItemNotFoundException
 	{
 		getRegistrationValidator().validate(form, bindingResult);
-		return processRegisterUserRequest(null, form, bindingResult, model, request, response, redirectModel);
+		if (bindingResult.hasErrors())
+		{
+			model.addAttribute(form);
+			model.addAttribute(new LoginForm());
+			model.addAttribute(new GuestForm());
+			GlobalMessages.addErrorMessage(model, "form.global.error");
+			return handleRegistrationError(model);
+		}
+
+		final FfacRegisterData data = new FfacRegisterData();
+		data.setFirstName(form.getFirstName());
+		data.setLastName(form.getLastName());
+		data.setLogin(form.getEmail());
+		data.setPassword(form.getPwd());
+		data.setTitleCode(form.getTitleCode());
+		data.setSapCode(form.getSapCode()); //SAP I or C number
+		data.setMobileNumber(form.getMobileNumber()); //Mobile number
+		try
+		{
+			getCustomerFacade().register(data);
+			getAutoLoginStrategy().login(form.getEmail().toLowerCase(), form.getPwd(), request, response);
+
+			GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.CONF_MESSAGES_HOLDER,
+					"registration.confirmation.message.title");
+		}
+		catch (final DuplicateUidException e)
+		{
+			LOG.warn("registration failed: " + e);
+			model.addAttribute(form);
+			model.addAttribute(new LoginForm());
+			model.addAttribute(new GuestForm());
+			bindingResult.rejectValue("email", "registration.error.account.exists.title");
+			GlobalMessages.addErrorMessage(model, "form.global.error");
+			return handleRegistrationError(model);
+		}
+
+		return REDIRECT_PREFIX + getSuccessRedirect(request, response);
+		//		return processRegisterUserRequest(null, form, bindingResult, model, request, response, redirectModel);
 	}
 
 	@RequestMapping(value = "/guest", method = RequestMethod.POST)
