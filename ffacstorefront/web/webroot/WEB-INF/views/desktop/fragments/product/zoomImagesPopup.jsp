@@ -3,13 +3,19 @@
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 
-
+<style type="text/css">
+.productImage { padding:20px}
+.productImage ul{ list-style:none; float:left; width:450px; padding:0; margin:0}
+.productImage ul li{ float: left; width:100%}
+.productImage ul li img{ display: block; width:100%}
+.productImage .productImagePrimary{ float:right; width:450px}
+.productImage .productImagePrimary img{width:100%}
+</style>
 
 <div class="productImage">
 	<div class="productImageGallery">
 		<c:if test="${fn:length(galleryImages) gt 0}">
 			<div class="scroller">
-			
 					<ul class="jcarousel-skin">
 						<c:forEach items="${galleryImages}" var="container">
 							<li>
@@ -19,7 +25,6 @@
 							</li>
 						</c:forEach>
 					</ul>
-			
 			</div>
 		</c:if>
 	</div>

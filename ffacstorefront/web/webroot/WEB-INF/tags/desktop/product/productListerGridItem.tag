@@ -24,7 +24,7 @@ function PopupCenter(url, title, w, h) {
 
     var left = ((width / 2) - (w / 2)) + dualScreenLeft;
     var top = ((height / 2) - (h / 2)) + dualScreenTop;
-    var newWindow = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+    var newWindow = window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
 
     // Puts focus on the newWindow
     if (window.focus) {
@@ -43,7 +43,7 @@ function PopupCenter(url, title, w, h) {
               <div class="single-products">
 	<div class="productinfo text-center ${hasPromotion ? 'productGridItemPromotion' : ''}">
 		<a href="${productUrl}" data-href="${productUrl}"  title="${product.name}" class="productMainLink"
-		onclick="PopupCenter(this.href, '${product.name}',500, 500); return false;">
+		onclick="PopupCenter(this.href, '${product.name}',980, 390); return false;">
 			<div class="thumb">
 				<product:productPrimaryImage product="${product}" format="product"/>
 				<c:if test="${not empty product.potentialPromotions and not empty product.potentialPromotions[0].productBanner}">

@@ -17,19 +17,20 @@ body p { line-height:40px; margin-bottom:25px }
 /* CSS header */
 header { margin-bottom:30px }
 .header_top { position:absolute; top:0; left:0; z-index:9999; width:100% }
+.header_top .main{ background:url(../images/Shape-11.png) repeat-x left bottom; padding-bottom:15px}
 .logo { padding-top:60px }
 .main { max-width:1170px; margin:auto; position:relative }
 /* shop-menu */
 .shop-menu { position:absolute; right:0; top:60px }
-.shop-menu a { color:#fff; text-align:center; display:block; text-transform:uppercase; font-size:20px }
+.shop-menu a { color:#fff; text-align:center; display:block; text-transform:uppercase; font-size:18px }
 
 .shop-menu .fa { padding-right:5px }
 /* banner */
 .banner { width:100%; overflow:hidden }
 .banner img { width:100% }
 .infor-banner { position:absolute; top:190px; width:100%; text-align:center; color:#fff }
-.infor-banner h1 { font-size:57px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:35px; margin-top:0; line-height:57px }
-.infor-banner h2 { font-size:40px; font-weight:600; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:5px }
+.infor-banner h1 { font-size:50px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:35px; margin-top:0; line-height:50px }
+.infor-banner h2 { font-size:35px; font-weight:600; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:5px }
 .infor-banner a { font-family: 'Cabin', sans-serif; font-weight:700; font-size:28px; text-transform:uppercase; color:#fff; margin-bottom:15px }
 .infor-banner a.btn-buy-gift { background:#00b2ef; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:236px; height:60px; text-align:center; line-height:60px; display:inline-block; margin-right:13px }
 .infor-banner a.btn-out-story { border:2px solid #fff; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:236px; height:60px; text-align:center; line-height:60px; display:inline-block; margin-left:13px }
@@ -130,7 +131,7 @@ padding-top:30px
 top:30px
 }
 .infor-banner {
-top:120px
+top:150px
 }
 .we-infor p {
 width:60%

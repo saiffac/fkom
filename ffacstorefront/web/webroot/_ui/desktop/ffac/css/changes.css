@@ -114,3 +114,8 @@ margin: 0 auto 110px;
 .append-1 #checkoutContentPanel a{ float:none; display: inline-block; margin: 0 5px}
 .append-1 #checkoutContentPanel a img{ vertical-align: top; margin-top: -13px}
 .append-1 #checkoutContentPanel a img:hover{opacity:0.6}
+
+/* css thunnail */
+. product-image-wrapper ul{list-style: none}
+
+.scroller .thumb img{ width: 100%}
