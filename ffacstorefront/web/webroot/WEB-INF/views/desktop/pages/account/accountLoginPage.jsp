@@ -11,7 +11,8 @@
 	<div id="globalMessages">
 		<common:globalMessages/>
 	</div>
-	<div class="span-24">
+	<a href="#loginpage"></a>
+	<div class="span-24" id="loginpage">
 		<cms:pageSlot position="LeftContentSlot" var="feature" element="div" class="span-12">
 			<cms:component component="${feature}"/>
 		</cms:pageSlot>
@@ -22,3 +23,8 @@
 	</div>
 
 </template:page>
+<script>
+$(function (){
+	$('body').scrollTo('#loginpage');
+});
+</script>
