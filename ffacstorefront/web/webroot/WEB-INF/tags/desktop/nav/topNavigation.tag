@@ -11,7 +11,7 @@
 
 
 <div class="category-tab col-sm-12">
-	<ul id="categoryTab" class="nav nav-tabs">
+	<ul class="nav nav-tabs">
 	  <li <c:if test="${categoryName == 'Categories'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/c/categories?q=:relevance#categoryTab" data-toggle="tab">ALL</a></li>
 	  <li <c:if test="${categoryName == 'Silver'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/Silver/c/153000#categoryTab" data-toggle="tab">SAP SILVER BALL</a></li>
 	  <li <c:if test="${categoryName == 'ForHer'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/ForHer/c/151000#categoryTab" data-toggle="tab">FOR HER</a></li>
