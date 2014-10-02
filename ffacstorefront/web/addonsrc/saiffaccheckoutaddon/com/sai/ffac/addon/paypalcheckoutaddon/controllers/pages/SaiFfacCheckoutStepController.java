@@ -9,6 +9,7 @@ import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMe
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.commercefacades.order.CartFacade;
 import de.hybris.platform.commercefacades.order.data.CartData;
+import de.hybris.platform.commercefacades.order.data.OrderData;
 import de.hybris.platform.commerceservices.order.CommerceCartModificationException;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.storefront.controllers.pages.checkout.steps.AbstractCheckoutStepController;
@@ -86,7 +87,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#enterStep(org.springframework
 	 * .ui.Model, org.springframework.web.servlet.mvc.support.RedirectAttributes)
@@ -210,7 +211,18 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		}
 		if (isSuccess)
 		{
-			cartFacade.removeSessionCart();
+			//			cartFacade.removeSessionCart();
+			OrderData orderData = null;
+			try
+			{
+				orderData = getCheckoutFacade().placeOrder();
+			}
+			catch (final Exception e)
+			{
+				LOG.error("Failed to place Order", e);
+				//should trigger to send email to resolve manually
+				GlobalMessages.addErrorMessage(model, "checkout.placeOrder.failed");
+			}
 
 			String deliveryDate = "";
 
@@ -244,6 +256,8 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 			model.addAttribute("isSuccessful", Boolean.TRUE);
 			model.addAttribute("deliveryDate", deliveryDate);
+			model.addAttribute("orderData", orderData);
+
 			GlobalMessages.addFlashMessage(redirectAttributes, GlobalMessages.CONF_MESSAGES_HOLDER, "checkout.multi.successful");
 
 		}
@@ -397,7 +411,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#back(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
@@ -412,7 +426,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#next(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
