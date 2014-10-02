@@ -63,8 +63,9 @@ function PopupCenter(url, title, w, h) {
 				<tr class="cartItem">
 					
 					<td headers="header2" class="thumb">
-						<a href="${productUrl}/zoomImages" data-href="${productUrl}"  title="${product.name}" 
-						onclick="PopupCenter(this.href, '${product.name}',500, 500); return false;">
+						<%-- <a href="${productUrl}/zoomImages" data-href="${productUrl}"  title="${product.name}" 
+						onclick="PopupCenter(this.href, '${product.name}',500, 500); return false;"> --%>
+						<a href="${productUrl}" data-href="${productUrl}"  title="${product.name}">
 						<product:productPrimaryImage product="${entry.product}" format="thumbnail"/></a>
 					</td>
 					

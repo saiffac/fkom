@@ -24,7 +24,7 @@
 			</c:if>
 			
 			
-				<a href="#" id="write_review_action_main" class="write" ><spring:theme code="review.write.title"  /></a>
+				<%-- <a href="#" id="write_review_action_main" class="write" ><spring:theme code="review.write.title"  /></a> --%>
 		
 			
 		

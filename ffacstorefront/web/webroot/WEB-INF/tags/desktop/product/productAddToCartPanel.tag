@@ -15,14 +15,14 @@
 
 
 <div class="qty">
-	<c:if test="${product.purchasable}">
+	<%-- <c:if test="${product.purchasable}">
 		<label for="qtyInput">
 			<spring:theme code="basket.page.quantity"/>
 		</label>
 		<input type="text" maxlength="3" size="1" id="qtyInput" name="qtyInput" class="qty" value="1">
-	</c:if>
+	</c:if> --%>
 
-	<c:if test="${product.stock.stockLevel gt 0}">
+	<%-- <c:if test="${product.stock.stockLevel gt 0}">
 		<c:set var="productStockLevel">${product.stock.stockLevel}&nbsp;
 			<spring:theme code="product.variants.in.stock"/>
 		</c:set>
@@ -31,22 +31,22 @@
 		<c:set var="productStockLevel">
 			<spring:theme code="product.variants.only.left" arguments="${product.stock.stockLevel}"/>
 		</c:set>
-	</c:if>
-	<c:if test="${product.stock.stockLevelStatus.code eq 'inStock' and empty product.stock.stockLevel}">
+	</c:if> --%>
+	<%-- <c:if test="${product.stock.stockLevelStatus.code eq 'inStock' and empty product.stock.stockLevel}">
 		<c:set var="productStockLevel">
 			<spring:theme code="product.variants.available"/>
 		</c:set>
-	</c:if>
+	</c:if> --%>
 
-	<ycommerce:testId code="productDetails_productInStock_label">
+	<%-- <ycommerce:testId code="productDetails_productInStock_label">
 		<p class="stock_message">${productStockLevel}</p>
-	</ycommerce:testId>
+	</ycommerce:testId> --%>
 </div>
 
 
-<div id="actions-container-for-${component.uid}" class="productAddToCartPanelContainer clearfix">
+<%-- <div id="actions-container-for-${component.uid}" class="productAddToCartPanelContainer clearfix">
 	<ul class="productAddToCartPanel clearfix">
 		<action:actions element="li" styleClass="productAddToCartPanelItem span-5" parentComponent="${component}"/>
 	</ul>
-</div>
+</div> --%>
 

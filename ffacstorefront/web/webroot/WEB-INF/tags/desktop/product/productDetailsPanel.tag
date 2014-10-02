@@ -36,18 +36,18 @@
 			${product.summary}
 		</div>
 
-		<product:productPromotionSection product="${product}"/>
+		<%-- <product:productPromotionSection product="${product}"/> --%>
 
-		<cms:pageSlot position="VariantSelector" var="component" element="div">
+		<%-- <cms:pageSlot position="VariantSelector" var="component" element="div">
 			<cms:component component="${component}"/>
-		</cms:pageSlot>
+		</cms:pageSlot> --%>
 
 		<cms:pageSlot position="AddToCart" var="component" element="div" class="span-10 last add-to-cart">
 			<cms:component component="${component}"/>
 		</cms:pageSlot>
 	</div>
 
-	<cms:pageSlot position="Section2" var="feature" element="div" class="span-8 section2 cms_disp-img_slot last">
+	<%-- <cms:pageSlot position="Section2" var="feature" element="div" class="span-8 section2 cms_disp-img_slot last">
 		<cms:component component="${feature}"/>
-	</cms:pageSlot>
+	</cms:pageSlot> --%>
 </div>

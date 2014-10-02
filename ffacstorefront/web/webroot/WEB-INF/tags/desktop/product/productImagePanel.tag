@@ -11,7 +11,7 @@
 
 
 <div class="span-14 productImage">
-	<div class="productImageGallery">
+	<%-- <div class="productImageGallery">
 		<ul class="jcarousel-skin">
 			<c:forEach items="${galleryImages}" var="container" varStatus="varStatus">
 				<li>
@@ -21,7 +21,7 @@
 				</li>
 			</c:forEach>
 		</ul>
-	</div>
+	</div> --%>
 
 	<div class="productImagePrimary" id="primary_image">
 		<c:if test="${fn:contains(product.url, '?sku=')}">

@@ -33,8 +33,8 @@ function PopupCenter(url, title, w, h) {
 }
 </script>
 <spring:theme code="text.addToCart" var="addToCartText"/>
-<c:url value="${product.url}/zoomImages" var="productUrl"/>
-<%-- <c:url value="${product.url}" var="productUrl"/> --%>
+<%-- <c:url value="${product.url}/zoomImages" var="productUrl"/> --%>
+<c:url value="${product.url}" var="productUrl"/>
 
 <c:set value="${not empty product.potentialPromotions}" var="hasPromotion"/>
 
@@ -42,8 +42,9 @@ function PopupCenter(url, title, w, h) {
 <div class="product-image-wrapper">
               <div class="single-products">
 	<div class="productinfo text-center ${hasPromotion ? 'productGridItemPromotion' : ''}">
-		<a href="${productUrl}" data-href="${productUrl}"  title="${product.name}" class="productMainLink"
-		onclick="PopupCenter(this.href, '${product.name}',980, 390); return false;">
+		<%-- <a href="${productUrl}" data-href="${productUrl}"  title="${product.name}" class="productMainLink"
+		onclick="PopupCenter(this.href, '${product.name}',980, 390); return false;"> --%>
+		<a href="${productUrl}" data-href="${productUrl}"  title="${product.name}" class="productMainLink">
 			<div class="thumb">
 				<product:productPrimaryImage product="${product}" format="product"/>
 				<c:if test="${not empty product.potentialPromotions and not empty product.potentialPromotions[0].productBanner}">
