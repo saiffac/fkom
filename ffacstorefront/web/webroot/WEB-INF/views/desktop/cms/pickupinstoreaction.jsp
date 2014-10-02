@@ -8,9 +8,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="storepickup" tagdir="/WEB-INF/tags/desktop/storepickup" %>
 <c:if test="${empty showAddToCart ? true : showAddToCart and product.availableForPickup}">
-	<c:set var="actionUrl" value="${fn:replace(url,
+	<%-- <c:set var="actionUrl" value="${fn:replace(url,
 	                                '{productCode}', product.code)}" scope="request"/>
 	<storepickup:clickPickupInStore product="${product}" cartPage="false"/>
 	<storepickup:pickupStorePopup/>
-	<c:remove var="actionUrl"/>
+	<c:remove var="actionUrl"/> --%>
 </c:if>

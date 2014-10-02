@@ -44,9 +44,9 @@
 </div>
 
 
-<%-- <div id="actions-container-for-${component.uid}" class="productAddToCartPanelContainer clearfix">
+<div id="actions-container-for-${component.uid}" class="productAddToCartPanelContainer clearfix">
 	<ul class="productAddToCartPanel clearfix">
 		<action:actions element="li" styleClass="productAddToCartPanelItem span-5" parentComponent="${component}"/>
 	</ul>
-</div> --%>
+</div>
 
