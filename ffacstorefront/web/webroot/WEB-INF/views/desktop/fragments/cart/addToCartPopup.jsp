@@ -63,7 +63,7 @@
 	</div>
 </div>	
 
-<div class="links"><a href="${cartUrl}" class="button positive"><spring:theme code="checkout.checkout" /></a></div>
+<div class="links btnCheckout"><a href="${cartUrl}" class="button positive"><spring:theme code="checkout.checkout" /></a></div>
 
 </div>
 

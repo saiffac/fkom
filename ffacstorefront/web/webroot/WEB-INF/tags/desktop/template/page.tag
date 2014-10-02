@@ -58,9 +58,9 @@
       <a href="http://www.sai-it.com"><img src="${commonResourcePath}/../ffac/images/logo-sai.png" alt=""></a>
       <a href="http://www.hybris.com"><img src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a></div>
       <h3 id="categoryTab"> buy a handmade item &amp; help the community</h3>
-        <p>Just by saving a cup of coffee, a breakfast to help us buy those lovely hand made 
+        <!-- <p>Just by saving a cup of coffee, a breakfast to help us buy those lovely hand made 
         product crafted by people who has a very hard life right now.
-        <br/>Help them, help yourself for a better world.</p>
+        <br/>Help them, help yourself for a better world.</p> -->
     </div>
     
     </c:if>

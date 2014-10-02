@@ -17,7 +17,7 @@
 			<cms:component component="${feature}"/>
 		</cms:pageSlot>
 
-		<cms:pageSlot position="RightContentSlot" var="feature" element="div" class="span-12 last">
+		<cms:pageSlot position="RightContentSlot" var="feature" element="div" class="span-12">
 			<cms:component component="${feature}"/>
 		</cms:pageSlot>
 	</div>

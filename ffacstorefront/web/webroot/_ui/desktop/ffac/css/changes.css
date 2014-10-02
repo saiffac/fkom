@@ -1,10 +1,17 @@
+/* nav */
+
+.header_top .nav{ position: absolute; right:0; top:5px; width:600px; float:right; text-align: right;}
+.header_top .nav li{ display: inline-block; margin: 0 5px; color: #fff; font-size: 14px}
+.header_top .nav li a{ color: #fff; padding:0 0 0 30px; font-size: 14px }
+.header_top .nav li a:hover, .nav li:hover{color:#fe980f; background: none; text-decoration: none}
+
 .cartItem img {
 	width: 200px;
 	height: 200px;
 }
 
 .product-image-wrapper {
-	height: 330px;
+	height: 364px;
 }
 
 .productinfo img {
@@ -14,51 +21,96 @@
 .productinfo  .details {
 	color: #222;
 	font-size: 15px;
-min-height: 50px;
+	height: 45px; padding:0 10px;
+	font-weight: 700;
+    margin-bottom: 15px;
 }
-
+.productinfo  .details:hover{ color:#fe980f}
 .productinfo .priceContainer{
-	color: #222;
-	font-size: 15px;
+	 margin-bottom: 15px;
 }
+.productinfo .productMainLink:hover{text-decoration: none}
 
 .we-infor {
 width: 1170px;
-margin: auto;
+margin: 0 auto 110px;
 }
+.price{color: #fff ;
+    font-size: 20px;font-family: 'Lato', sans-serif !important
+    }
+.productinfo .priceContainer .price{ font-weight:700 !important; 
+	font-family: 'Lato', sans-serif !important;color: #4d4d4d;
+    font-size: 20px;
+   }
+.shop-menu .price:hover { color:#FE980F !important; text-decoration:none }
 
-.itemThumb img {
-width: 100px;
-height: 100px;
-}
-.page-login .span-24{
-	width: 100%;
-	margin-bottom: 10px;
-}
+/* page cart */
+.last{width: 1170px;}
+.titleTotals h2{width:1170px;color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px;  font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; text-align:center; float:left; display:block }
 
-.page-login .span-12{
-	width: 45%;
-}
-.page-login .category-tab{
-	margin-bottom: 10px;
-}
-.page-login #categoryTab{
-	margin-bottom: 10px;
-}
-.nav>li>a {
-color: #fff;
-}
-.nav>li {
-float: left;
-color: #fff;
-}
-.shop-menu {
-top: 60px;
-}
-.nav {
-position: absolute;
-right: 0;
-margin-bottom: 10px;
-}
-.nav>li>a:hover, .nav>li>a:focus { text-decoration:underline; background: none; }
-	
+
+#orderTotals td:nth-child(1){width:600px;padding-left:300px }
+#orderTotals td:nth-child(2){width:600px;padding-right:300px}
+
+.span-24 button.positive{color: #fff;
+    font-family: "Cabin",sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;background: none repeat scroll 0 0 #00b2ef;
+    border-radius: 6px;
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    margin-right: 13px;
+    text-align: center;
+    min-width: 186px; border:1px solid #0095a8}
+.span-24 button.positive:hover{background:#fe980f}
+
+/* payment paypal */
+.append-1{width: 1170px;}
+.append-1 .paypalButton{width: 1170px; border:none !important;text-align: center;}
+.append-1 h2{width:1170px;color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:30px;  font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; text-align:center; float:left; display:block}
+.append-1 a.button{ display:inline-block; margin:0 5px; float:none;font-family: "Cabin",sans-serif;
+    font-size: 20px;color:#fff;
+    font-weight: 700;
+    margin-bottom: 15px;background: none repeat scroll 0 0 #00b2ef;
+    border-radius: 6px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    min-width: 186px; border:1px solid #0095a8; padding:0 !important}
+
+.append-1 a.button:nth-child(1):hover{background:#fe980f; text-decoration: none}
+.append-1 a:hover{text-decoration: none}
+
+/* css #globalMessages */
+#globalMessages{float: left;width: 100%;}
+.itemDesc .itemQuantity{ text-align: right}
+.itemDesc .itemName{ float:left; width:100%; text-align: center;}
+.btnCheckout .positive{ display:inline-block; margin:0; float:none;font-family: "Cabin",sans-serif;
+    font-size: 16px;color:#fff;
+    font-weight: 700;
+    margin-bottom: 15px;background:#00b2ef !important;
+    border-radius: 6px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    min-width: 186px;}
+.btnCheckout .button{background:#00b2ef !important; border:1px solid #0095a8 !important; padding:0 !important}
+.btnCheckout .button:hover{background:#fe980f !important; text-decoration: none}
+
+/* css alert */
+.alert{float: left;width: 100%;}
+/* css #cartItems */
+#cartItems  .cart thead th#header3{ width:200px}
+.ffacbtnCancel{color: #2e2e2e; display: inline-block; font-family: 'Roboto', sans-serif; font-size: 16px; text-transform: uppercase; background:#ebebeb; width:150px; height:52px; padding:0; line-height:52px; text-align: center; border-radius: 6px; border:1px solid #dfdfdf}
+.ffacbtnCancel:hover{background:#fe980f ; text-decoration: none; color:#fff}
+.append-1 .description h2{color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:30px;  font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; text-align:center; float:left; display:block}
+.append-1 #checkoutContentPanel{border: none;
+    margin: 0 0 30px;
+    padding: 0 0 20px;
+    position: relative;text-align:center;
+    }
+.append-1 #checkoutContentPanel a{ float:none; display: inline-block; margin: 0 5px}
+.append-1 #checkoutContentPanel a img{ vertical-align: top; margin-top: -13px}
+.append-1 #checkoutContentPanel a img:hover{opacity:0.6}

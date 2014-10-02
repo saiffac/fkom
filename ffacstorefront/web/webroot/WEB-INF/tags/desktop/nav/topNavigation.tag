@@ -18,4 +18,5 @@
 	  <li <c:if test="${categoryName == 'ForHim'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/ForHim/c/150000#categoryTab" data-toggle="tab">FOR HIM</a></li>
 	  <li <c:if test="${categoryName == 'Gifts'}">class="active"</c:if>><a href="/ffacstorefront/en/Categories/Gifts/c/152000#categoryTab" data-toggle="tab">GIFTS</a></li>
 	</ul>
+	<div class="clear"></div>
 </div>
