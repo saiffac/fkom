@@ -15,8 +15,10 @@ body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, 
 }
 body p { line-height:40px; margin-bottom:25px }
 /* CSS header */
-header { margin-bottom:30px }
+header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat center top; height:703px }
 .header_top { position:absolute; top:0; left:0; z-index:9999; width:100% }
+
+
 
 .logo { padding-top:60px }
 .main { max-width:1170px; margin:auto; position:relative }
@@ -28,7 +30,7 @@ header { margin-bottom:30px }
 /* banner */
 .banner { width:100%; overflow:hidden }
 .banner img { width:100% }
-.infor-banner { position:absolute; top:190px; width:100%; text-align:center; color:#fff }
+.infor-banner { position:absolute; top:275px; width:100%; text-align:center; color:#fff }
 .infor-banner h1 { font-size:50px; font-weight:800; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:35px; margin-top:0; line-height:50px }
 .infor-banner h2 { font-size:35px; font-weight:600; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:5px }
 .infor-banner a { font-family: 'Cabin', sans-serif; font-weight:700; font-size:28px; text-transform:uppercase; color:#fff; margin-bottom:15px }
@@ -129,9 +131,6 @@ padding-top:30px
 }
 .shop-menu {
 top:30px
-}
-.infor-banner {
-top:150px
 }
 .we-infor p {
 width:60%

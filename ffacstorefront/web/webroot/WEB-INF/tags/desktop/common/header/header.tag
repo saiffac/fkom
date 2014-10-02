@@ -55,9 +55,6 @@
 
 	<!--banner-->
 	<div class="banner">
-		<div class="frm-img">
-			<img src="${commonResourcePath}/../ffac/images/banner.jpg" alt="">
-		</div>
 		<div class="infor-banner">
 			<h2>give us a hand</h2>
 			<h1>improving lives & livelihood</h1>
