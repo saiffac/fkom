@@ -42,7 +42,7 @@
 			<cms:component component="${component}"/>
 		</cms:pageSlot> --%>
 
-		<cms:pageSlot position="AddToCart" var="component" element="div" class="span-10 last add-to-cart">
+		<cms:pageSlot position="AddToCart" var="component" element="div" class="span-10 last">
 			<cms:component component="${component}"/>
 		</cms:pageSlot>
 	</div>
