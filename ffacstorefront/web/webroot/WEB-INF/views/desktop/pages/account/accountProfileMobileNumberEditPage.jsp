@@ -8,7 +8,7 @@
 
 <c:url var="profileUrl" value="/my-account/profile" />
 <div class="span-24">
-	<div class="span-20 last">	
+	<div class="span-20">	
 		<div class="accountContentPane clearfix">
 			<div class="headline"><spring:theme code="text.account.change.mobileNumber" text="Profile"/></div>
 			<div class="required right"><spring:theme code="form.required" text="Fields marked * are required"/></div>

@@ -1,6 +1,6 @@
 /* nav */
 
-.header_top .nav{ position: absolute; right:0; top:5px; width:600px; float:right; text-align: right;}
+.header_top .nav{ position: absolute; right:0; top:15px; width:600px; float:right; text-align: right;}
 .header_top .nav li{ display: inline-block; margin: 0 5px; color: #fff; font-size: 14px}
 .header_top .nav li a{ color: #fff; padding:0 0 0 30px; font-size: 14px }
 .header_top .nav li a:hover, .nav li:hover{color:#fe980f; background: none; text-decoration: none}
@@ -119,3 +119,45 @@ margin: 0 auto 110px;
 . product-image-wrapper ul{list-style: none}
 
 .scroller .thumb img{ width: 100%}
+
+/* css my-acount */
+.accountLeftNavigation{ width:380px; float:left}
+.accountContentPane{width:760px; float:right; padding-bottom: 20px}
+.accountContentPane .accountnavigationcollectioncomponent .accountNav {
+    border: 1px solid #d3d3d3; height:136px}
+.accountContentPane .headline{border-bottom: 1px solid #d3d3d3}
+.accountNav .headline, .accountContentPane .headline {   
+    color: #2e2e2e;
+    display: block;
+    font-family: "Roboto",sans-serif;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-transform: uppercase; background: none; border-bottom: 1px solid #d3d3d3;margin: 0 0 10px}
+
+.accountContentPane .account-profile-data{ margin-bottom: 15px}
+
+.accountContentPane a.button, .accountContentPane button{ display:inline-block; margin:0; float:none;font-family: "Cabin",sans-serif;
+    font-size: 16px;color:#fff;
+    font-weight: 700;
+    margin-bottom: 15px;background:#00b2ef !important;
+    border-radius: 6px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    min-width: 186px; border:none; padding:0 20px}
+    .accountContentPane a.button:hover, .accountContentPane button:hover{background:#fe980f !important ; text-decoration: none; color:#fff}
+    
+.form-actions button.positive{isplay:inline-block; margin:0; float:none;font-family: "Cabin",sans-serif;
+    font-size: 16px;color:#fff;
+    font-weight: 700;
+    margin-bottom: 15px;background:#00b2ef !important;
+    border-radius: 6px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border:none; padding:0 30px; text-transform:none;}
+ .form-actions button.positive:hover{background:#fe980f !important ; text-decoration: none ; color:#fff}
+
+

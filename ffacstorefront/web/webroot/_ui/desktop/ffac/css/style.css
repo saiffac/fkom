@@ -23,7 +23,7 @@ header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat cent
 .logo { padding-top:60px }
 .main { max-width:1170px; margin:auto; position:relative }
 /* shop-menu */
-.shop-menu { position:absolute; right:0; top:60px }
+.shop-menu { position:absolute; right:0; top:50px }
 .shop-menu a { color:#fff; text-align:center; display:block; text-transform:uppercase; font-size:18px }
 
 .shop-menu .fa { padding-right:5px }
@@ -34,7 +34,7 @@ header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat cent
 .infor-banner h1 { font-size:50px; font-weight:800; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:35px; margin-top:0; line-height:50px }
 .infor-banner h2 { font-size:35px; font-weight:600; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:5px }
 .infor-banner a { font-family: 'Cabin', sans-serif; font-weight:700; font-size:28px; text-transform:uppercase; color:#fff; margin-bottom:15px }
-.infor-banner a.btn-buy-gift { background:#00b2ef; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-right:13px }
+.infor-banner a.btn-buy-gift { -moz-box-shadow: inset 0px -2px #08789f;-webkit-box-shadow: inset 0px -2px #08789f;box-shadow: inset 0px -2px #08789f;background:#00b2ef; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-right:13px }
 .infor-banner a.btn-out-story { border:2px solid #fff; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-left:13px }
 .infor-banner a:hover { text-decoration:none }
 .infor-banner a.btn-buy-gift:hover { background:#FE980F }
@@ -129,9 +129,7 @@ clear:left
 .logo {
 padding-top:30px
 }
-.shop-menu {
-top:30px
-}
+
 .we-infor p {
 width:60%
 }
