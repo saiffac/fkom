@@ -34,7 +34,7 @@
 <footer class="footer-bottom">
 	<div class="main">
 		<div class="row">
-			<h1>THANK YOUR FOR HELPING !</h1>
+			<h1>THANK YOU FOR HELPING !</h1>
 			<a href="#headAnchor">still wanna help ?</a>
 			<div class="logo-company">
 				<a href="http://www.sap.com"><img src="${commonResourcePath}/../ffac/images/logo-sharp.png" alt=""></a>
