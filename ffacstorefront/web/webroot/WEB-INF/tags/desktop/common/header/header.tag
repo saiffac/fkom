@@ -63,8 +63,8 @@
 			<a href="#ourStory" class="btn-out-story">our story...</a>
 			</c:if>
 			<c:if test="${ cmsPageRequestContextData.page.uid ne 'productGrid' }">
-			<a href="#tabAnchor" class="btn-buy-gift">buy a gift</a>
-			<a href="javascript:void(0)" class="btn-out-story">our story...</a>
+			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance#headAnchor" class="btn-buy-gift">buy a gift</a>
+			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance#ourStory" class="btn-out-story">our story...</a>
 			</c:if>
 			
 			<p>Buy a gift and help transform someone's life</p>
