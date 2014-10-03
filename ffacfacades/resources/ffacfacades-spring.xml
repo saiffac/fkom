@@ -173,6 +173,11 @@
 		<property name="checkoutFlowStrategy" ref="checkoutFlowStrategy"/>
 		<property name="checkoutPciStrategy" ref="checkoutPciStrategy"/>
 	</bean>
+	
+	<!-- Order -->
+	<alias name="ffacCheckoutFacade" alias="ffacCheckoutFacade"/>
+	<bean id="ffacCheckoutFacade" class="com.sai.ffac.facades.order.impl.FfacCheckoutFacade" parent="defaultAcceleratorCheckoutFacade">
+	</bean>
 
 	<!--
 	The SessionOverrideCheckoutFlowFacade allows the CheckoutFlow and the SubscriptionPciOption to be overridden in the session.

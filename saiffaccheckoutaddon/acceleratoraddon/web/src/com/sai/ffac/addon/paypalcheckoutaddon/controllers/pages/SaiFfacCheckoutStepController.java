@@ -3,6 +3,7 @@
  */
 package com.sai.ffac.addon.paypalcheckoutaddon.controllers.pages;
 
+import de.hybris.platform.acceleratorfacades.order.AcceleratorCheckoutFacade;
 import de.hybris.platform.acceleratorstorefrontcommons.annotations.RequireHardLogIn;
 import de.hybris.platform.acceleratorstorefrontcommons.checkout.steps.CheckoutStep;
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
@@ -84,6 +85,15 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	@Resource(name = "configurationService")
 	private ConfigurationService configurationService;
+
+	@Resource(name = "ffacCheckoutFacade")
+	private AcceleratorCheckoutFacade checkoutFacade;
+
+	@Override
+	protected AcceleratorCheckoutFacade getCheckoutFacade()
+	{
+		return checkoutFacade;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -216,6 +226,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 			try
 			{
 				orderData = getCheckoutFacade().placeOrder();
+
 			}
 			catch (final Exception e)
 			{
