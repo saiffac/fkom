@@ -61,3 +61,8 @@
 		</div>
 	</c:if>
 </template:page>
+<script>
+$(function (){
+	$('body').scrollTo('#tabAnchor');
+});
+</script>

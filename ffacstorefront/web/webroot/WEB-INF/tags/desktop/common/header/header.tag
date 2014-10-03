@@ -58,8 +58,15 @@
 		<div class="infor-banner">
 			<h2>give us a hand</h2>
 			<h1>improving lives & livelihood</h1>
-			<a href="#categoryTab" class="btn-buy-gift">buy a gift</a>
+			<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
+			<a href="#headAnchor" class="btn-buy-gift">buy a gift</a>
 			<a href="#ourStory" class="btn-out-story">our story...</a>
+			</c:if>
+			<c:if test="${ cmsPageRequestContextData.page.uid ne 'productGrid' }">
+			<a href="#tabAnchor" class="btn-buy-gift">buy a gift</a>
+			<a href="javascript:void(0)" class="btn-out-story">our story...</a>
+			</c:if>
+			
 			<p>Buy a gift and help transform someone's life</p>
 		</div>
 	</div>
