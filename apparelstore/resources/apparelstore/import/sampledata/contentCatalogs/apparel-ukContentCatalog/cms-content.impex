@@ -253,7 +253,8 @@ INSERT_UPDATE AccountNavigationComponent;$contentCV[unique=true];uid[unique=true
 
 # Account Navigation Bar Component
 INSERT_UPDATE AccountNavigationCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
-;;AccountHomepageComponent;Account Homepage Component;AccountProfileNavigationComponent,AccountAddressBookNavigationComponent,AccountPaymentDetailsNavigationComponent,AccountOrderHistoryNavigationComponent;AccountHomepageComponent
+#;;AccountHomepageComponent;Account Homepage Component;AccountProfileNavigationComponent,AccountAddressBookNavigationComponent,AccountPaymentDetailsNavigationComponent,AccountOrderHistoryNavigationComponent;AccountHomepageComponent
+;;AccountHomepageComponent;Account Homepage Component;AccountProfileNavigationComponent,AccountOrderHistoryNavigationComponent;AccountHomepageComponent
 
 # Navigation Bar Component
 INSERT_UPDATE NavigationBarCollectionComponent;$contentCV[unique=true];uid[unique=true];name;components(uid, $contentCV);&componentRef
@@ -343,7 +344,8 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 ;SurfTShadesNavNodeMenu;;Surf Shades Menu;SurfNavigationNode;;ShadesAnonLink,ShadesFoxLink,ShadesRoxyLink,ShadesQuiksilverLink,ShadesVonZipperLink,ShadesBrowseAllLink;SurfTShadesNavNodeMenu;
 ;SurfBoardsNavNodeMenu;;Surf Boards Menu;SurfNavigationNode;;BoardsAlMerrickLink,BoardsSkimOneLink,BoardsSouthpointLink,BoardsSurftechLink,BoardsBrowseAllLink;SurfBoardsNavNodeMenu;
 ;SurfNavigationNode;;Surf Menu;ApparelUKNavNode;;;SurfNavigationNode;
-;AccountLeftNavNode;;Your Account;SiteRootNode;;AccountProfileLink,AccountAddressBookLink,AccountPaymentDetailsLink,AccountOrderHistoryLink;AccountLeftNavNode
+#;AccountLeftNavNode;;Your Account;SiteRootNode;;AccountProfileLink,AccountAddressBookLink,AccountPaymentDetailsLink,AccountOrderHistoryLink;AccountLeftNavNode
+;AccountLeftNavNode;;Your Account;SiteRootNode;;AccountProfileLink,AccountOrderHistoryLink;AccountLeftNavNode
 ;AccountProfileNavNode;;Profile;SiteRootNode;;AccountPersonalDetailsLink,AccountUpdatePasswordLink;AccountProfileNavNode
 ;AccountAddressBookNavNode;;Address Book;SiteRootNode;;AccountManageAddressLink;AccountAddressBookNavNode
 ;AccountPaymentDetailsNavNode;;Address Book;SiteRootNode;;AccountManagePaymentDetailsLink;AccountPaymentDetailsNavNode

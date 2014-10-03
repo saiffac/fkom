@@ -33,7 +33,7 @@ UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$
 #Her
 ;Her_001_EcoClutch_Black;;Black Eco clutch bag;<p>Versatile  clutch for day or night. Made with recycled  soda can tabs.  Each clutch comes with inside lining and a black rope.</p>;;;;
 ;Her_001_EcoClutch_Silver;;Silver Eco clutch bag;<p>Versatile  clutch for day or night. Made with recycled  soda can tabs.  Each clutch comes with inside lining and a silver rope.</p>;;;;
-;Her_002_shawl_silver;;Shawl - silver silk;<p>100% Pleated Raw Silk </p>;;;;
+;Her_002_shawl_silver;;Shawl - silver silk;<p>100% Pleated Raw Silk<br>Product dimensions: 79 cm by 158 cm</p>;;;;
 ;Her_003_Bracelet_B&W;;Bracelets in Black & White;<p>All Bracelets are made by Women of Worth in the village</p>;;;;
 ;Her_003_Bracelet_BluePurple;;Bracelets in Purple & Blue;<p>All Bracelets are made by Women of Worth in the village</p>;;;;
 ;Her_003_Bracelet_Pink;;Bracelets in Pink & White;<p>All Bracelets are made by Women of Worth in the village</p>;;;;

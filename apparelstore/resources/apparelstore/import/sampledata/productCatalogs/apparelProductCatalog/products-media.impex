@@ -7180,12 +7180,12 @@ INSERT_UPDATE Media;mediaFormat(qualifier);;code[unique=true];$media;mime[defaul
 ;96Wx96H;Her_003_Bracelet_Pink_Full;/96Wx96H/Her_003_Bracelet_Pink_Full.jpg;$siteResource/images/96Wx96H/Her_003_Bracelet_Pink_Full.jpg;;;images
 ;65Wx65H;Her_003_Bracelet_Pink_Full;/65Wx65H/Her_003_Bracelet_Pink_Full.jpg;$siteResource/images/65Wx65H/Her_003_Bracelet_Pink_Full.jpg;;;images
 ;30Wx30H;Her_003_Bracelet_Pink_Full;/30Wx30H/Her_003_Bracelet_Pink_Full.jpg;$siteResource/images/30Wx30H/Her_003_Bracelet_Pink_Full.jpg;;;images
-;1200Wx1200H;Her_003_Bracelet_Silver_Full;/1200Wx1200H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/1200Wx1200H/Her_003_Bracelet_Silver_Full.jpg;;;images
-;515Wx515H;Her_003_Bracelet_Silver_Full;/515Wx515H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/515Wx515H/Her_003_Bracelet_Silver_Full.jpg;;;images
-;300Wx300H;Her_003_Bracelet_Silver_Full;/300Wx300H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/300Wx300H/Her_003_Bracelet_Silver_Full.jpg;;;images
-;96Wx96H;Her_003_Bracelet_Silver_Full;/96Wx96H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/96Wx96H/Her_003_Bracelet_Silver_Full.jpg;;;images
-;65Wx65H;Her_003_Bracelet_Silver_Full;/65Wx65H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/65Wx65H/Her_003_Bracelet_Silver_Full.jpg;;;images
-;30Wx30H;Her_003_Bracelet_Silver_Full;/30Wx30H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/30Wx30H/Her_003_Bracelet_Silver_Full.jpg;;;images
+#;1200Wx1200H;Her_003_Bracelet_Silver_Full;/1200Wx1200H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/1200Wx1200H/Her_003_Bracelet_Silver_Full.jpg;;;images
+#;515Wx515H;Her_003_Bracelet_Silver_Full;/515Wx515H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/515Wx515H/Her_003_Bracelet_Silver_Full.jpg;;;images
+#;300Wx300H;Her_003_Bracelet_Silver_Full;/300Wx300H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/300Wx300H/Her_003_Bracelet_Silver_Full.jpg;;;images
+#;96Wx96H;Her_003_Bracelet_Silver_Full;/96Wx96H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/96Wx96H/Her_003_Bracelet_Silver_Full.jpg;;;images
+#;65Wx65H;Her_003_Bracelet_Silver_Full;/65Wx65H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/65Wx65H/Her_003_Bracelet_Silver_Full.jpg;;;images
+#;30Wx30H;Her_003_Bracelet_Silver_Full;/30Wx30H/Her_003_Bracelet_Silver_Full.jpg;$siteResource/images/30Wx30H/Her_003_Bracelet_Silver_Full.jpg;;;images
 ;1200Wx1200H;Her_003_Bracelet_Silver_Side;/1200Wx1200H/Her_003_Bracelet_Silver_Side.jpg;$siteResource/images/1200Wx1200H/Her_003_Bracelet_Silver_Side.jpg;;;images
 ;515Wx515H;Her_003_Bracelet_Silver_Side;/515Wx515H/Her_003_Bracelet_Silver_Side.jpg;$siteResource/images/515Wx515H/Her_003_Bracelet_Silver_Side.jpg;;;images
 ;300Wx300H;Her_003_Bracelet_Silver_Side;/300Wx300H/Her_003_Bracelet_Silver_Side.jpg;$siteResource/images/300Wx300H/Her_003_Bracelet_Silver_Side.jpg;;;images
@@ -7476,7 +7476,7 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
 ;Her_003_Bracelet_B_W_Full_mc;/1200Wx1200H/Her_003_Bracelet_B_W_Full.jpg,/515Wx515H/Her_003_Bracelet_B_W_Full.jpg,/300Wx300H/Her_003_Bracelet_B_W_Full.jpg,/96Wx96H/Her_003_Bracelet_B_W_Full.jpg,/65Wx65H/Her_003_Bracelet_B_W_Full.jpg,/30Wx30H/Her_003_Bracelet_B_W_Full.jpg;
 ;Her_003_Bracelet_Pink_Front_mc;/1200Wx1200H/Her_003_Bracelet_Pink_Front.jpg,/515Wx515H/Her_003_Bracelet_Pink_Front.jpg,/300Wx300H/Her_003_Bracelet_Pink_Front.jpg,/96Wx96H/Her_003_Bracelet_Pink_Front.jpg,/65Wx65H/Her_003_Bracelet_Pink_Front.jpg,/30Wx30H/Her_003_Bracelet_Pink_Front.jpg;
 ;Her_003_Bracelet_Pink_Full_mc;/1200Wx1200H/Her_003_Bracelet_Pink_Full.jpg,/515Wx515H/Her_003_Bracelet_Pink_Full.jpg,/300Wx300H/Her_003_Bracelet_Pink_Full.jpg,/96Wx96H/Her_003_Bracelet_Pink_Full.jpg,/65Wx65H/Her_003_Bracelet_Pink_Full.jpg,/30Wx30H/Her_003_Bracelet_Pink_Full.jpg;
-;Her_003_Bracelet_Silver_Full_mc;/1200Wx1200H/Her_003_Bracelet_Silver_Full.jpg,/515Wx515H/Her_003_Bracelet_Silver_Full.jpg,/300Wx300H/Her_003_Bracelet_Silver_Full.jpg,/96Wx96H/Her_003_Bracelet_Silver_Full.jpg,/65Wx65H/Her_003_Bracelet_Silver_Full.jpg,/30Wx30H/Her_003_Bracelet_Silver_Full.jpg;
+#;Her_003_Bracelet_Silver_Full_mc;/1200Wx1200H/Her_003_Bracelet_Silver_Full.jpg,/515Wx515H/Her_003_Bracelet_Silver_Full.jpg,/300Wx300H/Her_003_Bracelet_Silver_Full.jpg,/96Wx96H/Her_003_Bracelet_Silver_Full.jpg,/65Wx65H/Her_003_Bracelet_Silver_Full.jpg,/30Wx30H/Her_003_Bracelet_Silver_Full.jpg;
 ;Her_003_Bracelet_Silver_Side_mc;/1200Wx1200H/Her_003_Bracelet_Silver_Side.jpg,/515Wx515H/Her_003_Bracelet_Silver_Side.jpg,/300Wx300H/Her_003_Bracelet_Silver_Side.jpg,/96Wx96H/Her_003_Bracelet_Silver_Side.jpg,/65Wx65H/Her_003_Bracelet_Silver_Side.jpg,/30Wx30H/Her_003_Bracelet_Silver_Side.jpg;
 ;Her_003_Bracelet_White_Front_mc;/1200Wx1200H/Her_003_Bracelet_White_Front.jpg,/515Wx515H/Her_003_Bracelet_White_Front.jpg,/300Wx300H/Her_003_Bracelet_White_Front.jpg,/96Wx96H/Her_003_Bracelet_White_Front.jpg,/65Wx65H/Her_003_Bracelet_White_Front.jpg,/30Wx30H/Her_003_Bracelet_White_Front.jpg;
 ;Her_004_Necklace_mc;/1200Wx1200H/Her_004_Necklace.jpg,/515Wx515H/Her_004_Necklace.jpg,/300Wx300H/Her_004_Necklace.jpg,/96Wx96H/Her_004_Necklace.jpg,/65Wx65H/Her_004_Necklace.jpg,/30Wx30H/Her_004_Necklace.jpg;
