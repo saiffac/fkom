@@ -455,4 +455,7 @@
 		<property name="rootCategoryCode" value="categories"/>
 	</bean>
 	
+	<!-- cronjob for order report -->
+	<bean id="sendOrderReportJob" class="com.sai.ffac.core.jobs.SendOrderReportingJob" autowire="byName"/>
+	
 </beans>
