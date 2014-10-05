@@ -9,10 +9,10 @@ import de.hybris.platform.acceleratorservices.model.email.EmailMessageModel;
 import de.hybris.platform.cronjob.enums.CronJobResult;
 import de.hybris.platform.cronjob.enums.CronJobStatus;
 import de.hybris.platform.cronjob.model.CronJobModel;
+import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
-import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import de.hybris.platform.servicelayer.search.SearchResult;
 
 import java.util.ArrayList;
@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.configuration.Configuration;
 import org.apache.log4j.Logger;
 
 
@@ -31,7 +32,8 @@ import org.apache.log4j.Logger;
 public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 {
 	private EmailService emailService;
-	private FlexibleSearchService flexibleSearchService;
+	//	private FlexibleSearchService flexibleSearchService;
+	private ConfigurationService configurationService;
 
 	//		private DefaultOrderReportService orderReportService;
 
@@ -50,15 +52,24 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 	 * @param flexibleSearchService
 	 *           the flexibleSearchService to set
 	 */
-	@Override
-	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
+	//	@Override
+	//	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
+	//	{
+	//		this.flexibleSearchService = flexibleSearchService;
+	//	}
+
+	/**
+	 * @param configurationService
+	 *           the configurationService to set
+	 */
+	public void setConfigurationService(final ConfigurationService configurationService)
 	{
-		this.flexibleSearchService = flexibleSearchService;
+		this.configurationService = configurationService;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable#perform(de.hybris.platform.cronjob.model.CronJobModel
 	 * )
@@ -72,6 +83,10 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final String END_LINE = "<br>------------------------------------------------------------------<br>";
 		final String OPEN_DIV = "<div>";
 		final String CLOSE_DIV = "</div>";
+		final String HEADER = "<p>" + "<Order Code>" + DISTANCE_TAB + "<Order Created Date>" + DISTANCE_TAB
+				+ "<Total price of Order>" + DISTANCE_TAB + "<Title>" + DISTANCE_TAB + "<Name>" + DISTANCE_TAB
+				+ "<Email/Customer ID>" + DISTANCE_TAB + "<SAP Number>" + DISTANCE_TAB + "<Mobile Number>" + DISTANCE_TAB
+				+ "<Product infos>" + DISTANCE_TAB + "<Product Quantity>" + DISTANCE_TAB + "<Total price of product (*)>" + "</p>";
 
 		final String queryStr = "SELECT {o.code}, {o.date}, {o.totalprice}" + ", {t.code}"
 				+ ", {c.name}, {c.originalUid}, {c.sapcode}, {c.mobilenumber}" + ", {oe.info}, {oe.quantity}, {oe.totalprice}"
@@ -93,7 +108,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 		final FlexibleSearchQuery query = new FlexibleSearchQuery(queryStr);
 		query.setResultClassList(resultClasses);
-		final StringBuffer reportContent = new StringBuffer();
+		final StringBuffer reportContent = new StringBuffer(HEADER);
 
 		final SearchResult<List<Object>> searchResult = flexibleSearchService.search(query);
 		final List<List<Object>> resultList = searchResult.getResult();
@@ -129,16 +144,23 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 			reportContent.append(END_LINE); //next record
 		}
 
+		final Configuration cfg = configurationService.getConfiguration();
+		final String senderEmailAddress = cfg.getString("mail.from");
+		final String receiverEmailAddress = cfg.getString("ffac.merchant.email");
+		final String bccEmailAddress = cfg.getString("ffac.admin.email");
+		final String replyTo = cfg.getString("mail.replyto");
+
 		final String content = reportContent.toString();
 
-		LOG.info("Sending order reporting mails");
-		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail("ffac-no-reply@sai-it.com",
-				"FFAC Service");
-		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail("tuan.truong@sai-it.com",
-				"Tuan Truong");
-		final EmailMessageModel message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null, null,
-				senderAddress, "tuan.truong@sai-it.com", subject, content, null);
+		LOG.info("Start sending order reporting mails");
+		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
+		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "Mechant");
+		final EmailAddressModel bccAddress = emailService.getOrCreateEmailAddressForEmail(bccEmailAddress, "Administrator");
+
+		final EmailMessageModel message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null,
+				Collections.singletonList(bccAddress), senderAddress, replyTo, subject, content, null);
 		emailService.send(message);
+		LOG.info("Complete sending order reporting mails");
 
 		return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED);
 	}
