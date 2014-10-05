@@ -154,7 +154,8 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		//transform the content to raw text when the size is bigger than 4000 characters <cheat>
 		if (content.length() > 4500) //DefaultEmailService.EMAIL_BODY_MAX_LENGTH=4000 -- not good here
 		{
-			content = content.replaceAll("&nbsp;", " ").replaceAll("<div>", "").replaceAll("<br>", "\r\n");
+			content = content.replaceAll(DISTANCE_TAB, "    ").replaceAll(OPEN_DIV, "").replaceAll(CLOSE_DIV, "")
+					.replaceAll("<br>", "\r\n");
 		}
 		LOG.info("Start sending order reporting mails");
 		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
