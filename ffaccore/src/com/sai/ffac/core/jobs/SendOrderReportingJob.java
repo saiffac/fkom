@@ -150,8 +150,12 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final String bccEmailAddress = cfg.getString("ffac.admin.email");
 		final String replyTo = cfg.getString("mail.replyto");
 
-		final String content = reportContent.toString();
-
+		String content = reportContent.toString();
+		//transform the content to raw text when the size is bigger than 4000 characters <cheat>
+		if (content.length() > 4500) //DefaultEmailService.EMAIL_BODY_MAX_LENGTH=4000 -- not good here
+		{
+			content = content.replaceAll("&nbsp;", " ").replaceAll("<div>", "").replaceAll("<br>", "\r\n");
+		}
 		LOG.info("Start sending order reporting mails");
 		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
 		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "Mechant");
