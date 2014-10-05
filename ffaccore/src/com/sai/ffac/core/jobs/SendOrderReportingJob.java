@@ -83,10 +83,10 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final String END_LINE = "<br>------------------------------------------------------------------<br>";
 		final String OPEN_DIV = "<div>";
 		final String CLOSE_DIV = "</div>";
-		final String HEADER = "<p>" + "<Order Code>" + DISTANCE_TAB + "<Order Created Date>" + DISTANCE_TAB
-				+ "<Total price of Order>" + DISTANCE_TAB + "<Title>" + DISTANCE_TAB + "<Name>" + DISTANCE_TAB
-				+ "<Email/Customer ID>" + DISTANCE_TAB + "<SAP Number>" + DISTANCE_TAB + "<Mobile Number>" + DISTANCE_TAB
-				+ "<Product infos>" + DISTANCE_TAB + "<Product Quantity>" + DISTANCE_TAB + "<Total price of product (*)>" + "</p>";
+		final String HEADER = "<p>" + "[Order Code]" + DISTANCE_TAB + "[Order Created Date]" + DISTANCE_TAB
+				+ "[Total price of Order]" + DISTANCE_TAB + "[Title]" + DISTANCE_TAB + "[Name]" + DISTANCE_TAB
+				+ "[Email/Customer ID]" + DISTANCE_TAB + "[SAP Number]" + DISTANCE_TAB + "[Mobile Number]" + DISTANCE_TAB
+				+ "[Product infos]" + DISTANCE_TAB + "[Product Quantity]" + DISTANCE_TAB + "[Total price of product (*)]" + "</p>";
 
 		final String queryStr = "SELECT {o.code}, {o.date}, {o.totalprice}" + ", {t.code}"
 				+ ", {c.name}, {c.originalUid}, {c.sapcode}, {c.mobilenumber}" + ", {oe.info}, {oe.quantity}, {oe.totalprice}"
@@ -150,13 +150,13 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final String bccEmailAddress = cfg.getString("ffac.admin.email");
 		final String replyTo = cfg.getString("mail.replyto");
 
-		String content = reportContent.toString();
+		final String content = reportContent.toString();
 		//transform the content to raw text when the size is bigger than 4000 characters <cheat>
-		if (content.length() > 4500) //DefaultEmailService.EMAIL_BODY_MAX_LENGTH=4000 -- not good here
-		{
-			content = content.replaceAll(DISTANCE_TAB, "    ").replaceAll(OPEN_DIV, "").replaceAll(CLOSE_DIV, "")
-					.replaceAll("<br>", "\r\n");
-		}
+		//		if (content.length() > 4500) //DefaultEmailService.EMAIL_BODY_MAX_LENGTH=4000 -- not good here
+		//		{
+		//			content = content.replaceAll(DISTANCE_TAB, "    ").replaceAll(OPEN_DIV, "").replaceAll(CLOSE_DIV, "")
+		//					.replaceAll("<br>", "\r\n").replaceAll("<p>", "").replaceAll("</p>", "");
+		//		}
 		LOG.info("Start sending order reporting mails");
 		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
 		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "Mechant");
