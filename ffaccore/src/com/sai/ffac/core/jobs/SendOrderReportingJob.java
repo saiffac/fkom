@@ -12,7 +12,6 @@ import de.hybris.platform.cronjob.model.CronJobModel;
 import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
-import de.hybris.platform.servicelayer.exceptions.ModelSavingException;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.SearchResult;
 
@@ -70,7 +69,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable#perform(de.hybris.platform.cronjob.model.CronJobModel
 	 * )
@@ -157,22 +156,9 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
 		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "Mechant");
 		final EmailAddressModel bccAddress = emailService.getOrCreateEmailAddressForEmail(bccEmailAddress, "Administrator");
-		LOG.info("Complete initialize email addresses");
-		EmailMessageModel message = null;
-		try
-		{
-			message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null,
-					Collections.singletonList(bccAddress), senderAddress, replyTo, subject, content, null);
-		}
-		catch (final ModelSavingException e)
-		{
-			LOG.info(e.getMessage());
-		}
-		LOG.info("Start sending mails");
-		if (message != null)
-		{
-			emailService.send(message);
-		}
+		final EmailMessageModel message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null,
+				Collections.singletonList(bccAddress), senderAddress, replyTo, subject, content, null);
+		emailService.send(message);
 		LOG.info("Complete sending order reporting mails");
 
 
