@@ -69,7 +69,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable#perform(de.hybris.platform.cronjob.model.CronJobModel
 	 * )
@@ -151,12 +151,6 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final String replyTo = cfg.getString("mail.replyto");
 
 		final String content = reportContent.toString();
-		//transform the content to raw text when the size is bigger than 4000 characters <cheat>
-		//		if (content.length() > 4500) //DefaultEmailService.EMAIL_BODY_MAX_LENGTH=4000 -- not good here
-		//		{
-		//			content = content.replaceAll(DISTANCE_TAB, "    ").replaceAll(OPEN_DIV, "").replaceAll(CLOSE_DIV, "")
-		//					.replaceAll("<br>", "\r\n").replaceAll("<p>", "").replaceAll("</p>", "");
-		//		}
 		LOG.info("Start sending order reporting mails");
 		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
 		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "Mechant");
@@ -164,6 +158,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 		final EmailMessageModel message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null,
 				Collections.singletonList(bccAddress), senderAddress, replyTo, subject, content, null);
 		emailService.send(message);
+		LOG.info(content);
 		LOG.info("Complete sending order reporting mails");
 
 
