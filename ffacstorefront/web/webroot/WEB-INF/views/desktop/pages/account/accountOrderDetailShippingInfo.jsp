@@ -12,11 +12,11 @@
 <%@ taglib prefix="breadcrumb" tagdir="/WEB-INF/tags/desktop/nav/breadcrumb" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 <div class="orderBoxes clearfix">
-	<order:deliveryAddressItem order="${orderData}"/>
+	<%-- <order:deliveryAddressItem order="${orderData}"/>
 	<order:deliveryMethodItem order="${orderData}"/>
 	<div class="orderBox billing">
 		<order:billingAddressItem order="${orderData}"/>
-	</div>
+	</div> --%>
 	<c:if test="${not empty orderData.paymentInfo}">
 		<div class="orderBox payment">
 			<order:paymentDetailsItem order="${orderData}"/>
