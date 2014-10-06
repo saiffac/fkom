@@ -61,10 +61,12 @@
 			<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
 			<a href="#headAnchor" class="btn-buy-gift">buy a gift</a>
 			<a href="#ourStory" class="btn-out-story">our story...</a>
+			<a href="#scrVision" class="btn-sap-care">SAP cares</a>
 			</c:if>
 			<c:if test="${ cmsPageRequestContextData.page.uid ne 'productGrid' }">
 			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance#headAnchor" class="btn-buy-gift">buy a gift</a>
 			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance#ourStory" class="btn-out-story">our story...</a>
+			<a href="/ffacstorefront/en/Categories/c/categories?q=:relevance#scrVision" class="btn-sap-care">SAP cares</a>
 			</c:if>
 			
 			<p>Buy a gift and help transform someone's life</p>

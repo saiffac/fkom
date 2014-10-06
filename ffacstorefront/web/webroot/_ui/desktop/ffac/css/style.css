@@ -9,11 +9,11 @@ body { }
 body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {
     ; font-family: 'Lato', sans-serif;
    olor: #2e2e2e;
-    font-size: 18px;
+    font-size: 16px;
     font-style: inherit;
     font-weight: inherit;
 }
-body p { line-height:40px; margin-bottom:25px }
+body p { line-height:36px; margin-bottom:25px }
 /* CSS header */
 header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat center top; height:703px }
 .header_top { position:absolute; top:0; left:0; z-index:9999; width:100% }
@@ -34,11 +34,15 @@ header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat cent
 .infor-banner h1 { font-size:50px; font-weight:800; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:35px; margin-top:0; line-height:50px }
 .infor-banner h2 { font-size:35px; font-weight:600; text-transform:uppercase; font-family: 'Raleway', sans-serif; margin-bottom:5px }
 .infor-banner a { font-family: 'Cabin', sans-serif; font-weight:700; font-size:28px; text-transform:uppercase; color:#fff; margin-bottom:15px }
-.infor-banner a.btn-buy-gift { -moz-box-shadow: inset 0px -2px #08789f;-webkit-box-shadow: inset 0px -2px #08789f;box-shadow: inset 0px -2px #08789f;background:#00b2ef; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-right:13px }
+.infor-banner a.btn-buy-gift { -moz-box-shadow: inset 0px -2px #08789f;-webkit-box-shadow: inset 0px -2px #08789f;box-shadow: inset 0px -2px #08789f;background:#00b2ef; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-right:5px }
 .infor-banner a.btn-out-story { border:2px solid #fff; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-left:13px }
 .infor-banner a:hover { text-decoration:none }
 .infor-banner a.btn-buy-gift:hover { background:#FE980F }
 .infor-banner a.btn-out-story:hover { border:2px solid #FE980F }
+
+.infor-banner .btn-sap-care{ -moz-box-shadow: inset 0px -2px #825f0a;-webkit-box-shadow: inset 0px -2px #825f0a;box-shadow: inset 0px -2px #825f0a;background:#fdb813; -webkit-border-radius:6px; -moz-border-radius:6px; border-radius: 6px; width:210px; height:53px; text-align:center; line-height:53px; display:inline-block; margin-left:20px }
+.infor-banner .btn-sap-care:hover{background:#00b2ef}
+
 /* top-main */
 .top-main { text-align:center; width:100%; margin-bottom:40px }
 .top-main h3 { color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:35px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif }
@@ -107,6 +111,15 @@ clear:left
 .we-infor h3 { color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:35px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; text-align:center }
 .we-infor img { float:right; -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; width:440px }
 .we-infor p { width:670px; float:left }
+
+/*.helping */
+.helping {margin: 0 auto 110px;width: 1170px; position: relative; }
+.helping h3 { color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:35px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; text-align:center }
+.helping img { float:left; -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; width:440px }
+.helping p { width:670px; float:right }
+
+
+
 /* footer-bottom */
 .footer-bottom { background:url(../images/bg-footer.jpg) no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; padding:60px 0 0; overflow:hidden; text-align:center; position:relative }
 .footer-bottom h1 { color: #fff; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif; font-size:52px; display:inline-block; padding-right:30px }
