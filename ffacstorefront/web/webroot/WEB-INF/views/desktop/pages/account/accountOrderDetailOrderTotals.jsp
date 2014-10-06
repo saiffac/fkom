@@ -29,7 +29,7 @@
 	<div class="span-7">&nbsp;
 		<order:receivedPromotions order="${orderData}"/>
 	</div>
-	<div class="span-6 last order-totals">
+	<div class="span-6 order-totals orderHistory">
 		<order:orderTotalsItem order="${orderData}"/>
 	</div>
 </div>

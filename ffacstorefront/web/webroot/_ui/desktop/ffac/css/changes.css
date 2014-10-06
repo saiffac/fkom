@@ -159,5 +159,8 @@ margin: 0 auto 110px;
     text-align: center;
     border:none; padding:0 30px; text-transform:none;}
  .form-actions button.positive:hover{background:#fe980f !important ; text-decoration: none ; color:#fff}
+.orderList td.thumb a img{width: 100%}
 
-
+.orderHistory{ width: 100%; padding-top: 20px}
+.orderHistory #orderTotals td:nth-child(1){ padding-left: 0 !important;}
+.accountOrderDetailOrderTotals{}
