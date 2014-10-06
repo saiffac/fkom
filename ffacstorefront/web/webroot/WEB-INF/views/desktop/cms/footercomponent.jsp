@@ -30,8 +30,10 @@
       </div>
       
       <div id="scrVision" class="helping">
-<p id="back-top"> <a href="#top"><span><i class="fa fa-angle-up"></i> </span></a> </p>
-      <h3 id="scrVision">Helping the World Run Better by Improving People's Lives</h3>
+      
+<!-- <p id="back-top"> <a href="#top"><span><i class="fa fa-angle-up"></i> </span></a> </p> -->
+
+      <h3>Helping the World Run Better by Improving People's Lives</h3>
        <img src="${commonResourcePath}/../ffac/images/sapcares.jpg" alt=""> 
       <p><b>Strategic Vision</b><br>
 SAP's CSR vision is based on our vision to help the world run better by improving people's lives</p>
@@ -49,7 +51,9 @@ entrepreneurs can play a vital role in driving economic growth by addressing soc
       </div>
 </c:if>
       
-<footer class="footer-bottom">
+<footer class="footer-bottom"><div id="backTop">
+     <a href="#top"><span><i class="fa fa-angle-up"></i> </span></a>
+</div>
 	<div class="main">
 		<div class="row">
 			<h1>THANK YOU FOR HELPING !</h1>

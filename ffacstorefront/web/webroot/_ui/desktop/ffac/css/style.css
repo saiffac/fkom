@@ -126,11 +126,14 @@ clear:left
 .footer-bottom a { color: #fff; text-decoration: underline; display:inline-block; font-size:24px; font-family: 'Raleway', sans-serif; font-weight:600 }
 .footer-bottom a:hover { color:#fe980f }
 /* #back-top */
-#back-top { bottom: 0; content: ""; display: block; height: 55px; width:55px; margin-bottom: 0; position: absolute; right:-110px; z-index: 9999; }
-#back-top a { border:2px solid #010101; display: block; -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; width: 55px; height: 55px }
-#back-top span { display: block; height: 43px; margin-bottom: 7px; width: 68px; padding-left:12px; padding-top:3px; font-size:40px; color:#010101 }
-#back-top a:hover { background-color:#fe980f }
-#back-top a:hover span { color:#fff }
+#backTop { position: fixed; bottom: 400px; right: 20px; z-index: 9999; height: 55px; line-height: 47px; display: none }
+#backTop a { border: 2px solid #010101; display: block; -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; width: 55px; height: 55px; text-align: center }
+#backTop a:hover { background-color: #fe980f }
+/* arrow icon (span tag) */
+
+#backTop span { display: block; font-size: 40px; color: #010101 }
+#backTop a:hover span { color: #fff }
+
 
 /* new css*/
 .cartPane{ width:100% !important; text-align:center;}
