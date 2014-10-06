@@ -27,7 +27,8 @@
             <c:if test="${isSuccessful}">
    				<p>Your order will be available for collection from <b><c:out value="${deliveryDate}"/></b><br>
 				All orders are to be collected at the following address: <br>
-				<b>SAP Asia Pte Ltd</b> 30 Pasir Panjang Road, Level 3 Mapletree Business City Singapore 117440</p>
+				<b>SAP Asia Pte Ltd</b> 30 Pasir Panjang Road, Level 3<br>
+				Mapletree Business City Singapore 117440</p>
 				<p>An email and SMS alert will sent to you describing the exact location and timing to collect your orders.</p>
 			</c:if>
             <c:if test="${!isSuccessful}">
