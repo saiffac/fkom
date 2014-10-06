@@ -23,7 +23,7 @@ header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat cent
 .logo { padding-top:60px }
 .main { max-width:1170px; margin:auto; position:relative }
 /* shop-menu */
-.shop-menu { position:absolute; right:0; top:50px }
+.shop-menu { position:absolute; right:0; top:70px }
 .shop-menu a { color:#fff; text-align:center; display:block; text-transform:uppercase; font-size:18px }
 
 .shop-menu .fa { padding-right:5px }
@@ -46,7 +46,7 @@ header { margin-bottom:30px; background:url(../images/banner.jpg) no-repeat cent
 /* top-main */
 .top-main { text-align:center; width:100%; margin-bottom:40px }
 .top-main h3 { color:#2e2e2e; font-size:28px; border-bottom:1px solid #e0e0e0; padding-bottom:30px; margin-bottom:35px; font-weight:900; text-transform:uppercase; font-family: 'Raleway', sans-serif }
-.top-main p { width:60%; margin:auto; line-height:40px; font-size:18px; color:#2e2e2e }
+.top-main p { width:92%; margin:auto;  color:#2e2e2e }
 /* logo-company */
 .logo-company { text-align: center; margin-bottom:55px; padding-top:15px }
 .logo-company a { display:block; margin:0 42px; display:inline-block }

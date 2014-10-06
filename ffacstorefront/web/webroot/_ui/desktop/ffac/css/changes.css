@@ -1,6 +1,6 @@
 /* nav */
 
-.header_top .nav{ position: absolute; right:0; top:15px; width:600px; float:right; text-align: right;}
+.header_top .nav{ position: absolute; right:0; top:30px; width:600px; float:right; text-align: right;}
 .header_top .nav li{ display: inline-block; margin: 0 5px; color: #fff; font-size: 14px}
 .header_top .nav li a{ color: #fff; padding:0 0 0 30px; font-size: 14px }
 .header_top .nav li a:hover, .nav li:hover{color:#fe980f; background: none; text-decoration: none}
