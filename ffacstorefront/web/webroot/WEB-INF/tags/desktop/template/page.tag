@@ -89,79 +89,32 @@ We can make a difference in their lives, for a better world.</p>
 	var topBtnHeight = $topBtn.height();
 	var BOTTOM = 20;
 	var PIXEL = 'px';
-	var fPos = $(window).scrollTop();
 	
 	var idlePoint = $('.footer-bottom').offset().top;
 	var showPoint = $('#headAnchor').offset().top;
-	//var docH = $(document).height();
-	//var windowH = $(window).height();
-	//console.log('start');
-	//console.log( showPoint + '--' + idlePoint + '--' + windowH + '--' + docH + '--' + $topBtn.offset().top);
-	 //&& (srollPos + windowH < hidePoint)
+	var windowH = $(window).height();
 	$(window).scroll(
 			function(){
 				var srollPos = $(window).scrollTop();
-				var forward = srollPos - fPos;
 				fPos = srollPos;
 				
 				if(srollPos < showPoint) {
 					if($topBtn.css('display') != 'none') {
 						$topBtn.fadeOut();
 						$topBtn.css('display') = 'none';
-						//console.log( showPoint + '--' + srollPos + '--' + idlePoint + '   fadeOut  ' + $topBtn.offset().top);
 					}
-					//else
-						//console.log( showPoint + '--' + srollPos + '--' + idlePoint + '   else 1  ' + $topBtn.offset().top);
 				}
-				else {
+				else
 					if($topBtn.css('display')=='none') {
 						$topBtn.fadeIn();
 						$topBtn.css('bottom', BOTTOM + PIXEL);
-
-						//console.log( showPoint + '--' + srollPos + '--' + idlePoint + '   fadeIn  ' + $topBtn.offset().top);
 					}
-					/* else {
-						if($topBtn.offset().top + topBtnHeight + BOTTOM > idlePoint) {
+					else
+						if(srollPos + windowH > idlePoint)
 								$topBtn.css('top', idlePoint -  srollPos - topBtnHeight - BOTTOM  + PIXEL);
-								console.log( showPoint + '--' + srollPos + '--' + idlePoint + '   fadeIn Pos  ' + $topBtn.offset().top);
-							
-						}
 						else
-							if($topBtn.offset().top + topBtnHeight + BOTTOM > idlePoint)
-							console.log( showPoint + '--' + srollPos + '--' + idlePoint + '   else 2  ' + $topBtn.offset().top); */
-						//else {
-						//	$topBtn.css('bottom', BOTTOM + PIXEL);
-						//	console.log( showPoint + '--' + srollPos + '--' + idlePoint + '   fadeIn Out Pos  ' + $topBtn.offset().top);
-						//}
-					//}
-				}
+								$topBtn.css('bottom', BOTTOM + PIXEL);
 			}
 			);});
-			
-  /* $(document).ready(function() {
-	 $('#backTop').hide();
-	$(window).scroll(function(){    
-	     var stop = $('.footer-bottom').position().top - $(window).scrollTop().top;
-	     var bottomofbutton = $('#backTop').position().top + 100;
-	 
-	    var bottom = stop - $('#backTop').height() - 40 + 'px';
-	 
-	   // console.log(bottom);
-	    if ($(window).scrollTop() >100 ){
-	        $('#backTop').fadeIn();
-	    } else {
-	    $('#backTop').fadeOut();
-	    };
-	    
-	    if (stop <= bottomofbutton){
-	        $('#backTop').css('top',bottom);
-	    } else if (stop >= bottomofbutton){
-	        
-	        $('#backTop').css({'bottom': '20px','top': ''});
-	    }
-	});
-	});  */
-		
-			
 </script>
 </c:if>
