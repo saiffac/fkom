@@ -97,7 +97,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#enterStep(org.springframework
 	 * .ui.Model, org.springframework.web.servlet.mvc.support.RedirectAttributes)
@@ -239,9 +239,6 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 			final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 			final Date currentDate = new Date();
-			//		final Date currentDate = dateFormat.parse("15/11/2014");
-			//		final Date currentDate = dateFormat.parse("18/10/2014");
-			//			final Date currentDate = dateFormat.parse("02/10/2014");
 
 			final Date milestone1001 = dateFormat.parse("01/10/2014");
 			final Date milestone1017 = dateFormat.parse("17/10/2014");
@@ -422,7 +419,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#back(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
@@ -437,7 +434,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#next(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
