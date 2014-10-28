@@ -1,0 +1,11 @@
+#
+# Import the CMS Site configuration for the Apparel DE Store
+#
+
+# Language
+$lang=en
+$prefix=fkom
+
+# Create CMS Site
+UPDATE CMSSite;uid[unique=true];name[lang=$lang];locale[lang=$lang]
+ ;$prefix;"FKOM Site";en_US

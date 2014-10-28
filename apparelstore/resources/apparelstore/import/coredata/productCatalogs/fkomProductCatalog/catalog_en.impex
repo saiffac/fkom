@@ -1,0 +1,12 @@
+#
+# Import the Apparel Product Catalog
+#
+
+# Language
+$lang=en
+$prefix=fkom
+$productCatalog=$prefixProductCatalog
+
+# Create Catalog
+UPDATE Catalog;id[unique=true];name[lang=$lang]
+ ;$productCatalog;"fkom Product Catalog"

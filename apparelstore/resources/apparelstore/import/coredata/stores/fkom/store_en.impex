@@ -1,0 +1,11 @@
+#
+# Import the Apparel UK Store
+#
+
+# Language
+$lang=en
+$storeUid=fkom
+
+# Create Base Store
+UPDATE BaseStore;uid[unique=true];name[lang=$lang]
+ ;$storeUid;"FKOM Store"

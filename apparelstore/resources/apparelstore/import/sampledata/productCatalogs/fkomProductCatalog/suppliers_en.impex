@@ -1,0 +1,15 @@
+#******************************This file is generated - please do not edit it. It will be regenerated after every build.********************************#
+$prefix=fkom
+$productCatalog=$prefixProductCatalog
+$catalogVersion=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$categories=target(code, $catalogVersion)[unique=true]
+$supercategories=source(code, $catalogVersion)[unique=true]
+
+# Language
+$lang=en
+
+
+# Create Categories
+UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang]
+
+

@@ -1,0 +1,12 @@
+#
+# Import the Apparel UK Catalog
+#
+
+# Language
+$lang=en
+$prefix=fkom
+$contentCatalog=$prefixContentCatalog
+
+# Create Content Catalog
+UPDATE ContentCatalog;id[unique=true];name[lang=$lang]
+ ;$contentCatalog;"FKOM Content Catalog"

@@ -1,0 +1,30 @@
+#
+# Create the Apparel UK Store
+#
+$prefix=fkom
+$productCatalog=$prefixProductCatalog
+$currencies=SGD,USD
+$net=false
+$storeUid=$prefix
+$defaultCurrency=SGD
+$languages=en
+$defaultLanguage=en
+$orderProcessCode=order-process
+$pickupInStoreMode=DISABLED
+$paymentProvider=Mockup
+$promoGrp=$prefixPromoGrp
+$expressCheckoutEnabled=false
+
+INSERT_UPDATE PromotionGroup;Identifier[unique=true];
+;$promoGrp;
+
+# Base Store
+INSERT_UPDATE BaseStore;uid[unique=true];catalogs(id);currencies(isocode);net;taxGroup(code);storelocatorDistanceUnit(code);defaultCurrency(isocode);languages(isocode);defaultLanguage(isocode);deliveryCountries(isocode);submitOrderProcessCode;pickupInStoreMode(code);paymentProvider;expressCheckoutEnabled;maxRadiusForPoSSearch;checkoutFlowGroup;
+;$storeUid;$productCatalog;$currencies;$net;;;$defaultCurrency;$languages;$defaultLanguage;;$orderProcessCode;$pickupInStoreMode;$paymentProvider;$expressCheckoutEnabled;;saiFfacMultiFlowCheckoutGroup;
+
+INSERT_UPDATE BaseStore2DeliveryModeRel;source(uid)[unique=true];target(code)[unique=true]
+;$prefix;premium-net
+;$prefix;standard-net
+;$prefix;premium-gross
+;$prefix;standard-gross
+;$prefix;free-standard-shipping

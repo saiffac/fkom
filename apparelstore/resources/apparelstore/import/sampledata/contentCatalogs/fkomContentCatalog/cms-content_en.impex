@@ -1,0 +1,168 @@
+#******************************This file is generated - please do not edit it. It will be regenerated after every build.********************************#
+#
+#	ImpEx for Apparel UK Site CMS Content, en localisations
+#
+$prefix=fkom
+$contentCatalog=$prefixContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$productCatalog=$prefixProductCatalog
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$picture=media(code, $contentCV)
+$siteResource=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import/sampledata/cockpits/cmscockpit
+
+# Language
+$lang=en
+
+# Import config properties into impex macros
+UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor];pk[unique=true]
+
+# Load the storefront context root config param
+$storefrontContextRoot=$config-storefrontContextRoot
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+# Site Logo Component
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
+;;AccountHomeLink;"My Account"
+;;AccountOrderHistoryLink;"Order History"
+#;;AccountPaymentDetailsLink;"Payment Details"
+;;AccountPersonalDetailsLink;"Update personal details"
+;;AccountProfileLink;"Profile"
+;;AccountUpdatePasswordLink;"Change your password"
+;;AccountViewOrderHistoryLink;"View order history"
+;;AllCategoriesLink;"Categories"
+#For Him Link
+;;ForHimLink;"FOR HIM"
+;;ForHerLink;"FOR HER"
+;;GiftsLink;"GIFTS"
+;;SilverLink;"SAP SILVER BALL"
+;;AboutTheCauseLink;"About The Cause"
+
+
+# CMS Mini Cart Component
+UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];title[lang=en]
+;;MiniCart;"Your Shopping Bag"
+
+# CMS Navigation Nodes 
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
+;;AccountLeftNavNode;"Your Account"
+;;AccountOrderHistoryNavNode;"Order History"
+#;;AccountPaymentDetailsNavNode;"Payment Details"
+;;AccountProfileNavNode;"Profile"
+#;;AllCategoriesNavNode;"All Categories"
+#;;CategoriesNavNode;"Categories"
+
+# CMS tabs components 
+UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];title[lang=en];content[lang=en]
+;;deliveryTab;Delivery;"<table border=""0"" cellspacing=""0"" cellpadding=""10"" style=""border-collapse: collapse; empty-cells: show; font-size: 12px; padding: 0px; margin: 0px; border: 0px initial initial;"">  <tbody>    <tr style=""padding: 0px; margin: 0px;"">      <td colspan=""4"" style=""vertical-align: top; text-align: left; font-weight: normal; padding: 0px; margin: 0px;"">        <div style=""padding-top: 10px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #8edf75;  border-top-width: 1px; border-top-style: solid; border-top-color: #8edf75; margin: 0px;"">          <p align=""justify"">Lorem ipsum dolor sit amet, dolor sed, ut nam ut. Senectus mauris egestas a massa, enim placeat wisi congue purus fermentum. Ut aptent mauris dapibus congue in sit. Sed dolor varius amet feugiat volutpat dignissim, pede a rhoncus sodales aliquam adipiscing, dapibus massa fusce. Dui egestas ornare urna nibh facilisi, cras posuere.</p><p align=""justify"">Lorem aliquam accumsan eleifend sem libero lorem, aliquam sequi sed urna nec. Eget dolor quisque dolor, amet suspendisse ullamcorper minus elit lectus nunc, est mattis dui id eu et facilisis, conubia sit tristique. Ac fusce gravida condimentum iaculis neque, a platea curabitur accumsan porttitor vel justo. Amet potenti ac, eget amet ducimus sit nulla, ac porttitor rhoncus, justo proin tortor integer turpis nulla vitae. Egestas mollis litora nunc platea dui, eu semper mauris diam, erat quam, porta maecenas fusce libero non aliquet. Amet tellus taciti ligula sed sollicitudin, nonummy cursus enim, hendrerit nec, sed lacus sed at sit quis, semper a arcu mollis sapien nec pretium. Ante mauris eros nec, nonummy mauris, nulla lacinia vel. Volutpat luctus velit eu.</p>        </div>      </td>    </tr>  </tbody></table>"
+
+# CMS Footer Component
+UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=en]
+#;;FooterComponent;"© 2013 hybris software"
+
+# CMS Paragraph Component (Contact information)
+#UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en]
+#;;ContactInfo;"Call us: +44 (0)20 / 7429 4175"
+
+# Generic Banners (banners are not localizable so we must create a separate banner per language)
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+
+# CMS ProductReferences Components
+UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=en]
+
+# CMS CartSuggestion Components
+UPDATE CartSuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+
+# Apparel UK Homepage
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef;folder(qualifier)[default='images']
+
+UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];imageMapHTML[lang=en];$picture[lang=$lang]
+
+
+# Apparel Sunglasses Category Landing Page
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];imageMapHTML[lang=en];$picture[lang=$lang]
+
+
+# Apparel Shirts Category Landing Page
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];imageMapHTML[lang=en];$picture[lang=$lang]
+
+
+# Apparel Search Results Page
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en]
+;;NoSearchResultsParagraphComponent;"<h2>Sorry, we couldn't find any results for your search</h2><p>Suggestions:</p><ul>	<li>You may have typed your keywords incorrectly - please check for misspellings.</li>	<li>You may have been too specific - please broaden your search by using fewer keywords.</li>	<li>Browse our products by selecting a category above.</li></ul>"
+
+
+# Apparel Cart Page 
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en]
+;;EmptyCartParagraphComponent;"<h2>Your shopping bag is empty</h2><p>Suggestions</p><ul>	<li>Browse our products by selecting a category above</li></ul>"
+
+
+# Apparel Brands Landing Page
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];imageMapHTML[lang=en];$picture[lang=$lang]
+
+
+# Apparel FAQ Page 
+
+# CMS Paragraph Component (Contact information)
+# CMSParagraphComponent
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+
+# Apparel Order Expired Page
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+
+# Apparel Terms and Conditions Page
+
+# CMS Paragraph Component (Contact information)
+# CMSParagraphComponent
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
+
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=en]
+
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
+
+
+# Landing Pages
+
+# Media
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
+
+UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];imageMapHTML[lang=en];$picture[lang=$lang]
+
+UPDATE  DynamicBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+#;;DynamicBrandBanner;apparel-category-banner;
