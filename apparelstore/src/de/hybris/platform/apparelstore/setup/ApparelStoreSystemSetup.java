@@ -9,17 +9,17 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  *
- *  
+ *
  */
 package de.hybris.platform.apparelstore.setup;
 
+import de.hybris.platform.apparelstore.constants.ApparelstoreConstants;
 import de.hybris.platform.commerceservices.dataimport.impl.CoreDataImportService;
 import de.hybris.platform.commerceservices.dataimport.impl.SampleDataImportService;
 import de.hybris.platform.commerceservices.setup.AbstractSystemSetup;
 import de.hybris.platform.commerceservices.setup.data.ImportData;
 import de.hybris.platform.commerceservices.setup.events.CoreDataImportedEvent;
 import de.hybris.platform.commerceservices.setup.events.SampleDataImportedEvent;
-import de.hybris.platform.apparelstore.constants.ApparelstoreConstants;
 import de.hybris.platform.core.initialization.SystemSetup;
 import de.hybris.platform.core.initialization.SystemSetupContext;
 import de.hybris.platform.core.initialization.SystemSetupParameter;
@@ -35,9 +35,7 @@ import org.springframework.beans.factory.annotation.Required;
 @SystemSetup(extension = ApparelstoreConstants.EXTENSIONNAME)
 public class ApparelStoreSystemSetup extends AbstractSystemSetup
 {
-	public static final String APPAREL = "apparel";
-	public static final String APPAREL_UK = "apparel-uk";
-	public static final String APPAREL_DE = "apparel-de";
+	public static final String FKOM = "fkom";
 
 	private static final String IMPORT_CORE_DATA = "importCoreData";
 	private static final String IMPORT_SAMPLE_DATA = "importSampleData";
@@ -61,7 +59,7 @@ public class ApparelStoreSystemSetup extends AbstractSystemSetup
 
 	/**
 	 * This method will be called during the system initialization.
-	 * 
+	 *
 	 * @param context
 	 *           the context provides the selected parameters and values
 	 */
@@ -71,9 +69,9 @@ public class ApparelStoreSystemSetup extends AbstractSystemSetup
 		final List<ImportData> importData = new ArrayList<ImportData>();
 
 		final ImportData apparelImportData = new ImportData();
-		apparelImportData.setProductCatalogName(APPAREL);
-		apparelImportData.setContentCatalogNames(Arrays.asList(APPAREL_UK, APPAREL_DE));
-		apparelImportData.setStoreNames(Arrays.asList(APPAREL_UK, APPAREL_DE));
+		apparelImportData.setProductCatalogName(FKOM);
+		apparelImportData.setContentCatalogNames(Arrays.asList(FKOM));
+		apparelImportData.setStoreNames(Arrays.asList(FKOM));
 		importData.add(apparelImportData);
 
 		getCoreDataImportService().execute(this, context, importData);
