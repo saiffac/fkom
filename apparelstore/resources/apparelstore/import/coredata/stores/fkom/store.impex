@@ -3,10 +3,10 @@
 #
 $prefix=fkom
 $productCatalog=$prefixProductCatalog
-$currencies=SGD,USD
+$currencies=SGD,USD,PHP
 $net=false
 $storeUid=$prefix
-$defaultCurrency=SGD
+$defaultCurrency=PHP
 $languages=en
 $defaultLanguage=en
 $orderProcessCode=order-process

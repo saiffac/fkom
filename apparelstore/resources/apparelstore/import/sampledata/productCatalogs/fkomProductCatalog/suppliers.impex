@@ -1,9 +1,0 @@
-# ImpEx for Importing Categories into Apparel Store
-
-# Macros / Replacement Parameter definitions
-$prefix=fkom
-$productCatalog=$prefixProductCatalog
-$catalogVersion=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
-
-# Create Categories
-INSERT_UPDATE Category;code[unique=true];$catalogVersion;supercategories(code,$catalogVersion);allowedPrincipals(uid)[default='customergroup']

@@ -13,6 +13,7 @@ UPDATE Language;isocode[unique=true];name[lang=$lang]
 UPDATE Currency;isocode[unique=true];name[lang=$lang]
  ;USD;"US Dollar"
  ;SGD;"Singapore Dollar"
+ ;PHP;"Philippine Peso"
 
 # Titles
 UPDATE Title;code[unique=true];name[lang=$lang]

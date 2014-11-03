@@ -13,7 +13,7 @@ $searchIndexNamePrefix=$prefix
 $solrIndexedType=$prefixProductType
 $indexBaseSite=$prefix
 $indexLanguages=en
-$indexCurrencies=SGD
+$indexCurrencies=PHP
 
 
 #
@@ -48,23 +48,10 @@ UPDATE BaseSite;uid[unique=true];solrFacetSearchConfiguration(name)
 
 # Define price range set
 INSERT_UPDATE SolrValueRangeSet;name[unique=true];qualifier;type;solrValueRanges(&rangeValueRefID)
-;apparelPriceRangeSGD;SGD;double;rangeRefSGD1,rangeRefSGD2,rangeRefSGD3,rangeRefSGD4,rangeRefSGD5,rangeRefSGD6,rangeRefSGD7,rangeRefSGD8,rangeRefSGD9,rangeRefSGD10,rangeRefSGD11,rangeRefSGD12,rangeRefSGD13
+#;apparelPriceRangeSGD;SGD;double;rangeRefSGD1,rangeRefSGD2,rangeRefSGD3,rangeRefSGD4,rangeRefSGD5,rangeRefSGD6,rangeRefSGD7,rangeRefSGD8,rangeRefSGD9,rangeRefSGD10,rangeRefSGD11,rangeRefSGD12,rangeRefSGD13
 
 # Define price ranges
 INSERT_UPDATE SolrValueRange;&rangeValueRefID;solrValueRangeSet(name)[unique=true];name[unique=true];from;to
-;rangeRefSGD1 ;apparelPriceRangeSGD;    $0-$19.99;   0; 19.99
-;rangeRefSGD2 ;apparelPriceRangeSGD;   $20-$49.99;  20; 49.99
-;rangeRefSGD3 ;apparelPriceRangeSGD;   $50-$99.99;  50; 99.99
-;rangeRefSGD4 ;apparelPriceRangeSGD; $100-$199.99; 100;199.99
-;rangeRefSGD5 ;apparelPriceRangeSGD; $200-$299.99; 200;299.99
-;rangeRefSGD6 ;apparelPriceRangeSGD; $300-$399.99; 300;399.99
-;rangeRefSGD7 ;apparelPriceRangeSGD; $400-$499.99; 400;499.99
-;rangeRefSGD8 ;apparelPriceRangeSGD; $500-$599.99; 500;599.99
-;rangeRefSGD9 ;apparelPriceRangeSGD; $600-$699.99; 600;699.99
-;rangeRefSGD10;apparelPriceRangeSGD; $700-$799.99; 700;799.99
-;rangeRefSGD11;apparelPriceRangeSGD; $800-$899.99; 800;899.99
-;rangeRefSGD12;apparelPriceRangeSGD; $900-$999.99; 900;999.99
-;rangeRefSGD13;apparelPriceRangeSGD;$1,000-$100,000;1000;100000
 
 
 # Non-facet properties
@@ -109,12 +96,12 @@ INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[
 
 # Other facet properties
 INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];facet[default=true];facetType(code);facetSort(code);priority;visible;useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider;facetDisplayNameProvider;customFacetSortProvider;topValuesProvider;rangeSets(name)
-;$solrIndexedType; price            ;double ; ;true ;    ;    ; ;MultiSelectOr ;Alpha ; 4000;true;    ;    ;productPriceValueProvider              ;                                             ;                             ;defaultTopValuesProvider ;apparelPriceRangeSGD
-;$solrIndexedType; style            ;string ; ;     ;true;    ; ;MultiSelectOr ;Alpha ;-1   ;false;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
-;$solrIndexedType; swatchColors     ;string ; ;     ;    ;true; ;MultiSelectOr ;Alpha ; 2500;true;    ;    ;colorFacetValueProvider                ;colorFacetDisplayNameProvider                ;                             ;
-;$solrIndexedType; size             ;string ; ;     ;true;    ; ;MultiSelectOr ;Custom; 2000;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;sizeAttributeSortProvider    ;
-#;$solrIndexedType; allPromotions    ;string ; ;false;    ;true; ;MultiSelectOr ;Alpha ; 0   ;false;    ;    ;promotionCodeValueProvider             ;promotionFacetDisplayNameProvider            ;                             ;
-#;$solrIndexedType; availableInStores;string	; ;     ;    ;true; ;MultiSelectOr ;Custom;10000;true;    ;    ;productStoreStockValueProvider         ;apparelPointOfServiceFacetDisplayNameProvider;distanceAttributeSortProvider;
+;$solrIndexedType; price            ;double ; ;true ;    ;    ; ; ;Alpha ; 4000;true;    ;    ;productPriceValueProvider              ;                                             ;                             ;defaultTopValuesProvider ;
+;$solrIndexedType; style            ;string ; ;     ;true;    ; ; ;Alpha ;-1   ;false;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
+;$solrIndexedType; swatchColors     ;string ; ;     ;    ;true; ; ;Alpha ; 2500;true;    ;    ;colorFacetValueProvider                ;colorFacetDisplayNameProvider                ;                             ;
+;$solrIndexedType; size             ;string ; ;     ;true;    ; ; ;Custom; 2000;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;sizeAttributeSortProvider    ;
+#;$solrIndexedType; allPromotions    ;string ; ;false;    ;true; ; ;Alpha ; 0   ;false;    ;    ;promotionCodeValueProvider             ;promotionFacetDisplayNameProvider            ;                             ;
+#;$solrIndexedType; availableInStores;string	; ;     ;    ;true; ; ;Custom;10000;true;    ;    ;productStoreStockValueProvider         ;apparelPointOfServiceFacetDisplayNameProvider;distanceAttributeSortProvider;
 
 # Create the queries that will be used to extract data for Solr
 INSERT_UPDATE SolrIndexerQuery;solrIndexedType(identifier)[unique=true];identifier[unique=true];type(code);injectCurrentDate[default=true];injectCurrentTime[default=true];injectLastIndexTime[default=true];query;user(uid)

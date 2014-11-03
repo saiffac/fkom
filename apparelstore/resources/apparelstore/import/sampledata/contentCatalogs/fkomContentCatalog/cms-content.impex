@@ -164,7 +164,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 ;;MiniCartSlot;MiniCart
 #;;NavigationBarSlot;NavBarComponent,breadcrumbComponent
 #;;SideContentSlot;MobileAppBanner
-#;;SiteLogoSlot;SiteLogoComponent
+;;SiteLogoSlot;SiteLogoComponent
 ;;TabsSlot;TabPanelContainer
 #;;TopContentSlot;FacebookOffersBanner
 #;;ProductLeftRefinements;RefinementFacetComponent

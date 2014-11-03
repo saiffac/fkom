@@ -22,6 +22,10 @@ INSERT_UPDATE Language;isocode[unique=true];fallbackLanguages(isocode);active[de
 INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol
 ;USD;1,4;2;$
 ;SGD;1;2;$
+;PHP;1;1;Php
+
+INSERT_UPDATE Unit;unitType[unique=true];code[unique=true];name[lang=en];conversion
+;pair;pair;pair;1
 
 # Vendor
 INSERT_UPDATE Vendor;code[unique=true];name
