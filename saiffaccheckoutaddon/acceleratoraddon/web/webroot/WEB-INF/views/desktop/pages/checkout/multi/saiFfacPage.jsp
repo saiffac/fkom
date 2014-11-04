@@ -31,6 +31,10 @@
             <a class="ffacbtnCancel" href="${cancelUrl}"><spring:theme code="checkout.multi.cancel" text="Back"/></a>
             <a href="${continueUrl}"><img src="https://www.paypalobjects.com/en_US/i/btn/x-click-but6.gif"></a>
         </div>
+        <div>There will be no exchanges, refunds or cancellations once orders have been processed through PayPal <br>
+        Purchase online by 15 Dec so you can pick up and wear your purchases at APJ FKOM in Singapore<br>
+        Proceeds for 2nd pair goes towards community enhancement programs in Philippines
+        </div>
     </div>
  
     <multi-checkout:checkoutOrderDetails cartData="${cartData}" showShipDeliveryEntries="false" showPickupDeliveryEntries="false" showTax="false"/>

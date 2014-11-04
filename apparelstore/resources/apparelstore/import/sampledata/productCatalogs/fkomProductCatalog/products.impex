@@ -70,16 +70,16 @@ INSERT_UPDATE ApparelProduct;code[unique=true];$catalogVersion;unit(code);$price
 ;Her_Classic_Black_White_7;;pair;1766,0 PHP;151000;;;
 ;Her_Classic_Black_White_8;;pair;1766,0 PHP;151000;;;
 ;Her_Classic_Black_White_9;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Onyx_5;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Onyx_6;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Onyx_7;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Onyx_8;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Onyx_9;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Stone_5;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Stone_6;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Stone_7;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Stone_8;;pair;1766,0 PHP;151000;;;
-;Her_Chic_Stone_9;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Onyx_5;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Onyx_6;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Onyx_7;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Onyx_8;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Onyx_9;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Stone_5;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Stone_6;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Stone_7;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Stone_8;;pair;1766,0 PHP;151000;;;
+#;Her_Chic_Stone_9;;pair;1766,0 PHP;151000;;;
 #Him
 ;Him_Classic_Grey_Yellow_7;;pair;1936,0 PHP;150000;;;
 ;Him_Classic_Grey_Yellow_8;;pair;1936,0 PHP;150000;;;

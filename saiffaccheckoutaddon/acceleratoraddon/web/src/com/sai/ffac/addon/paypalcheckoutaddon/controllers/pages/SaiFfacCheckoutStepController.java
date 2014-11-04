@@ -16,11 +16,8 @@ import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.storefront.controllers.pages.checkout.steps.AbstractCheckoutStepController;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -56,6 +53,7 @@ import urn.ebay.apis.eBLBaseComponents.PaymentActionCodeType;
 import urn.ebay.apis.eBLBaseComponents.PaymentDetailsType;
 import urn.ebay.apis.eBLBaseComponents.PaymentInfoType;
 import urn.ebay.apis.eBLBaseComponents.PaymentStatusCodeType;
+import urn.ebay.apis.eBLBaseComponents.PendingStatusCodeType;
 import urn.ebay.apis.eBLBaseComponents.SetExpressCheckoutRequestDetailsType;
 
 import com.paypal.core.credential.ICredential;
@@ -97,7 +95,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#enterStep(org.springframework
 	 * .ui.Model, org.springframework.web.servlet.mvc.support.RedirectAttributes)
@@ -149,7 +147,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		final String payPalUrl = cfg.getString(SaiffaccheckoutaddonControllerConstants.CHECKOUT_URL);
 		final String currencyCode = cfg.getString(SaiffaccheckoutaddonControllerConstants.CURRENCY_CODE);
 
-		final String orderDescription = "Order to SAI FFAC. Total: S$ ";
+		final String orderDescription = "Order to SAI FFAC. Total: PHP ";
 
 		String token = null;
 
@@ -235,32 +233,21 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 				GlobalMessages.addErrorMessage(model, "checkout.placeOrder.failed");
 			}
 
-			String deliveryDate = "";
+			final String deliveryDate = "TBD";
 
-			final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-			final Date currentDate = new Date();
-
-			final Date milestone1001 = dateFormat.parse("01/10/2014");
-			final Date milestone1017 = dateFormat.parse("17/10/2014");
-			final Date milestone1114 = dateFormat.parse("14/11/2014");
-			final Date milestone1230 = dateFormat.parse("30/12/2014");
-
-			if ((currentDate.compareTo(milestone1001) >= 0) && (currentDate.compareTo(milestone1017) <= 0))
-			{
-				deliveryDate = "13/11/2014";
-			}
-			else if ((currentDate.compareTo(milestone1017) > 0) && (currentDate.compareTo(milestone1114) <= 0))
-			{
-				deliveryDate = "09/12/2014";
-			}
-			else if ((currentDate.compareTo(milestone1114) > 0) && (currentDate.compareTo(milestone1230) <= 0))
-			{
-				deliveryDate = "12/01/2015";
-			}
-			else
-			{
-				deliveryDate = currentDate.toString();
-			}
+			/*
+			 * final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); final Date currentDate = new Date();
+			 * 
+			 * final Date milestone1001 = dateFormat.parse("01/10/2014"); final Date milestone1017 =
+			 * dateFormat.parse("17/10/2014"); final Date milestone1114 = dateFormat.parse("14/11/2014"); final Date
+			 * milestone1230 = dateFormat.parse("30/12/2014");
+			 * 
+			 * if ((currentDate.compareTo(milestone1001) >= 0) && (currentDate.compareTo(milestone1017) <= 0)) {
+			 * deliveryDate = "13/11/2014"; } else if ((currentDate.compareTo(milestone1017) > 0) &&
+			 * (currentDate.compareTo(milestone1114) <= 0)) { deliveryDate = "09/12/2014"; } else if
+			 * ((currentDate.compareTo(milestone1114) > 0) && (currentDate.compareTo(milestone1230) <= 0)) { deliveryDate =
+			 * "12/01/2015"; } else { deliveryDate = currentDate.toString(); }
+			 */
 
 			model.addAttribute("isSuccessful", Boolean.TRUE);
 			model.addAttribute("deliveryDate", deliveryDate);
@@ -413,13 +400,18 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 			{
 				return true;
 			}
+			else if (paymentInfo.getPaymentStatus() == PaymentStatusCodeType.PENDING
+					&& paymentInfo.getPendingReason() == PendingStatusCodeType.MULTICURRENCY)
+			{
+				return true;
+			}
 		}
 		return false;
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#back(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
@@ -434,7 +426,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#next(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
