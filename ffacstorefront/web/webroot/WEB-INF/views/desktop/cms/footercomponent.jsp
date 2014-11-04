@@ -23,9 +23,13 @@
 <div class="copyright">${notice}</div> --%>
 <c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
 <div id="ourStory" class="we-infor">
-      <h3>we are a small group with big heart</h3>
-      <p><b>AO.CO</b> is a social enterprise based just outside of Siem Reap, Cambodia. It was founded in 2011 by Joseph and Anna Teo to provide a platform for them to extend their social enterprise work internationally. AO.CO currently provides direct work for 6 women and 1 man, operating out of their apartment as well as in a Pouk Village, 25 minutes away by scooter.  It also collaborates with other needy social enterprises in Cambodia, providing training in sewing, design, contract work and market access for their products. AO.CO has been and continues to enable these women to make a living to support their families and to make a better life for themselves. </p>
-      <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> 
+      <h3>ENVIRONMENT-FRIENDLY SHOES MADE BY MOTHERS IN COMMUNITIES IN PHILIPPINES</h3>
+     <!-- ><video>
+      
+      </video> --> 
+       <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> 
+      <p><span>1</span>. <b>Provides livelihood opportunities</b> to the mothers in communities, and further expands their hard and soft skills through trainings <br/><span>2</span>. <b>Reduces solid waste in the environment</b> by using upcycled scrap cloth in its products FADDA <br/><span>3</span>. <b>Promotes responsible fashion</b> upholding a statement that is both socially aware and environmentally concerned </p>
+     
       <div class="clear"></div>
       </div>
       
@@ -42,7 +46,7 @@ Enhance education for underserved youth and propel emerging entrepreneurs to fos
 economic growth</p>
 
 <p><b>CSR Focus</b><br>
-Education is fundamental to people’s ability to fulfill their potential and, in today's
+Education is fundamental to people's ability to fulfill their potential and, in today's
 interconnected world, technology skills provide entry to the modern economy. Emerging 
 entrepreneurs can play a vital role in driving economic growth by addressing societal needs through successful ventures that create new jobs. For SAP, emerging entrepreneurs may become our future customers, and their ideas spark our own innovation. They also help create a stronger business environment that benefits us as well as others
 </p>

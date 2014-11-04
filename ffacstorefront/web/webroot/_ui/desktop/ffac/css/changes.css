@@ -9,9 +9,11 @@
 	width: 200px;
 	height: 200px;
 }
+.product-image-wrapper .cart{position: absolute; right:5px;bottom:-7px}
+
 
 .product-image-wrapper {
-	height: 364px;
+	height:310px; position: relative
 }
 
 .productinfo img {
@@ -21,13 +23,14 @@
 .productinfo  .details {
 	color: #222;
 	font-size: 15px;
-	height: 45px; padding:0 10px;
+	height: 54px; padding:0 10px;
 	font-weight: 700;
-    margin-bottom: 15px;
+  
 }
 .productinfo  .details:hover{ color:#fe980f}
 .productinfo .priceContainer{
 	 margin-bottom: 15px;
+	 text-align:right; width: 50%
 }
 .productinfo .productMainLink:hover{text-decoration: none}
 
