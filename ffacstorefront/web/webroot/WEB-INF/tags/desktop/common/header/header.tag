@@ -55,8 +55,8 @@
 	<!--banner-->
 	<div class="banner">
 		<div class="infor-banner">
-			<h2>PROVIDE LIVEHOOD OPPORTUNITY</h2>
-			<h1>TO MOTHER IN COMMUNITIES</h1>
+			<h2>PROVIDE LIVELIHOOD OPPORTUNITIES</h2>
+			<h1>TO MOTHERS IN COMMUNITIES</h1>
 			<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
 			<a href="#headAnchor" class="btn-buy-gift">buy a shoes</a>
 			<a href="#ourStory" class="btn-out-story">our story...</a>
