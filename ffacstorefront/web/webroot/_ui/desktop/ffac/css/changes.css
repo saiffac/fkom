@@ -168,4 +168,5 @@ margin: 0 auto 110px;
 .orderHistory #orderTotals td:nth-child(1){ padding-left: 0 !important;}
 .tab-content { position: relative; z-index: 100}
 /* text-paypal */
-.text-paypal{ padding: 0 100px 30px}
+.text-paypal{ padding: 0 170px 30px}
+.text-paypal ul li{list-style-type: inherit}
