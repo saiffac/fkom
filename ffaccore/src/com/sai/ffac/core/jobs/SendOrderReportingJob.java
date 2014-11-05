@@ -71,7 +71,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable#perform(de.hybris.platform.cronjob.model.CronJobModel
 	 * )
@@ -79,7 +79,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 	@Override
 	public PerformResult perform(final CronJobModel arg0)
 	{
-		final String subject = "FFAC Order List Report";
+		final String subject = "FKOM Order List Report";
 		final String queryStr = "SELECT {o.code}, {o.date}, {o.totalprice}" + ", {t.code}"
 				+ ", {c.name}, {c.originalUid}, {c.sapcode}, {c.mobilenumber}" + ", {oe.info}, {oe.quantity}, {oe.totalprice}"
 				+ " FROM {Order as o}, {OrderEntry as oe}, {Customer as c}, {Title as t}"
@@ -129,7 +129,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 		LOG.info("Start sending order reporting mails");
 		final String content = reportContent.toString();
-		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FFAC Service");
+		final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress, "FKOM Service");
 		final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "Mechant");
 		final EmailAddressModel bccAddress = emailService.getOrCreateEmailAddressForEmail(bccEmailAddress, "Administrator");
 		final EmailMessageModel message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null,
@@ -193,11 +193,11 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 		/*
 		 * final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		 * 
+		 *
 		 * try { final Date milestone1001 = dateFormat.parse("01/10/2014"); final Date milestone1017 =
 		 * dateFormat.parse("17/10/2014"); final Date milestone1114 = dateFormat.parse("14/11/2014"); final Date
 		 * milestone1230 = dateFormat.parse("30/12/2014");
-		 * 
+		 *
 		 * if ((orderDate.compareTo(milestone1001) >= 0) && (orderDate.compareTo(milestone1017) <= 0)) { deliveryDate =
 		 * "13/11/2014"; } else if ((orderDate.compareTo(milestone1017) > 0) && (orderDate.compareTo(milestone1114) <= 0))
 		 * { deliveryDate = "09/12/2014"; } else if ((orderDate.compareTo(milestone1114) > 0) &&
