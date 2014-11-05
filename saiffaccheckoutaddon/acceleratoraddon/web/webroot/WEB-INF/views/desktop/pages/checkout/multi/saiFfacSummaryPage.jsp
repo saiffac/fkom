@@ -26,7 +26,7 @@
             <div class="description">
             <c:if test="${isSuccessful}">
    				<p>Your order will be available for collection from <b><c:out value="${deliveryDate}"/></b><br>
-				Purchase online by 15 Dec so you can pick up and wear your purchases at APJ FKOM in Singapore<br>
+				You will pick up and wear your purchases at FKOM venue in Singapore<br>
 				<!-- <b>SAP Asia Pte Ltd,</b> 30 Pasir Panjang Road, Level 3<br>
 				Mapletree Business City, Singapore 117440 --></p>
 				<!-- <p>An email and SMS alert will be sent to you describing the exact location and timing to collect your orders.</p> -->
