@@ -18,9 +18,28 @@ INSERT_UPDATE Category;code[unique=true];$catalogVersion;allowedPrincipals(uid)[
 ;151000;;;
 ;152000;;;
 ;153000;;;
+;154000;;;
+;154100;;;
+;154200;;;
+;154300;;;
+;154400;;;
+;154500;;;
+;154600;;;
+;154700;;;
+;154800;;;
+
 
 INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
 ;150000;categories;
 ;151000;categories;
 ;152000;categories;
 ;153000;categories;
+;154000;categories;
+;154100;categories;
+;154200;categories;
+;154300;categories;
+;154400;categories;
+;154500;categories;
+;154600;categories;
+;154700;categories;
+;154800;categories;

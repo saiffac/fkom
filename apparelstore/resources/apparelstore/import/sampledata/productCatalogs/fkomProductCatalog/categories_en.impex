@@ -12,10 +12,17 @@ $lang=en
 
 # Create Categories
 UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang]
- ;150000;;ForHim;
- ;151000;;ForHer;
- ;152000;;Gifts;
- ;153000;;Silver;
- #;brands;;Brands;
- ;categories;;Categories;
- #;collections;;Collections;
+;150000;;ForHim;
+;151000;;ForHer;
+;152000;;Gifts;
+;153000;;Silver;
+;154000;;Shoes;
+;154100;;HerGreyYellow;
+;154200;;HerRedBeige;
+;154300;;HerBlueBeige;
+;154400;;HerBlackWhite;
+;154500;;HimGreyYellow;
+;154600;;HimRedBeige;
+;154700;;HimBlueBeige;
+;154800;;HimBlackWhite;
+;categories;;Categories;

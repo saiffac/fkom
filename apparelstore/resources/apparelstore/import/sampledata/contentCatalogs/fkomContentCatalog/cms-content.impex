@@ -323,20 +323,26 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
  
 #CategoryPage 
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV);
- 
+#;;ShoesCategoryPage;Shoes Category Page;CategoryPageTemplate;false;;;
+
 # CMSCategoryRestriction 
 INSERT_UPDATE CMSCategoryRestriction;$contentCV[unique=true];uid[unique=true];name;categories(code, $productCV);pages(uid, $contentCV);;;
- 
+ #;;Shoes-LandingPageRestriction;Restriction for Shoes;154000;ShoesCategoryPage;;;
+ ;;Shoes-LandingPageRestriction;Restriction for Shoes;154000;category;;;
  
 # ImageMapComponent 
-INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;imageMapHTML[lang=en];&componentRef;;;
- 
+#INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;imageMapHTML[lang=en];&componentRef;;;
+INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+;;CategoryMainComponent;Category Main Component;categoryMainPage.jsp;;CategoryMainComponent
+
 # ContentSlot 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
- 
+;;Section2Slot-Shoes;Section2 Slot for Shoes Page;true;CategoryMainComponent;;; 
  
 # ContentSlotForPage 
-INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='BrandsCategoryPage'];contentSlot(uid,$contentCV)[unique=true];;;
+#INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='ShoesCategoryPage'];contentSlot(uid,$contentCV)[unique=true];;;
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='category'];contentSlot(uid,$contentCV)[unique=true];;;
+;;Section2-Shoes;Section2;;Section2Slot-Shoes;;; 
  
 # Apparel UK FAQ Page  
  
@@ -391,6 +397,7 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 
 
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
+#;;CategoryMainComponent;Category Main Component;categoryMainPage.jsp;;CategoryMainComponent
 ;;AccountPaymentDetailsComponent;Account Payment Details Component;accountPaymentInfoPage.jsp;;AccountPaymentDetailsComponent
 ;;AccountOrderDetailsHeadlineComponent;Account Order Details Headline Component;accountOrderDetailHeadline.jsp;;AccountOrderDetailsHeadlineComponent
 ;;AccountOrderDetailsTotalsComponent;Account Order Details Order Totals Component;accountOrderDetailOrderTotals.jsp;;AccountOrderDetailsTotalsComponent

@@ -430,8 +430,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;TopHeaderSlot;Top Header;true
 ;;BottomHeaderSlot;Bottom Header;true
 ;;ProductLeftRefinements;Refinements;true
-;;ProductGridSlot;Product List;true
-;;ProductListSlot;Product Grid;true
+;;ProductGridSlot;Product Grid;true
+;;ProductListSlot;Product List;true
 ;;SearchResultsListSlot;Search Result List;true
 ;;SearchResultsGridSlot;Search Result Grid;true
 ;;MiddleContentSlot;Middle Content Slot;true
