@@ -16,7 +16,6 @@ import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.SearchResult;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
@@ -72,7 +71,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable#perform(de.hybris.platform.cronjob.model.CronJobModel
 	 * )
@@ -190,39 +189,22 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 	public String getCollectionDate(final Date orderDate)
 	{
-		String deliveryDate = "";
+		final String deliveryDate = "6 Jan";
 
-		final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-		try
-		{
-			final Date milestone1001 = dateFormat.parse("01/10/2014");
-			final Date milestone1017 = dateFormat.parse("17/10/2014");
-			final Date milestone1114 = dateFormat.parse("14/11/2014");
-			final Date milestone1230 = dateFormat.parse("30/12/2014");
-
-			if ((orderDate.compareTo(milestone1001) >= 0) && (orderDate.compareTo(milestone1017) <= 0))
-			{
-				deliveryDate = "13/11/2014";
-			}
-			else if ((orderDate.compareTo(milestone1017) > 0) && (orderDate.compareTo(milestone1114) <= 0))
-			{
-				deliveryDate = "09/12/2014";
-			}
-			else if ((orderDate.compareTo(milestone1114) > 0) && (orderDate.compareTo(milestone1230) <= 0))
-			{
-				deliveryDate = "12/01/2015";
-			}
-			else
-			{
-				deliveryDate = orderDate.toString();
-			}
-		}
-		catch (final ParseException e)
-		{
-			// YTODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		 * 
+		 * try { final Date milestone1001 = dateFormat.parse("01/10/2014"); final Date milestone1017 =
+		 * dateFormat.parse("17/10/2014"); final Date milestone1114 = dateFormat.parse("14/11/2014"); final Date
+		 * milestone1230 = dateFormat.parse("30/12/2014");
+		 * 
+		 * if ((orderDate.compareTo(milestone1001) >= 0) && (orderDate.compareTo(milestone1017) <= 0)) { deliveryDate =
+		 * "13/11/2014"; } else if ((orderDate.compareTo(milestone1017) > 0) && (orderDate.compareTo(milestone1114) <= 0))
+		 * { deliveryDate = "09/12/2014"; } else if ((orderDate.compareTo(milestone1114) > 0) &&
+		 * (orderDate.compareTo(milestone1230) <= 0)) { deliveryDate = "12/01/2015"; } else { deliveryDate =
+		 * orderDate.toString(); } } catch (final ParseException e) { // YTODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
 
 		return deliveryDate;
 	}

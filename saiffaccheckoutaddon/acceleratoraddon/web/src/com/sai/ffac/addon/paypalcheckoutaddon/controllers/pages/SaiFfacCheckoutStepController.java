@@ -95,7 +95,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#enterStep(org.springframework
 	 * .ui.Model, org.springframework.web.servlet.mvc.support.RedirectAttributes)
@@ -233,15 +233,15 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 				GlobalMessages.addErrorMessage(model, "checkout.placeOrder.failed");
 			}
 
-			final String deliveryDate = "TBD";
+			final String deliveryDate = "12 to 14 Jan";
 
 			/*
 			 * final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); final Date currentDate = new Date();
-			 *
+			 * 
 			 * final Date milestone1001 = dateFormat.parse("01/10/2014"); final Date milestone1017 =
 			 * dateFormat.parse("17/10/2014"); final Date milestone1114 = dateFormat.parse("14/11/2014"); final Date
 			 * milestone1230 = dateFormat.parse("30/12/2014");
-			 *
+			 * 
 			 * if ((currentDate.compareTo(milestone1001) >= 0) && (currentDate.compareTo(milestone1017) <= 0)) {
 			 * deliveryDate = "13/11/2014"; } else if ((currentDate.compareTo(milestone1017) > 0) &&
 			 * (currentDate.compareTo(milestone1114) <= 0)) { deliveryDate = "09/12/2014"; } else if
@@ -411,7 +411,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#back(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
@@ -426,7 +426,7 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.storefront.controllers.pages.checkout.steps.CheckoutStepController#next(org.springframework
 	 * .web.servlet.mvc.support.RedirectAttributes)
