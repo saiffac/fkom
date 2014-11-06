@@ -36,7 +36,7 @@
 
 .we-infor {
 width: 1170px;
-margin: 0 auto 100px;
+margin: 0 auto 45px;
 }
 .price{color: #fff ;
     font-size: 20px;font-family: 'Lato', sans-serif !important
@@ -168,5 +168,7 @@ margin: 0 auto 100px;
 .orderHistory #orderTotals td:nth-child(1){ padding-left: 0 !important;}
 .tab-content { position: relative; z-index: 100}
 /* text-paypal */
-.text-paypal{ padding: 0 170px 30px}
+.text-paypal { padding:0; margin: 0}
 .text-paypal ul li{list-style-type: inherit}
+.text-paypal  .term p{font-size: 14px}
+

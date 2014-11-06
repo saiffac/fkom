@@ -22,14 +22,39 @@
 
 <div class="copyright">${notice}</div> --%>
 <c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid'  || cmsPageRequestContextData.page.uid eq 'category' }">
+  <div class="term">
+    	<h3><a href="">Terms and conditions</a></h3>
+        <p>Orders are not exchangeable nor refundable once payment has been processed.Please direct order queries to <a href="#">habifootwear@gmail.com</a><br>
+        Your orders will be shipped to Singapore, for your pick up at the FKOM venue. Orders not collected by 5pm, 13 January, will be given to local charity organization</p>
+    </div>
 <div id="ourStory" class="we-infor">
-      <h3>ENVIRONMENT-FRIENDLY SHOES MADE BY MOTHERS IN COMMUNITIES IN PHILIPPINES</h3>
+      <h3>Habi Footwear - Creating jobs with dignity, with environmentally-friendly shoes </h3>
+      
+      
       <iframe src="//www.youtube.com/embed/naqvsbbxeYg" frameborder="0" allowfullscreen></iframe>
       <%-- <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> --%>
-      <p><span>1</span>. <b>Provides livelihood opportunities</b> to the mothers in communities, and further expands their hard and soft skills through trainings <br/><span>2</span>. <b>Reduces solid waste in the environment</b> by using upcycled scrap cloth in its products FADDA <br/><span>3</span>. <b>Promotes responsible fashion</b> upholding a statement that is both socially aware and environmentally concerned </p>
-     
+      
+      
+      <p>Habi Footwear is a Philippines-based social business which promotes responsible fashion, Pinoy pride and social involvement through 100% Filipino-made, environment-friendly footwear. It works in partnership with two marginalized communities in the Philippines, namely Saint Luigi Oriones Creations of Payatas and Bistekville of Fairview</p>
+      <p>Managed by three social entrepreneurs, Janine Chiong, Paola Savillo, and Bernadee Uy, Habi Footwear aims for both business growth and making positive social impact through three ways:</p>
       <div class="clear"></div>
       </div>
+      
+ <div class="provide">
+  <div class="box-provie">
+  <a href="#"><img src="${commonResourcePath}/../ffac/images/provide1.png" alt=""/></a>
+  	<p>Provide livelihood opportunities to mothers in the communities, and further expand their hard and soft skills through trainings.</p>
+  </div>
+   <div class="box-provie">
+  <a href="#"><img src="${commonResourcePath}/../ffac/images/provide2.png" alt=""/></a>
+  	<p>Help reduce solid waste in the environment by using upcycled scrap cloth in its products.</p>
+  </div>
+   <div class="box-provie">
+  <a href="#"><img src="${commonResourcePath}/../ffac/images/provide3.png" alt=""/></a>
+  	<p>Promote a change in lifestyle through responsible fashion, upholding a statement that is both socially aware and environmentally concerned.</p>
+  </div>
+  
+  </div>
       
       <div id="scrVision" class="helping">
       
@@ -37,17 +62,17 @@
 
       <h3>Helping the World Run Better by Improving People's Lives</h3>
        <img src="${commonResourcePath}/../ffac/images/sapcares.jpg" alt=""> 
-      <p><b>Strategic Vision</b><br>
-SAP's CSR vision is based on our vision to help the world run better by improving people's lives</p>
-<p><b>CSR Focus</b><br>
-Enhance education for underserved youth and propel emerging entrepreneurs to foster 
-economic growth</p>
+      <p>SAP's vision is to help the world run better and improve people's lives.
+      Nowhere does this vision come to life more than in our social investments.
+      When a child is able to go to school and explore the world through technology, new possibilities are created for change.
+      When that child grows up to have the confidence to create a different future, the possibilities multiply.
+      And when that future includes starting up a new business, spurring job creation and economic growth, the cycle begins all over again.</p>
+ <p>We aim to be as strategic and innovative in addressing social challenges as we are in the rest of our business. For this reason, we call on our talent, technology, and capital to multiply our impact. Specifically, we focus on:</p>
+<p><b><span>.</span>Engaging our talent</b> - We tap the skills of our employees to drive new approaches.<br/>
+<b><span>.</span>Leveraging our technology</b> - We provide software tools to nonprofits to accelerate their ability to serve their mission.<br/>
+<b><span>.</span>Investing our capital</b> - We invest in innovative strategies for creating economic opportunity and long-term change.<br/>
 
-<p><b>CSR Focus</b><br>
-Education is fundamental to people's ability to fulfill their potential and, in today's
-interconnected world, technology skills provide entry to the modern economy. Emerging 
-entrepreneurs can play a vital role in driving economic growth by addressing societal needs through successful ventures that create new jobs. For SAP, emerging entrepreneurs may become our future customers, and their ideas spark our own innovation. They also help create a stronger business environment that benefits us as well as others
-</p>
+
      
       <div class="clear"></div>
       </div>

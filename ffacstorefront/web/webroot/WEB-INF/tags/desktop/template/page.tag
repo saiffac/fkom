@@ -63,7 +63,7 @@
       <a href="http://www.hybris.com"><img src="${commonResourcePath}/../ffac/images/logo-hybris.png" alt=""></a></div>
       <h3 id="headAnchor">BUY shoes AND HELP THE COMMUNITY</h3>
 <p>We're reminded that there are many whom are less fortunate than ourselves.<br>
-Buy a lovely shoes for yourself or for your loved ones, and in turn help support the community's craft and their livelihoods.<br>
+Buy a pair of lovely shoes for yourself or for your loved ones, and in turn help support the community's craft and their livelihoods.<br>
 We can make a difference in their lives, for a better world.</p>
     </div>
     

@@ -16,7 +16,6 @@
 <spring:theme code="text.addToCart" var="addToCartText"/>
 
 <div class="productDetailsPanel">
-
 	<product:productImagePanel product="${product}" galleryImages="${galleryImages}"/>
 
 	<div class="span-10 productDescription last">
@@ -37,11 +36,9 @@
 		</div>
 
 		<%-- <product:productPromotionSection product="${product}"/> --%>
-
 		<%-- <cms:pageSlot position="VariantSelector" var="component" element="div">
 			<cms:component component="${component}"/>
 		</cms:pageSlot> --%>
-
 		<cms:pageSlot position="AddToCart" var="component" element="div" class="span-10 last">
 			<cms:component component="${component}"/>
 		</cms:pageSlot>
