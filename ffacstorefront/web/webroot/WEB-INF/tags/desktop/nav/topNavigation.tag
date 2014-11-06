@@ -15,8 +15,8 @@
 	  <%-- <li <c:if test="${categoryName == 'Categories'}">class="active"</c:if>><a href="<c:url value="/Categories/c/categories#headAnchor"/>" data-toggle="tab">ALL PRODUCTS</a></li> --%>
 	  <li <c:if test="${categoryName == 'Shoes'}">class="active"</c:if>><a href="<c:url value="/Categories/Shoes/c/154000#headAnchor"/>" data-toggle="tab">ALL PRODUCTS</a></li>
 	  <%-- <li <c:if test="${categoryName == 'Silver'}">class="active"</c:if>><a href="<c:url value="/Categories/Silver/c/153000#headAnchor"/>" data-toggle="tab">SAP SILVER BALL</a></li> --%>
-	  <li <c:if test="${categoryName == 'ForHim'}">class="active"</c:if>><a href="<c:url value="/Categories/ForHim/c/150000#headAnchor"/>" data-toggle="tab">DESIGN FOR MEN</a></li>
-	  <li <c:if test="${categoryName == 'ForHer'}">class="active"</c:if>><a href="<c:url value="/Categories/ForHer/c/151000#headAnchor"/>" data-toggle="tab">DESIGN FOR WOMEN</a></li>
+	  <li <c:if test="${categoryName == 'ForHim'}">class="active"</c:if>><a href="<c:url value="/Categories/ForHim/c/150000#headAnchor"/>" data-toggle="tab">FOR MEN</a></li>
+	  <li <c:if test="${categoryName == 'ForHer'}">class="active"</c:if>><a href="<c:url value="/Categories/ForHer/c/151000#headAnchor"/>" data-toggle="tab">FOR WOMEN</a></li>
 	  <%-- <li <c:if test="${categoryName == 'Gifts'}">class="active"</c:if>><a href="<c:url value="/Categories/Gifts/c/152000#headAnchor"/>" data-toggle="tab">GIFTS</a></li> --%>
 	  
 	  
