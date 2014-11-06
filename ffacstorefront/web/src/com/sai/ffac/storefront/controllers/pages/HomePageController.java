@@ -50,7 +50,10 @@ public class HomePageController extends AbstractPageController
 		updatePageTitle(model, getContentPageForLabelOrId(null));
 
 		//		return getViewForPage(model);
-		return FORWARD_PREFIX + "/Categories/c/categories";
+		final String FORWARD_PAGE = "/Categories/Shoes/c/154000";
+		return FORWARD_PREFIX + FORWARD_PAGE;
+
+		//		return FORWARD_PREFIX + "/Categories/c/categories";
 		//return REDIRECT_PREFIX + "/Categories/c/categories"; //bypass Homepage, show all products at once
 		//		return REDIRECT_PREFIX + "/Categories/c/categories?q=:relevance&show=All";
 	}

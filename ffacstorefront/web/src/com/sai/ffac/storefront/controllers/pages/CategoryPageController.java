@@ -121,15 +121,15 @@ public class CategoryPageController extends AbstractSearchPageController
 
 		final ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> searchPageData = categorySearch
 				.getSearchPageData();
-		//		final boolean showCategoriesOnly = categorySearch.isShowCategoriesOnly();
+		final boolean showCategoriesOnly = categorySearch.isShowCategoriesOnly();
 
 		storeCmsPageInModel(model, categorySearch.categoryPage);
 		storeContinueUrl(request);
 
 		populateModel(model, searchPageData, showMode);
 		//		model.addAttribute(WebConstants.BREADCRUMBS_KEY, searchBreadcrumbBuilder.getBreadcrumbs(categoryCode, searchPageData));
-		//		model.addAttribute("showCategoriesOnly", Boolean.valueOf(showCategoriesOnly));
-		model.addAttribute("showCategoriesOnly", Boolean.FALSE);
+		model.addAttribute("showCategoriesOnly", Boolean.valueOf(showCategoriesOnly));
+		//		model.addAttribute("showCategoriesOnly", Boolean.FALSE);
 		model.addAttribute("categoryName", category.getName());
 		//model.addAttribute("pageType", PageType.Category);
 		model.addAttribute("pageType", PageType.CATEGORY.name());
