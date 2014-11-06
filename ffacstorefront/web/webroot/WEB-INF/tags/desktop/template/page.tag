@@ -38,7 +38,7 @@
 <%-- <c:out value="${cmsPageRequestContextData.page.defaultPage}"></c:out> <br> --%>
 
 
-<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">			
+<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' || cmsPageRequestContextData.page.uid eq 'category' }">			
  <!--banner-small-->
   	<%-- <div class="banner-small">
     	<div class="banner-item">
@@ -82,7 +82,7 @@ We can make a difference in their lives, for a better world.</p>
 
 </template:master>
 
-<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
+<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid'  || cmsPageRequestContextData.page.uid eq 'category' }">
 <script>
  $(document).ready(function(){
 	var $topBtn = $('#backTop');

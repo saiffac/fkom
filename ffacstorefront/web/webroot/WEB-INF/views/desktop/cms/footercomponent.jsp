@@ -21,11 +21,11 @@
 
 
 <div class="copyright">${notice}</div> --%>
-<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid' }">
+<c:if test="${ cmsPageRequestContextData.page.uid eq 'productGrid'  || cmsPageRequestContextData.page.uid eq 'category' }">
 <div id="ourStory" class="we-infor">
       <h3>ENVIRONMENT-FRIENDLY SHOES MADE BY MOTHERS IN COMMUNITIES IN PHILIPPINES</h3>
       <iframe src="//www.youtube.com/embed/naqvsbbxeYg" frameborder="0" allowfullscreen></iframe>
-       <%-- <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> --%>
+      <%-- <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> --%>
       <p><span>1</span>. <b>Provides livelihood opportunities</b> to the mothers in communities, and further expands their hard and soft skills through trainings <br/><span>2</span>. <b>Reduces solid waste in the environment</b> by using upcycled scrap cloth in its products FADDA <br/><span>3</span>. <b>Promotes responsible fashion</b> upholding a statement that is both socially aware and environmentally concerned </p>
      
       <div class="clear"></div>

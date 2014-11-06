@@ -18,21 +18,21 @@
 	</cms:pageSlot>
 
 	<div class="span-24">
-		<div class="span-6 facetNavigation">
+		<%-- <div class="span-6 facetNavigation">
 			<nav:categoryNav pageData="${searchPageData}"/>
 			
 			<cms:pageSlot position="Section4" var="feature">
 				<cms:component component="${feature}" element="div" class="section4 small_detail"/>
 			</cms:pageSlot>
-		</div>
+		</div> --%>
 		<div class="span-18 last">
 			<cms:pageSlot position="Section2" var="feature">
 				<cms:component component="${feature}" />
 			</cms:pageSlot>
 
-			<cms:pageSlot position="Section3" var="feature" element="div" class="span-18 last">
+			<%-- <cms:pageSlot position="Section3" var="feature" element="div" class="span-18 last">
 				<cms:component component="${feature}" element="div" class="span-6 section3 cms_disp-img_slot ${(elementPos%3 == 2) ? 'last' : ''}"/>
-			</cms:pageSlot>
+			</cms:pageSlot> --%>
 		</div>
 	</div>
 
