@@ -13,13 +13,19 @@
 
 
 .product-image-wrapper {
-	height:310px; position: relative
+	height: 370px; position: relative
 }
 
-.productinfo img {
-	height: 200px;
+.productinfo  .thumb {
+	background: none repeat scroll 0 0 #fff;
+    height: 252px;
+    margin-bottom: 15px;
 }
-
+.productinfo  .thumb img {
+	width: 100%;
+	max-height: 252px;
+	max-width: 100%
+}
 .productinfo  .details {
 	color: #222;
 	font-size: 15px;
