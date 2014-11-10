@@ -31,7 +31,7 @@
       <h3>Habi Footwear - Creating jobs with dignity, with environmentally-friendly shoes </h3>
       
       
-      <iframe src="//www.youtube.com/embed/naqvsbbxeYg" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/naqvsbbxeYg" frameborder="0" allowfullscreen></iframe>
       <%-- <img src="${commonResourcePath}/../ffac/images/img-infor.jpg" alt=""> --%>
       
       
