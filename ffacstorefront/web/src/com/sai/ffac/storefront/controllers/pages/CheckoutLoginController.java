@@ -48,6 +48,7 @@ import com.sai.ffac.facades.customer.impl.FfacCustomerFacade;
 import com.sai.ffac.facades.user.data.FfacRegisterData;
 import com.sai.ffac.storefront.controllers.ControllerConstants;
 import com.sai.ffac.storefront.forms.FfacRegisterForm;
+import com.sai.ffac.storefront.forms.validation.FfacRegistrationValidator;
 
 
 /**
@@ -72,6 +73,15 @@ public class CheckoutLoginController extends AbstractLoginPageController
 
 	@Resource(name = "ffacCustomerFacade")
 	private FfacCustomerFacade customerFacade;
+
+	@Resource(name = "ffacRegistrationValidator")
+	private FfacRegistrationValidator registrationValidator;
+
+	@Override
+	public FfacRegistrationValidator getRegistrationValidator()
+	{
+		return registrationValidator;
+	}
 
 	/**
 	 * @return the customerFacade
@@ -99,7 +109,7 @@ public class CheckoutLoginController extends AbstractLoginPageController
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController#getDefaultLoginPage
 	 * (boolean, javax.servlet.http.HttpSession, org.springframework.ui.Model)

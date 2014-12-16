@@ -41,13 +41,14 @@ public class MobileNumberValidator implements Validator
 		final UpdateMobileNumberForm profileForm = (UpdateMobileNumberForm) object;
 		final String mobileNumber = profileForm.getMobileNumber();
 
-		final int MOBILE_NUM_LEN = 8; //should move this to properties file
+		final int MOBILE_NUM_LEN = 15; //should move this to properties file
+		final String SIX_CHAR = "6";
 		final String EIGHT_CHAR = "8";
 		final String NINE_CHAR = "9";
 
 		final boolean isValid = StringUtils.isNotEmpty(mobileNumber) && StringUtils.isNumeric(mobileNumber)
 				&& StringUtils.startsWithAny(mobileNumber, new String[]
-				{ EIGHT_CHAR, NINE_CHAR }) && (mobileNumber.length() <= MOBILE_NUM_LEN);
+				{ EIGHT_CHAR, NINE_CHAR, SIX_CHAR }) && (mobileNumber.length() <= MOBILE_NUM_LEN);
 
 		if (!isValid)
 		{
