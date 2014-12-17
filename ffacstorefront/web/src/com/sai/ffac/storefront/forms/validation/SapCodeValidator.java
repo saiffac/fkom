@@ -43,10 +43,11 @@ public class SapCodeValidator implements Validator
 		final int SAP_CODE_LEN = 7;
 		final String I_CHAR = "I";
 		final String C_CHAR = "C";
+		final String D_CHAR = "D";
 
 		final boolean isValid = StringUtils.isNotEmpty(sapCode) && StringUtils.isAlphanumeric(sapCode)
 				&& StringUtils.startsWithAny(sapCode, new String[]
-				{ I_CHAR, C_CHAR }) && (sapCode.length() <= SAP_CODE_LEN);
+				{ I_CHAR, C_CHAR, D_CHAR }) && (sapCode.length() <= SAP_CODE_LEN);
 
 		if (!isValid)
 		{
