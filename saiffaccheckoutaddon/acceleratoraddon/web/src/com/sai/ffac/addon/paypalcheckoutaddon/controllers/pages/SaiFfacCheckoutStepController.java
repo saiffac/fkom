@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Properties;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.configuration.Configuration;
@@ -126,7 +127,8 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 
 	@RequestMapping(value = "/payment", method = RequestMethod.GET)
 	@RequireHardLogIn
-	public String doPayment(final Model model) throws CMSItemNotFoundException, CommerceCartModificationException
+	public String doPayment(final Model model, final HttpServletRequest request) throws CMSItemNotFoundException,
+			CommerceCartModificationException
 	{
 		//		final String userName = "singaporemerchant_api1.sai-it.com";
 		//		final String password = "F87M5GHSS9B4D6BT";
@@ -136,16 +138,24 @@ public class SaiFfacCheckoutStepController extends AbstractCheckoutStepControlle
 		//		final String mode = "sandbox"; //or live
 		//		final String payPalUrl = "https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=";
 		//		final String currencyCode = "SGD";
-
 		final Configuration cfg = configurationService.getConfiguration();
 		final String userName = cfg.getString(SaiffaccheckoutaddonControllerConstants.USER_NAME);
 		final String password = cfg.getString(SaiffaccheckoutaddonControllerConstants.PASSWORD);
 		final String signature = cfg.getString(SaiffaccheckoutaddonControllerConstants.SIGNATURE);
-		final String returnURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.RETURN_URL);
-		final String cancelURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.CANCEL_URL);
+		String returnURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.RETURN_URL);
+		String cancelURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.CANCEL_URL);
+		final String contextPath = request.getRequestURL().toString();
+		if (contextPath.indexOf("https://www.") != -1)
+		{
+			//there's www prefix in the request url --> modify the return and cancel URL which are passed along with the request to paypal
+			returnURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.RETURN_URL_3W);
+			cancelURL = cfg.getString(SaiffaccheckoutaddonControllerConstants.CANCEL_URL_3W);
+		}
 		final String mode = cfg.getString(SaiffaccheckoutaddonControllerConstants.PAYMENT_MODE);
 		final String payPalUrl = cfg.getString(SaiffaccheckoutaddonControllerConstants.CHECKOUT_URL);
 		final String currencyCode = cfg.getString(SaiffaccheckoutaddonControllerConstants.CURRENCY_CODE);
+
+
 
 		final String orderDescription = "Order to SAI FKOM. Total: PHP ";
 

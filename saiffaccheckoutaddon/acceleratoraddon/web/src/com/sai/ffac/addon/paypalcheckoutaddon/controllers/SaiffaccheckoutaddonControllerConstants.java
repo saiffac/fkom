@@ -27,6 +27,9 @@ public interface SaiffaccheckoutaddonControllerConstants
 	final String SIGNATURE = "paypal.merchant.signature";
 	final String RETURN_URL = "paypal.merchant.url.return";
 	final String CANCEL_URL = "paypal.merchant.url.cancel";
+	final String RETURN_URL_3W = "paypal.merchant.url.www.return";
+	final String CANCEL_URL_3W = "paypal.merchant.url.www.cancel";
+
 	final String PAYMENT_MODE = "paypal.payment.mode"; //sandbox or live
 	final String CHECKOUT_URL = "paypal.url.checkout";
 	final String CURRENCY_CODE = "paypal.currency.type";
