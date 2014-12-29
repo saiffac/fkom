@@ -23,11 +23,11 @@
           <p><a href="<c:url value="/Categories/HerBlackWhite/c/154400#headAnchor"/>">CLASSIC BLACK/WHITE</a></p>
         </div>
       </div>
-      <div class="col-lg-20">
+      <%-- <div class="col-lg-20">
         <div class="product-inner"> <a href="<c:url value="/Categories/HerBlackAsh/c/154450#headAnchor"/>"> <img src="${commonResourcePath}/../ffac/images/black_ash.jpg" alt="" /></a>
           <p><a href="<c:url value="/Categories/HerBlackAsh/c/154550#headAnchor"/>">CLASSIC BLACK/ASH</a></p>
         </div>
-      </div>
+      </div> --%>
      
     </div>
     
@@ -61,11 +61,11 @@ The rest of the proceeds goes towards Habi's community building program</p>
           <p><a href="<c:url value="/Categories/HimBlackWhite/c/154800#headAnchor"/>">CLASSIC BLACK/WHITE</a></p>
         </div>
       </div>
-      <div class="col-lg-20">
+      <%-- <div class="col-lg-20">
         <div class="product-inner"> <a href="<c:url value="/Categories/HimBlackAsh/c/154850#headAnchor"/>"> <img src="${commonResourcePath}/../ffac/images/black_ash.jpg" alt="" /></a>
           <p><a href="<c:url value="/Categories/HimBlackAsh/c/154850#headAnchor"/>">CLASSIC BLACK/ASH</a></p>
         </div>
-      </div>
+      </div> --%>
      
     </div>
      <div class="infor-order-main">
