@@ -21,8 +21,10 @@ UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[l
 ;154200;;HerRedBeige;
 ;154300;;HerBlueBeige;
 ;154400;;HerBlackWhite;
+;154450;;HerBlackAsh;
 ;154500;;HimGreyYellow;
 ;154600;;HimRedBeige;
 ;154700;;HimBlueBeige;
 ;154800;;HimBlackWhite;
+;154850;;HimBlackAsh;
 ;categories;;Categories;

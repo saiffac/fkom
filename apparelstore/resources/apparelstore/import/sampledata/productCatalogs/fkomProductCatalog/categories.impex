@@ -27,6 +27,8 @@ INSERT_UPDATE Category;code[unique=true];$catalogVersion;allowedPrincipals(uid)[
 ;154600;;;
 ;154700;;;
 ;154800;;;
+;154450;;;
+;154850;;;
 
 
 INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
@@ -43,3 +45,5 @@ INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
 ;154600;categories;
 ;154700;categories;
 ;154800;categories;
+;154450;categories;
+;154850;categories;
