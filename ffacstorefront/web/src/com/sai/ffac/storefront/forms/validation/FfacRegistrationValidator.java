@@ -5,7 +5,6 @@ package com.sai.ffac.storefront.forms.validation;
 
 import de.hybris.platform.acceleratorstorefrontcommons.forms.validation.RegistrationValidator;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
@@ -83,18 +82,19 @@ public class FfacRegistrationValidator extends RegistrationValidator
 	 */
 	protected boolean validateSapCode(final String sapCode)
 	{
-		final int SAP_CODE_LEN = 7; //should move this to properties file
-		final String I_CHAR = "I";
-		final String C_CHAR = "C";
-		final String D_CHAR = "D";
-		final String I_CHAR_LOW = "i";
-		final String C_CHAR_LOW = "c";
-		final String D_CHAR_LOW = "d";
+		//		final int SAP_CODE_LEN = 7; //should move this to properties file
+		//		final String I_CHAR = "I";
+		//		final String C_CHAR = "C";
+		//		final String D_CHAR = "D";
+		//		final String I_CHAR_LOW = "i";
+		//		final String C_CHAR_LOW = "c";
+		//		final String D_CHAR_LOW = "d";
 
-		final boolean isValid = StringUtils.isNotEmpty(sapCode) && StringUtils.isAlphanumeric(sapCode)
-				&& StringUtils.startsWithAny(sapCode, new String[]
-				{ I_CHAR, C_CHAR, D_CHAR, I_CHAR_LOW, C_CHAR_LOW, D_CHAR_LOW }) && (sapCode.length() <= SAP_CODE_LEN);
+		//		final boolean isValid = StringUtils.isNotEmpty(sapCode) && StringUtils.isAlphanumeric(sapCode)
+		//				&& StringUtils.startsWithAny(sapCode, new String[]
+		//				{ I_CHAR, C_CHAR, D_CHAR, I_CHAR_LOW, C_CHAR_LOW, D_CHAR_LOW }) && (sapCode.length() <= SAP_CODE_LEN);
 
+		final boolean isValid = (sapCode.length() <= 30); //bypass validation for sap code
 		return isValid;
 	}
 
