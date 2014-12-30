@@ -9,21 +9,27 @@
  * Information and shall use it only in accordance with the terms of the
  * license agreement you entered into with hybris.
  *
- *  
+ *
  */
 package com.sai.ffac.storefront.controllers.pages;
 
+import de.hybris.platform.acceleratorservices.email.EmailService;
+import de.hybris.platform.acceleratorservices.model.email.EmailAddressModel;
+import de.hybris.platform.acceleratorservices.model.email.EmailMessageModel;
 import de.hybris.platform.acceleratorstorefrontcommons.breadcrumb.ResourceBreadcrumbBuilder;
 import de.hybris.platform.acceleratorstorefrontcommons.constants.WebConstants;
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractPageController;
+import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.ForgottenPwdForm;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.UpdatePwdForm;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.commercefacades.customer.CustomerFacade;
 import de.hybris.platform.commerceservices.customer.TokenInvalidatedException;
+import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
-import com.sai.ffac.storefront.controllers.ControllerConstants;
-import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
+import de.hybris.platform.servicelayer.user.UserService;
+
+import java.util.Collections;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -33,11 +39,14 @@ import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.sai.ffac.storefront.controllers.ControllerConstants;
 
 
 /**
@@ -59,6 +68,12 @@ public class PasswordResetPageController extends AbstractPageController
 
 	@Resource(name = "customerFacade")
 	private CustomerFacade customerFacade;
+
+	@Resource(name = "userService")
+	private UserService userService;
+
+	@Resource(name = "emailService")
+	private EmailService emailService;
 
 	@Resource(name = "simpleBreadcrumbBuilder")
 	private ResourceBreadcrumbBuilder resourceBreadcrumbBuilder;
@@ -82,7 +97,35 @@ public class PasswordResetPageController extends AbstractPageController
 		{
 			try
 			{
-				customerFacade.forgottenPassword(form.getEmail());
+				//				customerFacade.forgottenPassword(form.getEmail());
+				final String uid = form.getEmail();
+				Assert.hasText(uid, "The field [uid] cannot be empty");
+				final CustomerModel customerModel = userService.getUserForUID(uid.toLowerCase(), CustomerModel.class);
+				final String randPass = Double.toString(Math.random());
+				String tempPass = "123456";
+				if (randPass.length() >= 8)
+				{
+					tempPass = randPass.substring(2, 8);
+				}
+				userService.setPassword(uid, tempPass);
+
+				//send mail
+				final String subject = "Reset password";
+				final String senderEmailAddress = "saicharity364@gmail.com";
+				final String receiverEmailAddress = uid;
+				final String bccEmailAddress = "tuan.truong@sai-it.com";
+				final String replyTo = "saicharity364@gmail.com";
+
+				LOG.info("Start sending order reporting mails");
+				final String content = "Please sign in with this temporary code (6 digits): " + tempPass
+						+ "<br> Please go to Your account - Change your password for your new personal password";
+				final EmailAddressModel senderAddress = emailService.getOrCreateEmailAddressForEmail(senderEmailAddress,
+						"FKOM Service");
+				final EmailAddressModel receiverAddress = emailService.getOrCreateEmailAddressForEmail(receiverEmailAddress, "User");
+				final EmailAddressModel bccAddress = emailService.getOrCreateEmailAddressForEmail(bccEmailAddress, "Administrator");
+				final EmailMessageModel message = emailService.createEmailMessage(Collections.singletonList(receiverAddress), null,
+						Collections.singletonList(bccAddress), senderAddress, replyTo, subject, content, null);
+				emailService.send(message);
 			}
 			catch (final UnknownIdentifierException unknownIdentifierException)
 			{
@@ -112,8 +155,8 @@ public class PasswordResetPageController extends AbstractPageController
 	}
 
 	@RequestMapping(value = "/request/external", method = RequestMethod.POST)
-	public String externalPasswordRequest(@Valid final ForgottenPwdForm form, final BindingResult bindingResult, final Model model, final RedirectAttributes redirectModel)
-			throws CMSItemNotFoundException
+	public String externalPasswordRequest(@Valid final ForgottenPwdForm form, final BindingResult bindingResult,
+			final Model model, final RedirectAttributes redirectModel) throws CMSItemNotFoundException
 	{
 		storeCmsPageInModel(model, getContentPageForLabelOrId(null));
 		setUpMetaDataForContentPage(model, getContentPageForLabelOrId(null));
@@ -129,7 +172,7 @@ public class PasswordResetPageController extends AbstractPageController
 			{
 				customerFacade.forgottenPassword(form.getEmail());
 				GlobalMessages.addFlashMessage(redirectModel, GlobalMessages.CONF_MESSAGES_HOLDER,
-										"account.confirmation.forgotten.password.link.sent");
+						"account.confirmation.forgotten.password.link.sent");
 			}
 			catch (final UnknownIdentifierException unknownIdentifierException)
 			{
@@ -187,7 +230,7 @@ public class PasswordResetPageController extends AbstractPageController
 
 	/**
 	 * Prepares the view to display an error message
-	 * 
+	 *
 	 * @throws CMSItemNotFoundException
 	 */
 	protected void prepareErrorMessage(final Model model, final String page) throws CMSItemNotFoundException
