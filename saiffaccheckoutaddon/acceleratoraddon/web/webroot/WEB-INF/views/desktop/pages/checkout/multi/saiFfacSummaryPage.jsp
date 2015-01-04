@@ -25,11 +25,9 @@
         <div id="checkoutContentPanel" class="clearfix">
             <div class="description">
             <c:if test="${isSuccessful}">
-   				<p>Your order will be available for collection from <b><c:out value="${deliveryDate}"/></b><br>
-				You will pick up and wear your purchases at FKOM venue in Singapore<br>
-				<!-- <b>SAP Asia Pte Ltd,</b> 30 Pasir Panjang Road, Level 3<br>
-				Mapletree Business City, Singapore 117440 --></p>
-				<!-- <p>An email and SMS alert will be sent to you describing the exact location and timing to collect your orders.</p> -->
+   				<p>Your orders will be shipped to Singapore, for your pick up at the FKOM venue.<br>
+   				Orders accepted through 14 January 2015. Orders made after <b>06 January 2015, 6pm SG time</b> will be shipped to you by 14 February, at the address indicated in your site registration profile.
+				</p>
 			</c:if>
             <c:if test="${!isSuccessful}">
             	<p>The payment process has not been successful. <b>Please try again...</b></p>

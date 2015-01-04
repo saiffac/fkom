@@ -25,19 +25,18 @@
  
     <%-- <multi-checkout:checkoutProgressBar steps="${checkoutSteps}" progressBarId="${progressBarId}"/> --%>
  
-    <div class="span-14 append-1">
+    <div class="span-14 append-1 text-paypal">
         <div id="checkoutContentPanel" class="clearfix">
            <div class="description"><h2>Paypal Payment</h2></div>
             <a class="ffacbtnCancel" href="${cancelUrl}"><spring:theme code="checkout.multi.cancel" text="Back"/></a>
             <a href="${continueUrl}"><img src="https://www.paypalobjects.com/en_US/i/btn/x-click-but6.gif"></a>
         </div>
-        <div class="text-paypal">
-        <ul>
-	        <li>There will be no exchanges, refunds or cancellations once orders have been processed through PayPal</li>
-	       	<li>Purchase online by 15 Dec so you can pick up and wear your purchases at APJ FKOM in Singapore</li>
-	        <li>Proceeds for 2nd pair goes towards community enhancement programs in Philippines</li>
-         </ul>
-        </div>
+        <div class="term">
+	    	<h3><a href="">Terms and conditions</a></h3>
+	        <p>Orders are not exchangeable nor refundable once payment has been processed.Please direct order queries to <a href="#">habifootwear@gmail.com</a><br>
+	        Your orders will be shipped to Singapore, for your pick up at the FKOM venue. <br>
+	        Orders accepted through 14 January 2015. Orders made after <b>06 January 2015, 6pm SG</b> time will be shipped to you by 14 February, at the address indicated in your site registration profile.</p>
+    	</div>
     </div>
  
     <multi-checkout:checkoutOrderDetails cartData="${cartData}" showShipDeliveryEntries="false" showPickupDeliveryEntries="false" showTax="false"/>
