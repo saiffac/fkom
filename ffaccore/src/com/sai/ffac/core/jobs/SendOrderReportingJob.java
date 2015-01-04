@@ -81,13 +81,14 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 	{
 		final String subject = "FKOM Order List Report";
 		final String queryStr = "SELECT {o.code}, {o.date}, {o.totalprice}" + ", {t.code}"
-				+ ", {c.name}, {c.originalUid}, {c.sapcode}, {c.mobilenumber}" + ", {oe.info}, {oe.quantity}, {oe.totalprice}"
+				+ ", {c.name}, {c.originalUid}, {c.sapcode}, {c.mobilenumber}, {c.shippingaddress}"
+				+ ", {oe.info}, {oe.quantity}, {oe.totalprice}"
 				+ " FROM {Order as o}, {OrderEntry as oe}, {Customer as c}, {Title as t}"
 				+ " WHERE {o.pk}={oe.order} and {o.user}={c.pk} and {c.title}={t.pk}" + " ORDER BY {o.date}, {o.code}";
 
 		final FlexibleSearchQuery query = new FlexibleSearchQuery(queryStr);
 		query.setResultClassList(Arrays.asList(String.class, Date.class, Double.class, String.class, String.class, String.class,
-				String.class, String.class, String.class, Long.class, Double.class));
+				String.class, String.class, String.class, String.class, Long.class, Double.class));
 
 		final StringBuilder reportContent = new StringBuilder(generateHeader());
 
@@ -110,13 +111,14 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 			final String originalUId = (String) resultRecords.get(5);
 			final String sapCode = (String) resultRecords.get(6);
 			final String mobileNum = (String) resultRecords.get(7);
+			final String shippingAdd = (String) resultRecords.get(8);
 			//order entry info
-			final String entryInfo = (String) resultRecords.get(8);
-			final Long entryQuantity = (Long) resultRecords.get(9);
-			final Double entryTotalPrice = (Double) resultRecords.get(10);
+			final String entryInfo = (String) resultRecords.get(9);
+			final Long entryQuantity = (Long) resultRecords.get(10);
+			final Double entryTotalPrice = (Double) resultRecords.get(11);
 
 			reportContent.append(generateBodyLine(orderCode, orderDate, orderTotalPrice, titleCode, cusName, originalUId, sapCode,
-					mobileNum, entryInfo, entryQuantity, entryTotalPrice));
+					mobileNum, shippingAdd, entryInfo, entryQuantity, entryTotalPrice));
 		}
 
 		reportContent.append(generateFooter());
@@ -150,6 +152,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 				+ "<th style='border-right:1px solid #999;padding:0 4px'>Total price of Order</th><th style='border-right:1px solid #999;padding:0 4px'>Title</th>"
 				+ "<th style='border-right:1px solid #999;padding:0 4px'>Name</th><th style='border-right:1px solid #999;padding:0 4px'>Email-Customer ID</th>"
 				+ "<th style='border-right:1px solid #999;padding:0 4px'>SAP Number</th><th style='border-right:1px solid #999;padding:0 4px'>Mobile Number</th>"
+				+ "<th style='border-right:1px solid #999;padding:0 4px'>Shipping address</th>"
 				+ "<th style='border-right:1px solid #999;padding:0 4px'>Product infos</th><th style='border-right:1px solid #999;padding:0 4px'>Product Quantity</th>"
 				+ "<th style='border-right:1px solid #999;padding:0 4px'>Total price of product</th><th style='padding:0 4px'>Collection date</th></tr>";
 
@@ -158,7 +161,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 
 	public String generateBodyLine(final String orderCode, final Date orderDate, final Double orderTotalPrice,
 			final String titleCode, final String cusName, final String originalUId, final String sapCode, final String mobileNum,
-			final String entryInfo, final Long entryQuantity, final Double entryTotalPrice)
+			final String shippingAdd, final String entryInfo, final Long entryQuantity, final Double entryTotalPrice)
 	{
 		final String orderDateStr = formatDatetime(orderDate);
 		final StringBuilder lineBuilder = new StringBuilder();
@@ -172,6 +175,7 @@ public class SendOrderReportingJob extends AbstractJobPerformable<CronJobModel>
 				.append("</td><td style='border-right:1px solid #999; border-top:1px solid #999;padding:0 4px'>").append(originalUId)
 				.append("</td><td style='border-right:1px solid #999; border-top:1px solid #999;padding:0 4px'>").append(sapCode)
 				.append("</td><td style='border-right:1px solid #999; border-top:1px solid #999;padding:0 4px'>").append(mobileNum)
+				.append("</td><td style='border-right:1px solid #999; border-top:1px solid #999;padding:0 4px'>").append(shippingAdd)
 				.append("</td><td style='border-right:1px solid #999; border-top:1px solid #999;padding:0 4px'>").append(entryInfo)
 				.append("</td><td style='border-right:1px solid #999; border-top:1px solid #999;padding:0 4px'>")
 				.append(entryQuantity)

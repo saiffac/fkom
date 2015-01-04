@@ -69,6 +69,8 @@
 			</c:if>
 			
 			<p>Buy shoes and help transform someone's life</p>
+			<p>Orders accepted through 14 January 2015.<br>
+			Orders made after <b>06 January 2015, 6pm SG time </b>will be shipped to you by 14 February, at the address indicated in your site registration profile.</p>
 		</div>
 	</div>
 	<!--/banner-->

@@ -86,6 +86,7 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 		customer.setOriginalUid(customerData.getDisplayUid());
 		customer.setSapCode(customerData.getSapCode());
 		customer.setMobileNumber(customerData.getMobileNumber());
+		customer.setShippingAddress(customerData.getShippingAddress());
 		getCustomerAccountService().updateProfile(customer, customerData.getTitleCode(), name, customerData.getUid());
 	}
 
@@ -135,6 +136,7 @@ public class FfacCustomerFacade extends DefaultCustomerFacade
 		setUidForRegister(registerData, newCustomer);
 		newCustomer.setSapCode(registerData.getSapCode()); //set SAP I or C number to persist
 		newCustomer.setMobileNumber(registerData.getMobileNumber()); //set Mobile number to persist
+		newCustomer.setShippingAddress(registerData.getShippingAddress()); //set shipping address
 		newCustomer.setSessionLanguage(getCommonI18NService().getCurrentLanguage());
 		newCustomer.setSessionCurrency(getCommonI18NService().getCurrentCurrency());
 		getCustomerAccountService().register(newCustomer, registerData.getPassword());

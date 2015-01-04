@@ -117,6 +117,7 @@ public class FfacCustomerPopulator implements Populator<CustomerModel, FfacCusto
 		target.setName(source.getName());
 		target.setSapCode(source.getSapCode());
 		target.setMobileNumber(source.getMobileNumber());
+		target.setShippingAddress(source.getShippingAddress());
 		setUid(source, target);
 	}
 

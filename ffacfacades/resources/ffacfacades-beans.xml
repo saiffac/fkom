@@ -24,12 +24,14 @@
 	<bean class="com.sai.ffac.facades.user.data.FfacRegisterData" extends="de.hybris.platform.commercefacades.user.data.RegisterData">
 		<property name="sapCode" type="String"/>
 		<property name="mobileNumber" type="String"/>
+		<property name="shippingAddress" type="String"/>
 	</bean>
 	
 	<bean class="com.sai.ffac.facades.user.data.FfacCustomerData"
 	      extends="de.hybris.platform.commercefacades.user.data.CustomerData">
 		<property name="sapCode" type="String"/>
 		<property name="mobileNumber" type="String"/>
+		<property name="shippingAddress" type="String"/>
 	</bean>
 	
 </beans>

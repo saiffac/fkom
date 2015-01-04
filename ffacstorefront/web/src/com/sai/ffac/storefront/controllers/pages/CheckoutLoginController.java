@@ -109,7 +109,7 @@ public class CheckoutLoginController extends AbstractLoginPageController
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController#getDefaultLoginPage
 	 * (boolean, javax.servlet.http.HttpSession, org.springframework.ui.Model)
@@ -171,6 +171,7 @@ public class CheckoutLoginController extends AbstractLoginPageController
 		data.setTitleCode(form.getTitleCode());
 		data.setSapCode(form.getSapCode()); //SAP I or C number
 		data.setMobileNumber(form.getMobileNumber()); //Mobile number
+		data.setShippingAddress(form.getShippingAddress()); //shipping address
 		try
 		{
 			getCustomerFacade().register(data);

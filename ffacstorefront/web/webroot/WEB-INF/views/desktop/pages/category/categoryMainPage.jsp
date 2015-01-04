@@ -34,7 +34,9 @@
     <div class="infor-order">
     	 <h3>PHP 1,766 per order (approx. USD 40)</h3>
      <p>You will receive 1 pair of shoes (value PHP 1,128 inclusive of shipping), to be collected at FKOM<br>
-The rest of the proceeds goes towards Habi's community building program</p>
+The rest of the proceeds goes towards Habi's community building program
+<br>Orders accepted through 14 January 2015.
+			Orders made after <b>06 January 2015, 6pm SG time </b>will be shipped to you by 14 February, at the address indicated in your site registration profile.</p>
     </div>
     <!--/product-women--> 
     
@@ -71,7 +73,9 @@ The rest of the proceeds goes towards Habi's community building program</p>
      <div class="infor-order-main">
     	 <h3>PHP 1,936 per order (approx. USD 43)</h3>
      <p>You will receive 1 pair of shoes (value PHP 1,213 inclusive of shipping), to be collected at FKOM<br>
-The rest of the proceeds goes towards Habi's community building program</p>
+The rest of the proceeds goes towards Habi's community building program
+<br>Orders accepted through 14 January 2015.
+			Orders made after <b>06 January 2015, 6pm SG time </b>will be shipped to you by 14 February, at the address indicated in your site registration profile.</p>
     </div>
     <!--/product-women--> 
   

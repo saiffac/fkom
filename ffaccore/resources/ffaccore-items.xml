@@ -109,6 +109,11 @@
 						<persistence type="property" />
 						<description>It holds information about customer mobile number</description>
 					</attribute>
+					<attribute autocreate="true" qualifier="shippingAddress" type="java.lang.String">
+						<modifiers read="true" write="true" search="true"	optional="true" />
+						<persistence type="property" />
+						<description>It holds information about customer shipping address</description>
+					</attribute>
 				</attributes>
 			</itemtype>
 

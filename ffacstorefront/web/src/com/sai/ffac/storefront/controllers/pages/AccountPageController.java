@@ -657,6 +657,7 @@ public class AccountPageController extends AbstractSearchPageController
 		final FfacCustomerData customerData = customerFacade.getCurrentCustomer();
 		final UpdateMobileNumberForm updateMobileNumberForm = new UpdateMobileNumberForm();
 		updateMobileNumberForm.setMobileNumber(customerData.getMobileNumber());
+		updateMobileNumberForm.setShippingAddress(customerData.getShippingAddress());
 		model.addAttribute("updateMobileNumberForm", updateMobileNumberForm);
 
 		storeCmsPageInModel(model, getContentPageForLabelOrId(UPDATE_MOBILE_NUMBER_CMS_PAGE));
@@ -681,6 +682,7 @@ public class AccountPageController extends AbstractSearchPageController
 			//initialize a new DTO and set value
 			final FfacCustomerData customerData = new FfacCustomerData();
 			customerData.setMobileNumber(updateMobileNumberForm.getMobileNumber());
+			customerData.setShippingAddress(updateMobileNumberForm.getShippingAddress()); //shipping address
 			//we should separate in to different facade for this case to avoid update duplicated data
 			customerData.setTitleCode(currentCustomerData.getTitleCode());
 			customerData.setFirstName(currentCustomerData.getFirstName());

@@ -20,6 +20,24 @@ public class UpdateMobileNumberForm
 {
 
 	private String mobileNumber;
+	private String shippingAddress;
+
+	/**
+	 * @return the shippingAddress
+	 */
+	public String getShippingAddress()
+	{
+		return shippingAddress;
+	}
+
+	/**
+	 * @param shippingAddress
+	 *           the shippingAddress to set
+	 */
+	public void setShippingAddress(final String shippingAddress)
+	{
+		this.shippingAddress = shippingAddress;
+	}
 
 	/**
 	 * @return the mobileNumber
@@ -37,9 +55,5 @@ public class UpdateMobileNumberForm
 	{
 		this.mobileNumber = mobileNumber;
 	}
-
-
-
-
 
 }

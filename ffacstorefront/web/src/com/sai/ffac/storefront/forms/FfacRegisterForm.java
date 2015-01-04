@@ -14,6 +14,24 @@ public class FfacRegisterForm extends RegisterForm
 {
 	private String sapCode; //SAP I or C number
 	private String mobileNumber; //mobile number
+	private String shippingAddress; //shipping address
+
+	/**
+	 * @return the shippingAddress
+	 */
+	public String getShippingAddress()
+	{
+		return shippingAddress;
+	}
+
+	/**
+	 * @param shippingAddress
+	 *           the shippingAddress to set
+	 */
+	public void setShippingAddress(final String shippingAddress)
+	{
+		this.shippingAddress = shippingAddress;
+	}
 
 	/**
 	 * @return the mobileNumber

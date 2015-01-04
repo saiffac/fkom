@@ -12,11 +12,12 @@
 		<div class="accountContentPane clearfix">
 			<div class="headline"><spring:theme code="text.account.change.mobileNumber" text="Profile"/></div>
 			<div class="required right"><spring:theme code="form.required" text="Fields marked * are required"/></div>
-			<div class="description"><spring:theme code="text.account.profile.updateMobileNumberNum" text="Enter your new Mobile"/></div>
+			<div class="description"><spring:theme code="text.account.profile.updateMobileNumberNum" text="Enter your new Mobile & Shipping address"/></div>
 			
 			<form:form action="update-mobile-number" method="post" commandName="updateMobileNumberForm">
 
 				<formElement:formInputBox idKey="profile.mobileNumber" labelKey="profile.mobileNumber" path="mobileNumber" inputCSS="text" mandatory="true"/>
+				<formElement:formInputBox idKey="profile.shippingAddress" labelKey="profile.shippingAddress" path="shippingAddress" inputCSS="text" mandatory="false"/>
 
 				<div class="form-actions">
 					<button type="button" class="negative" onclick="window.location='${profileUrl}'"><spring:theme code="text.account.profile.cancel" text="Cancel"/></button>

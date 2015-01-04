@@ -143,6 +143,7 @@ public class RegisterPageController extends AbstractRegisterPageController
 		data.setTitleCode(form.getTitleCode());
 		data.setSapCode(form.getSapCode()); //SAP I or C number
 		data.setMobileNumber(form.getMobileNumber()); //Mobile number
+		data.setShippingAddress(form.getShippingAddress()); //shipping address
 		try
 		{
 			getCustomerFacade().register(data);

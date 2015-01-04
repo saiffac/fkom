@@ -46,6 +46,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 		final FfacRegisterForm registerForm = (FfacRegisterForm) object;
 		final String sapCode = registerForm.getSapCode();
 		final String mobileNumber = registerForm.getMobileNumber();
+		final String shippingAdd = registerForm.getShippingAddress();
 
 		if (!validateSapCode(sapCode))
 		{
@@ -56,15 +57,33 @@ public class FfacRegistrationValidator extends RegistrationValidator
 		{
 			errors.rejectValue("mobileNumber", "register.mobileNumber.invalid");
 		}
+
+		if (!validateShippingAdd(shippingAdd))
+		{
+			errors.rejectValue("shippingAddress", "register.shippingAddress.invalid");
+		}
+	}
+
+	/**
+	 * @param shippingAdd
+	 * @return
+	 */
+	@SuppressWarnings("javadoc")
+	private boolean validateShippingAdd(final String shippingAdd)
+	{
+		final int ADDRESS_LEN = 100; //should move this to properties file
+		final boolean isValid = (shippingAdd.length() <= ADDRESS_LEN);
+		return isValid;
 	}
 
 	/**
 	 * @param mobileNumber
 	 * @return
 	 */
+	@SuppressWarnings("javadoc")
 	private boolean validateMobileNumber(final String mobileNumber)
 	{
-		//		final int MOBILE_NUM_LEN = 15; //should move this to properties file
+		final int MOBILE_NUM_LEN = 30; //should move this to properties file
 		//		final String SIX_CHAR = "6";
 		//		final String EIGHT_CHAR = "8";
 		//		final String NINE_CHAR = "9";
@@ -72,7 +91,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 		//		final boolean isValid = StringUtils.isNotEmpty(mobileNumber) && StringUtils.isNumeric(mobileNumber)
 		//				&& StringUtils.startsWithAny(mobileNumber, new String[]
 		//				{ EIGHT_CHAR, NINE_CHAR, SIX_CHAR }) && (mobileNumber.length() <= MOBILE_NUM_LEN);
-		final boolean isValid = true;
+		final boolean isValid = (mobileNumber.length() <= MOBILE_NUM_LEN);
 		return isValid;
 	}
 
@@ -80,6 +99,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 	 * @param sapCode
 	 * @return
 	 */
+	@SuppressWarnings("javadoc")
 	protected boolean validateSapCode(final String sapCode)
 	{
 		//		final int SAP_CODE_LEN = 7; //should move this to properties file

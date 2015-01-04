@@ -29,5 +29,5 @@
 <a class="button" href="update-password"><spring:theme code="text.account.profile.changePassword" text="Change password"/></a>
 <a class="button" href="update-profile"><spring:theme code="text.account.profile.updatePersonalDetails" text="Update personal details"/></a>
 <a class="button" href="update-email"><spring:theme code="text.account.profile.updateEmail" text="Update email"/></a>
-<a class="button" href="update-mobile-number"><spring:theme code="text.account.profile.updateMobileNumber" text="Update your Mobile"/></a>
+<a class="button" href="update-mobile-number"><spring:theme code="text.account.profile.updateMobileNumber" text="Update your Mobile & Shipping address"/></a>
 <a class="button" href="update-sap-code"><spring:theme code="text.account.profile.updateSapCode" text="Update your I or C number"/></a>
