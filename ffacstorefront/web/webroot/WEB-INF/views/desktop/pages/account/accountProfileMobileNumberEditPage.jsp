@@ -16,7 +16,7 @@
 			
 			<form:form action="update-mobile-number" method="post" commandName="updateMobileNumberForm">
 
-				<formElement:formInputBox idKey="profile.mobileNumber" labelKey="profile.mobileNumber" path="mobileNumber" inputCSS="text" mandatory="true"/>
+				<formElement:formInputBox idKey="profile.mobileNumber" labelKey="profile.mobileNumber" path="mobileNumber" inputCSS="text" mandatory="false"/>
 				<formElement:formInputBox idKey="profile.shippingAddress" labelKey="profile.shippingAddress" path="shippingAddress" inputCSS="text" mandatory="false"/>
 
 				<div class="form-actions">

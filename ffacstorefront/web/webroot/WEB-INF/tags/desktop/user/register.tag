@@ -21,7 +21,7 @@
 			<formElement:formInputBox idKey="register.lastName" labelKey="register.lastName" path="lastName" inputCSS="text" mandatory="true"/>
 			<!-- SAP code begin with I or C and following by less than 6 characters -->
 			<formElement:formInputBox idKey="register.sapCode" labelKey="register.sapCode" path="sapCode" inputCSS="text" mandatory="true"/>
-			<formElement:formInputBox idKey="register.mobileNumber" labelKey="register.mobileNumber" path="mobileNumber" inputCSS="text" mandatory="true"/>
+			<formElement:formInputBox idKey="register.mobileNumber" labelKey="register.mobileNumber" path="mobileNumber" inputCSS="text" mandatory="false"/>
 			<formElement:formInputBox idKey="register.shippingAddress" labelKey="register.shippingAddress" path="shippingAddress" inputCSS="text" mandatory="false"/>
 			
 			<formElement:formInputBox idKey="register.email" labelKey="register.email" path="email" inputCSS="text" mandatory="true"/>

@@ -21,7 +21,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.forms.validation.RegistrationValidator#supports(java.lang.Class)
 	 */
@@ -33,7 +33,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * de.hybris.platform.acceleratorstorefrontcommons.forms.validation.RegistrationValidator#validate(java.lang.Object,
 	 * org.springframework.validation.Errors)
@@ -83,7 +83,7 @@ public class FfacRegistrationValidator extends RegistrationValidator
 	@SuppressWarnings("javadoc")
 	private boolean validateMobileNumber(final String mobileNumber)
 	{
-		final int MOBILE_NUM_LEN = 30; //should move this to properties file
+		//		final int MOBILE_NUM_LEN = 30; //should move this to properties file
 		//		final String SIX_CHAR = "6";
 		//		final String EIGHT_CHAR = "8";
 		//		final String NINE_CHAR = "9";
@@ -91,8 +91,9 @@ public class FfacRegistrationValidator extends RegistrationValidator
 		//		final boolean isValid = StringUtils.isNotEmpty(mobileNumber) && StringUtils.isNumeric(mobileNumber)
 		//				&& StringUtils.startsWithAny(mobileNumber, new String[]
 		//				{ EIGHT_CHAR, NINE_CHAR, SIX_CHAR }) && (mobileNumber.length() <= MOBILE_NUM_LEN);
-		final boolean isValid = (mobileNumber.length() <= MOBILE_NUM_LEN);
-		return isValid;
+		//		final boolean isValid = (mobileNumber.length() <= MOBILE_NUM_LEN);
+		//		return isValid;
+		return true;
 	}
 
 	/**
